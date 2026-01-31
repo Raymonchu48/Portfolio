@@ -16,10 +16,9 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: var(--bg-main);
-    color: var(--text-main);
-    line-height: 1.5;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1f2933; /* gris muy oscuro, ejecutivo */
+    line-height: 1.6;
 }
 
 /* HERO */
@@ -130,6 +129,7 @@ body {
     box-shadow: var(--shadow);
     text-align: center;
     border-top: 4px solid var(--accent);
+	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
 }
 
 .profile-photo {
@@ -148,7 +148,24 @@ body {
     font-size: 13px;
     color: var(--text-soft);
 }
-
+h1, h2, h3, .profile-name {
+    font-family: 'Playfair Display', serif;
+    color: #111827; /* casi negro, elegante */
+    letter-spacing: 0.03em;
+}
+.profile-role,
+.section-title,
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #374151; /* gris corporativo */
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+p, li {
+    color: #4b5563; /* gris oscuro, menos plano */
+    font-weight: 400;
+}
 /* SECCIONES */
 
 .section {
