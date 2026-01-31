@@ -1,0 +1,316 @@
+/* Estilo general del cuerpo en la página PTD */
+.ptd-body {
+    background: #e4e4e4;
+    font-family: Arial, sans-serif;
+}
+
+/* CABECERA TIPO PORTADA AMARILLA */
+
+.ptd-header {
+    background: #f0f0f0;
+    padding: 40px 5% 20px;
+}
+
+.ptd-cover {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #ffce00;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 40px 50px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+.ptd-cover-main {
+    max-width: 650px;
+}
+
+.ptd-tagline {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.ptd-cover-main h1 {
+    margin-top: 12px;
+    font-size: 32px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.ptd-subtitle {
+    margin-top: 14px;
+    max-width: 520px;
+    font-size: 14px;
+}
+
+.ptd-cover-meta {
+    min-width: 180px;
+    align-self: flex-start;
+    background: #fff7d1;
+    padding: 18px 20px;
+    font-size: 13px;
+    border-left: 3px solid #111;
+}
+
+.ptd-cover-meta p {
+    margin-bottom: 10px;
+}
+
+/* BARRA SUPERIOR NAVEGACIÓN */
+
+.ptd-topbar {
+    max-width: 1100px;
+    margin: 18px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.ptd-link-back {
+    text-decoration: none;
+    color: #444;
+}
+
+.ptd-btn-download {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #111;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 11px;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.ptd-main {
+    max-width: 1100px;
+    margin: 18px auto 40px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* SECCIONES */
+
+.ptd-section {
+    padding: 32px 40px;
+    border-bottom: 1px solid #ececec;
+    background: #ffffff;
+}
+
+.ptd-section-two-cols {
+    display: grid;
+    grid-template-columns: 1.6fr 1.2fr;
+    gap: 30px;
+}
+
+.ptd-section-final {
+    border-bottom: none;
+}
+
+.ptd-block {
+    font-size: 14px;
+}
+
+.ptd-block h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* BLOQUES AMARILLOS */
+
+.ptd-block-yellow {
+    background: #fff6cc;
+    padding: 20px 22px;
+}
+
+.ptd-block-yellow-slim {
+    background: #ffef9e;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+}
+
+/* PERFIL LATERAL */
+
+.ptd-block-profile {
+    align-self: start;
+}
+
+.ptd-profile-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    background: #f7f7f7;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.ptd-profile-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.ptd-profile-info h3 {
+    margin-bottom: 4px;
+}
+
+.ptd-profile-info p {
+    font-size: 13px;
+    color: #555;
+}
+
+.ptd-mini-data {
+    list-style: none;
+    font-size: 13px;
+    color: #555;
+}
+
+.ptd-mini-data li {
+    margin-bottom: 6px;
+}
+
+/* ÍNDICE DE CONTENIDOS */
+
+.ptd-table-of-contents {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.ptd-toc-col p {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.ptd-toc-col span {
+    display: inline-block;
+    width: 26px;
+    font-weight: bold;
+}
+
+/* LISTAS GENERALES */
+
+.ptd-list {
+    padding-left: 18px;
+}
+
+.ptd-list li {
+    margin-bottom: 4px;
+}
+
+/* TARJETAS DE TECNOLOGÍA */
+
+.ptd-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.ptd-tech-card {
+    background: #f8f8f8;
+    padding: 14px;
+    font-size: 13px;
+}
+
+/* TIMELINE / CRONOGRAMA */
+
+.ptd-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.ptd-timeline-item {
+    background: #f8f8f8;
+    padding: 12px 14px;
+    font-size: 13px;
+}
+
+.ptd-timeline-label {
+    display: inline-block;
+    padding: 2px 8px;
+    background: #ffce00;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+/* GALERÍA / MAQUETAS */
+
+.ptd-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.ptd-gallery-item {
+    background: #f3f3f3;
+    height: 130px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    font-size: 12px;
+}
+
+/* FOOTER */
+
+.ptd-footer {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 960px) {
+    .ptd-section-two-cols {
+        grid-template-columns: 1fr;
+    }
+
+    .ptd-table-of-contents {
+        flex-direction: column;
+    }
+
+    .ptd-tech-grid,
+    .ptd-timeline,
+    .ptd-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ptd-cover {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .ptd-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 640px) {
+    .ptd-tech-grid,
+    .ptd-timeline,
+    .ptd-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .ptd-section {
+        padding: 24px 18px;
+    }
+}

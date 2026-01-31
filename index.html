@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PORT▲FOLIO – Raymond | Informática y Desarrollo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio profesional de Ramón Alberto Curbalán Vega: proyectos integrales de informática, desarrollo, redes y seguridad.">
+
+  <style>
+    :root {
+      --bg-main: #f4f6fb;
+      --bg-hero: #c9ff00;
+      --bg-hero-soft: #f8fbff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --accent: #c9ff00;
+      --accent-dark: #a0d900;
+      --card-bg: #ffffff;
+      --border-soft: rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.16);
+      --radius-lg: 1.5rem;
+      --radius-full: 999px;
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+      color: var(--text-main);
+    }
+
+    body {
+      background: var(--bg-main);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* LAYOUT GENERAL */
+
+    .layout {
+      display: flex;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+      gap: 2rem;
+    }
+
+    /* NAV LATERAL (estilo p5aholic) */
+
+    .side-nav {
+      flex: 0 0 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      position: sticky;
+      top: 1.5rem;
+      height: calc(100vh - 3rem);
+    }
+
+    .side-nav-logo {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: var(--text-muted);
+    }
+
+    .side-nav-dots {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .side-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(15,23,42,0.2);
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      transition: background-color var(--transition-fast),
+                  transform var(--transition-fast),
+                  border-color var(--transition-fast);
+    }
+
+    .side-dot:hover {
+      transform: scale(1.15);
+      border-color: var(--accent-dark);
+    }
+
+    .side-dot.active {
+      background: var(--accent);
+      border-color: var(--accent-dark);
+      transform: scale(1.25);
+    }
+
+    .side-dot span {
+      position: absolute;
+      left: 150%;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .side-dot:hover span {
+      opacity: 1;
+      transform: translateY(-50%) translateX(4px);
+    }
+
+    /* CONTENIDO PRINCIPAL */
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      background: var(--bg-hero-soft);
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+      min-height: 360px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-hero);
+      clip-path: polygon(40% 0, 100% 0, 100% 100%, 60% 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+      gap: 2.5rem;
+      padding: 2.4rem 2.8rem;
+      align-items: center;
+    }
+
+    .hero-main {
+      transform-origin: left center;
+      transition: transform 0.35s ease-out;
+    }
+
+    .logo-wordmark {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .logo-port {
+      font-weight: 700;
+    }
+
+    .logo-triangle {
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 12px solid #111827;
+      transform: translateY(-1px);
+    }
+
+    .logo-folio {
+      font-weight: 400;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-areas {
+      display: inline-block;
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-areas-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-areas ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #111827;
+    }
+
+    .hero-areas li + li {
+      margin-top: 0.18rem;
+    }
+
+    .hero-text {
+      max-width: 520px;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .hero-profile {
+      display: flex;
+      justify-content: flex-end;
+      transform-origin: right center;
+      transition: transform 0.35s ease-out;
+    }
+
+    .profile-card {
+      background: var(--card-bg);
+      border-radius: 2rem;
+      padding: 1.8rem 1.8rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      max-width: 290px;
+      text-align: center;
+    }
+
+    .profile-photo-wrap {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      overflow: hidden;
+      border: 4px solid #f9fafb;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.22);
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .profile-role {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .profile-tags {
+      margin-top: 0.8rem;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #4b5563;
+    }
+
+    /* SECCIONES GENÉRICAS */
+
+    .section {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 2.4rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.09);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-bar {
+      width: 4px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.9rem;
+    }
+
+    .section-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-body.single {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* PROYECTO PTD */
+
+    .project-ptd {
+      margin-top: 0.4rem;
+    }
+
+    .project-ptd p {
+      margin-bottom: 0.9rem;
+    }
+
+    .tag-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.8rem;
+    }
+
+    .tag {
+      background: #f3f4ff;
+      border-radius: 999px;
+      padding: 0.22rem 0.7rem;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color var(--transition-fast),
+                  color var(--transition-fast),
+                  box-shadow var(--transition-fast),
+                  transform var(--transition-fast),
+                  border-color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: #111827;
+      color: #f9fafb;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: #111827;
+      border-color: rgba(15, 23, 42, 0.12);
+    }
+
+    .btn-outline:hover {
+      border-color: #111827;
+      background: #f9fafb;
+    }
+
+    /* HABILIDADES GRID */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.3rem;
+      margin-top: 0.4rem;
+    }
+
+    .skill-card {
+      background: #f9fafb;
+      border-radius: 1rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .skill-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* TIMELINE FORMACIÓN / EXPERIENCIA */
+
+    .timeline-wrapper {
+      margin-top: 0.4rem;
+    }
+
+    .timeline-intro {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+      line-height: 1.7;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.6rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(17,24,39,0.12), rgba(17,24,39,0.35));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -0.1rem;
+      top: 0.25rem;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--accent-dark);
+      box-shadow: 0 0 0 4px rgba(201, 255, 0, 0.2);
+    }
+
+    .timeline-content {
+      background: #f9fafb;
+      border-radius: 0.9rem;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .timeline-year {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #4b5563;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-meta {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* CONTACTO */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      text-align: right;
+      color: var(--text-muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .layout {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .side-nav {
+        flex-direction: row;
+        height: auto;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.4rem 0.2rem;
+      }
+
+      .side-nav-logo {
+        writing-mode: horizontal-tb;
+        transform: none;
+      }
+
+      .side-nav-dots {
+        flex-direction: row;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 1.8rem 1.6rem 2.1rem;
+      }
+
+      .hero-profile {
+        justify-content: flex-start;
+      }
+
+      .section {
+        padding: 1.8rem 1.5rem;
+      }
+
+      .section-body,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-areas {
+        width: 100%;
+      }
+
+      .logo-wordmark {
+        font-size: 1.3rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- NAV LATERAL -->
+  <aside class="side-nav">
+    <div class="side-nav-logo">RAYMOND · IT</div>
+    <div class="side-nav-dots">
+      <button class="side-dot active" data-target="hero"><span>Inicio</span></button>
+      <button class="side-dot" data-target="about"><span>Sobre mí</span></button>
+      <button class="side-dot" data-target="ptd"><span>PTD</span></button>
+      <button class="side-dot" data-target="timeline"><span>Timeline</span></button>
+      <button class="side-dot" data-target="skills"><span>Habilidades</span></button>
+      <button class="side-dot" data-target="contact"><span>Contacto</span></button>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="hero-main">
+          <div class="logo-wordmark">
+            <span class="logo-port">PORT</span>
+            <span class="logo-triangle"></span>
+            <span class="logo-folio">FOLIO</span>
+          </div>
+          <p class="hero-subtitle">
+            Proyectos integrales de informática y desarrollo
+          </p>
+
+          <div class="hero-areas">
+            <p class="hero-areas-title">+ Áreas principales</p>
+            <ul>
+              <li>Desarrollo web y programación</li>
+              <li>Análisis de sistemas y bases de datos</li>
+              <li>Redes, sistemas y seguridad informática</li>
+              <li>Automatización y metodologías Agile / Scrum</li>
+              <li>Digitalización e integración de IA</li>
+            </ul>
+          </div>
+
+          <p class="hero-text">
+            Soy estudiante de informática y analista de sistemas, orientado a la resolución
+            de problemas reales mediante soluciones tecnológicas eficientes, estructuradas
+            y bien documentadas. Me interesa especialmente la combinación de desarrollo,
+            redes, seguridad y metodologías ágiles aplicadas a proyectos reales.
+          </p>
+        </div>
+
+        <div class="hero-profile">
+          <div class="profile-card">
+            <div class="profile-photo-wrap">
+              <!-- Asegúrate de tener esta ruta: img/perfil-raymond.png -->
+              <img src="C:\Users\raym_\OneDrive\Mi documentación\My_Portofolio\Porfolio_Premium\perfil-raymond.png" alt="Raymond - Perfil profesional" class="profile-photo">
+            </div>
+            <div class="profile-name">RAMON ALBERTO CURBALAN VEGA</div>
+            <div class="profile-role">
+              Estudiante de informática<br>
+              Analista de sistemas<br>
+              Desarrollo · Redes · Seguridad
+            </div>
+            <div class="profile-tags">
+              IT · DEV · SYS
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">Sobre mí</h2>
+      </div>
+
+      <div class="section-body">
+        <p>
+          Soy estudiante de informática y analista de sistemas, con una clara orientación a la
+          resolución de problemas reales mediante soluciones tecnológicas eficientes,
+          estructuradas y bien documentadas. Me siento cómodo trabajando con lenguajes de
+          programación, bases de datos, redes y sistemas operativos, siempre con una visión
+          de conjunto del proyecto.
+        </p>
+        <p>
+          Me especializo en desarrollo, redes, seguridad informática y gestión de proyectos,
+          combinando visión técnica, metodología y enfoque práctico. Busco entornos donde
+          pueda aportar valor, seguir aprendiendo y evolucionar hacia roles de mayor
+          responsabilidad dentro del ámbito IT.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROYECTO PTD -->
+    <section id="ptd" class="section">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">Proyecto destacado – PTD</h2>
+      </div>
+
+      <div class="section-body single">
+        <div class="project-ptd">
+          <p>
+            El Proyecto Técnico de Desarrollo (PTD) está enfocado a integrar análisis,
+            diseño de arquitectura, seguridad, bases de datos y desarrollo de una solución
+            completa. Parte de un diagnóstico inicial, define una hoja de ruta y genera
+            documentación técnica preparada para su implantación en un entorno real.
+          </p>
+          <p>
+            El proyecto se apoya en metodologías ágiles y en un enfoque práctico, con
+            entregables claros, iteraciones definidas y un especial cuidado en la
+            documentación y la presentación final del trabajo.
+          </p>
+
+          <ul class="tag-list">
+            <li class="tag">Arquitectura</li>
+            <li class="tag">Seguridad</li>
+            <li class="tag">Bases de datos</li>
+            <li class="tag">Scrum</li>
+            <li class="tag">Documentación</li>
+          </ul>
+
+          <a href="PTD1.html" target="_blank" class="btn btn-primary">
+            Ver Proyecto PTD completo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE FORMACIÓN / EXPERIENCIA -->
+    <section id="timeline" class="section">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">Timeline · Formación y experiencia</h2>
+      </div>
+
+      <div class="timeline-wrapper">
+        <p class="timeline-intro">
+          Mi recorrido combina formación técnica en informática, certificaciones en gestión y
+          experiencia en entornos exigentes de hostelería y proyectos, lo que me permite
+          integrar la parte tecnológica con la visión operativa del negocio.
+        </p>
+
+        <div class="timeline">
+          <!-- ITEM 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2025–2026</div>
+              <div class="timeline-title">Estudios de informática y sistemas</div>
+              <div class="timeline-meta">Formación reglada · Especialización IT</div>
+              <div class="timeline-desc">
+                Profundización en programación, redes, sistemas operativos, ciberseguridad
+                básica y entornos virtualizados, con foco en la aplicación práctica y la
+                resolución de casos reales.
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2024–2025</div>
+              <div class="timeline-title">Programa Generación Digital PYMES</div>
+              <div class="timeline-meta">Transformación digital y gestión de proyectos</div>
+              <div class="timeline-desc">
+                Desarrollo del Plan de Transformación Digital (PTD), integrando análisis
+                estratégico, tecnologías habilitadoras, ASG y metodologías Agile / Scrum
+                aplicadas a la realidad de las pequeñas y medianas empresas.
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2020–2024</div>
+              <div class="timeline-title">Dirección y coordinación en hostelería</div>
+              <div class="timeline-meta">Director de banquetes y eventos · Hotel 5* GL</div>
+              <div class="timeline-desc">
+                Gestión de equipos, coordinación de eventos complejos, control operativo y
+                orientación a cliente de alto nivel, desarrollando competencias de liderazgo,
+                planificación y resolución de incidencias bajo presión.
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">Anterior</div>
+              <div class="timeline-title">Formación complementaria y enfoque multidisciplinar</div>
+              <div class="timeline-meta">Nutrición, deporte, gestión y psicología social</div>
+              <div class="timeline-desc">
+                Formación en nutrición deportiva, entrenamiento, administración de empresas y
+                psicología colectiva, aportando una visión global del comportamiento humano,
+                la gestión del cambio y el trabajo con equipos diversos.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">Habilidades técnicas</h2>
+      </div>
+
+      <div class="section-body single">
+        <p>
+          Mis habilidades técnicas cubren programación, sistemas, redes, metodologías
+          y herramientas que utilizo en proyectos, laboratorio y aprendizaje continuo.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Programación</h3>
+            <p>Python, Java, HTML, CSS, PHP y fundamentos de JavaScript orientados al desarrollo web y lógica de negocio básica.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Sistemas y redes</h3>
+            <p>Administración básica de Linux y Windows, virtualización, redes y seguridad en entornos de práctica y laboratorio.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Metodologías</h3>
+            <p>Scrum, Agile Project Management y documentación técnica aplicada, con enfoque ordenado y trazable.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Herramientas</h3>
+            <p>VS Code, NetBeans, máquinas virtuales, suites ofimáticas y herramientas de soporte y prueba en entornos IT.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">Contacto</h2>
+      </div>
+
+      <div class="section-body single">
+        <div class="contact-grid">
+          <div>
+            <p>
+              Mi objetivo profesional es incorporarme a un entorno tecnológico donde pueda seguir creciendo
+              como técnico en informática y desarrollo, participando en proyectos de soporte, administración
+              de sistemas, redes y seguridad.
+            </p>
+            <p style="margin-top:0.8rem;">
+              Estoy abierto a oportunidades de prácticas, colaboración y posiciones junior en equipos IT donde
+              se valore la actitud, la capacidad de aprendizaje y el compromiso con la calidad del trabajo.
+            </p>
+          </div>
+          <div>
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <div>ramonalberto.curbalvega@gmail.com</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">LinkedIn</div>
+              <div><a href="https://www.linkedin.com/in/ramon-alberto-curbalan-vega-754042167/" target="_blank" rel="noopener">Perfil de LinkedIn</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">GitHub</div>
+              <div><span>Pendiente de enlazar</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        © Raymond – Portfolio de Informática y Desarrollo · 2026
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Navegación por puntos
+  const dots = document.querySelectorAll('.side-dot');
+  const sections = document.querySelectorAll('main section');
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const targetId = dot.dataset.target;
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Resaltar punto activo según scroll
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          dots.forEach(dot => {
+            dot.classList.toggle('active', dot.dataset.target === id);
+          });
+        }
+      });
+    },
+    { root: null, threshold: 0.4 }
+  );
+
+  sections.forEach(sec => sectionObserver.observe(sec));
+
+  // Animación timeline: aparición al hacer scroll
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const timelineObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { root: null, threshold: 0.25 }
+  );
+
+  timelineItems.forEach(item => timelineObserver.observe(item));
+
+  // Parallax suave en HERO
+  const hero = document.querySelector('.hero');
+  const heroMain = document.querySelector('.hero-main');
+  const heroProfile = document.querySelector('.hero-profile');
+
+  if (hero && heroMain && heroProfile) {
+    hero.addEventListener('mousemove', e => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      heroMain.style.transform = `translate(${x * -10}px, ${y * -6}px)`;
+      heroProfile.style.transform = `translate(${x * 10}px, ${y * 6}px)`;
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      heroMain.style.transform = 'translate(0,0)';
+      heroProfile.style.transform = 'translate(0,0)';
+    });
+  }
+</script>
+
+</body>
+</html>
