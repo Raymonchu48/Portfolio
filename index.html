@@ -146,156 +146,149 @@
       scroll-margin-top: 80px;
     }
 
-    /* HERO */
-
-    .hero {
-      position: relative;
-      background: var(--bg-hero-soft);
-      border-radius: 2rem;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
-      min-height: 360px;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: var(--bg-hero);
-      clip-path: polygon(40% 0, 100% 0, 100% 100%, 60% 100%);
-    }
-
-    .hero-inner {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
-      gap: 2.5rem;
-      padding: 2.4rem 2.8rem;
-      align-items: center;
-    }
-
-    .hero-main {
-      transform-origin: left center;
-      transition: transform 0.35s ease-out;
-    }
-
-    .logo-wordmark {
-      font-size: 1.6rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .logo-port {
-      font-weight: 700;
-    }
-
-    .logo-triangle {
-      width: 0;
-      height: 0;
-      border-left: 7px solid transparent;
-      border-right: 7px solid transparent;
-      border-bottom: 12px solid #111827;
-      transform: translateY(-1px);
-    }
-
-    .logo-folio {
-      font-weight: 400;
-    }
-
-    .hero-subtitle {
-      font-size: 0.9rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-areas {
-      display: inline-block;
-      background: #ffffff;
-      border-radius: 1rem;
-      padding: 1.1rem 1.2rem;
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-areas-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-areas ul {
-      list-style: none;
-      font-size: 0.9rem;
-      color: #111827;
-    }
-
-    .hero-areas li + li {
-      margin-top: 0.18rem;
-    }
-
-    .hero-text {
-      max-width: 520px;
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .hero-profile {
-      display: flex;
-      justify-content: flex-end;
-      transform-origin: right center;
-      transition: transform 0.35s ease-out;
-	  position: relative;
-    overflow: hidden;
-    }
-.hero-right {
-    position: relative;
-    background: #d4ff00; /* tu verde actual */
-    border-radius: 32px;
-    overflow: hidden;
+    /* HERO – contenedor general */
+.hero {
+  position: relative;
+  background: var(--bg-hero-soft);
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+  min-height: 360px;
 }
+
+/* Triángulo verde a la derecha */
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 60% 100%);
+  box-shadow: -40px 0 60px rgba(0,0,0,0.12);
+}
+
+/* Capa Matrix en el mismo triángulo */
 .hero-digital-layer {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-
-    background:
-      repeating-linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0.7) 0px,
-        rgba(255, 255, 255, 0.7) 2px,
-        transparent 2px,
-        transparent 10px
-      ),
-      repeating-linear-gradient(
-        -120deg,
-        rgba(255, 255, 255, 0.5) 0px,
-        rgba(255, 255, 255, 0.5) 1px,
-        transparent 1px,
-        transparent 8px
-      );
-
-    animation: heroScan 8s linear infinite;
-    opacity: 1;
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 60% 100%);
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(circle at 70% 50%, #003300 0, #000000 60%);
 }
-    .profile-card {
-      background: var(--card-bg);
-      border-radius: 2rem;
-      padding: 1.8rem 1.8rem 1.6rem;
-      box-shadow: var(--shadow-soft);
-      max-width: 290px;
-      text-align: center;
-	  position: relative;
-    z-index: 1;
-    }
 
+/* El canvas de la lluvia ocupará todo ese triángulo */
+.hero-digital-layer canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Layout interior: izquierda texto, derecha tarjeta */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+  padding: 2.4rem 2.8rem;
+  align-items: center;
+}
+
+/* IZQUIERDA – bloque de contenido dentro de zona blanca */
+.hero-main {
+  max-width: 520px;      /* evita que invada el triángulo */
+  padding-right: 1.5rem; /* aire antes de la diagonal */
+}
+
+/* PORT▲FOLIO */
+.logo-wordmark {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.logo-port { font-weight: 700; }
+
+.logo-triangle {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid #111827;
+  transform: translateY(-1px);
+}
+
+.logo-folio { font-weight: 400; }
+
+.hero-subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+/* Tarjeta ÁREAS PRINCIPALES */
+.hero-areas {
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1.8rem;
+}
+
+.hero-areas-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.5rem;
+}
+
+/* Lista interior sin viñetas y bien compacta */
+.hero-areas ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+.hero-areas li + li {
+  margin-top: 0.18rem;
+}
+
+/* Párrafo largo de descripción */
+.hero-text {
+  max-width: 520px;
+  font-size: 0.96rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* DERECHA – tarjeta de perfil */
+.hero-profile {
+  display: flex;
+  justify-content: flex-end;
+  transform-origin: right center;
+  transition: transform 0.35s ease-out;
+}
+
+/* Tarjeta perfil por encima de Matrix */
+.profile-card {
+  background: var(--card-bg);
+  border-radius: 2rem;
+  padding: 1.8rem 1.8rem 1.6rem;
+  box-shadow: var(--shadow-soft);
+  max-width: 290px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
     .profile-photo-wrap {
       width: 130px;
       height: 130px;
@@ -583,109 +576,83 @@
 
     /* RESPONSIVE */
 
-    @media (max-width: 960px) {
-      .layout {
-        flex-direction: column;
-        padding: 1rem;
-      }
+@media (max-width: 960px) {
+  .layout {
+    flex-direction: column;
+    padding: 1rem;
+  }
 
-      .side-nav {
-        flex-direction: row;
-        height: auto;
-        width: 100%;
-        justify-content: space-between;
-        padding: 0.4rem 0.2rem;
-      }
+  .side-nav {
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.4rem 0.2rem;
+  }
 
-      .side-nav-logo {
-        writing-mode: horizontal-tb;
-        transform: none;
-      }
+  .side-nav-logo {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
 
-      .side-nav-dots {
-        flex-direction: row;
-      }
+  .side-nav-dots {
+    flex-direction: row;
+  }
 
-      .hero-inner {
-        grid-template-columns: 1fr;
-        padding: 1.8rem 1.6rem 2.1rem;
-      }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding: 1.8rem 1.6rem 2.1rem;
+  }
 
-      .hero-profile {
-        .hero-profile {
-    position: relative;
-    overflow: hidden;
+  .hero-profile {
+    justify-content: center;
+    margin-top: 1.4rem;
+  }
+
+  .section {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .section-body,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.hero-digital-layer {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    /* animación y background ya los tienes */
+@media (max-width: 600px) {
+  .hero-areas {
+    width: 100%;
+  }
+
+  .logo-wordmark {
+    font-size: 1.3rem;
+  }
+}
+/* ===== BOTÓN CV ===== */
+.about-actions {
+  margin-top: 2.4rem;
 }
 
-.profile-card {
-    position: relative;
-    z-index: 1;
-}
-      }
-
-      .section {
-        padding: 1.8rem 1.5rem;
-      }
-
-      .section-body,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-areas {
-        width: 100%;
-      }
-
-      .logo-wordmark {
-        font-size: 1.3rem;
-      }
-    .hero-digital-layer {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-
-    /* Dos rejillas de líneas diagonales superpuestas */
-    background:
-      repeating-linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0.16) 0px,
-        rgba(255, 255, 255, 0.16) 2px,
-        transparent 2px,
-        transparent 10px
-      ),
-      repeating-linear-gradient(
-        -120deg,
-        rgba(255, 255, 255, 0.10) 0px,
-        rgba(255, 255, 255, 0.10) 1px,
-        transparent 1px,
-        transparent 8px
-      );
-
-    animation: heroScan 12s linear infinite;
-    mix-blend-mode: soft-light;
-    opacity: 0.6; /* puedes bajar/subir para que sea más o menos visible */
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.7rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b6ff00, #9be600);
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(155, 230, 0, 0.35);
+  transition: all 0.25s ease;
 }
 
-@keyframes heroScan {
-    0% {
-        background-position: 0px 0px, 0px 0px;
-    }
-    100% {
-        background-position: 240px 360px, -200px 320px;
-    }
+.btn-cv:hover {
+  transform: translateY(-2px);
 }
-
   </style>
 </head>
 <body>
@@ -708,62 +675,70 @@
   <!-- CONTENIDO -->
   <main class="content">
 
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-inner">
-        <div class="hero-main">
-          <div class="logo-wordmark">
-            <span class="logo-port">PORT</span>
-            <span class="logo-triangle"></span>
-            <span class="logo-folio">FOLIO</span>
-          </div>
-          <p class="hero-subtitle">
-            Proyectos integrales de informática y desarrollo
-          </p>
+   <section id="hero" class="hero">
+  <!-- Triángulo verde de fondo -->
+  <div class="hero-bg"></div>
 
-          <div class="hero-areas">
-            <p class="hero-areas-title"> Áreas principales</p>
-            <ul>
-              <li>Desarrollo web y programación</li>
-              <li>Análisis de sistemas y bases de datos</li>
-              <li>Redes, sistemas y seguridad informática</li>
-              <li>Automatización y metodologías Agile / Scrum</li>
-              <li>Digitalización e integración de IA</li>
-            </ul>
-          </div>
+  <!-- Capa Matrix con canvas encima del triángulo -->
+  <div class="hero-digital-layer"></div>
 
-          <p class="hero-text">
-            Soy estudiante de informática y analista de sistemas, con un enfoque claro en la resolución de problemas reales mediante soluciones tecnológicas eficientes, escalables y correctamente documentadas. Me especializo en la integración de desarrollo, redes y seguridad, aplicando metodologías ágiles para impulsar proyectos con alto impacto y calidad técnica. Mi objetivo es aportar valor mediante análisis precisos, diseño estructurado y una ejecución orientada a la mejora continua.
-          </p>
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="hero-inner">
+    <!-- IZQUIERDA -->
+    <div class="hero-main">
+      <div class="logo-wordmark">
+        <span class="logo-port">PORT</span>
+        <span class="logo-triangle"></span>
+        <span class="logo-folio">FOLIO</span>
+      </div>
+
+      <p class="hero-subtitle">
+        PROYECTOS INTEGRALES DE INFORMÁTICA Y DESARROLLO
+      </p>
+
+      <div class="hero-areas">
+        <p class="hero-areas-title">ÁREAS PRINCIPALES</p>
+        <ul>
+          <li>Desarrollo web y programación</li>
+          <li>Análisis de sistemas y bases de datos</li>
+          <li>Redes, sistemas y seguridad informática</li>
+          <li>Automatización y metodologías Agile / Scrum</li>
+          <li>Digitalización e integración de IA</li>
+        </ul>
+      </div>
+
+      <p class="hero-text">
+        Soy estudiante de informática y analista de sistemas, con un enfoque claro en la
+        resolución de problemas reales mediante soluciones tecnológicas eficientes,
+        escalables y correctamente documentadas. Me especializo en la integración de
+        desarrollo, redes y seguridad, aplicando metodologías ágiles para impulsar
+        proyectos con alto impacto y calidad técnica. Mi objetivo es aportar valor
+        mediante análisis precisos, diseño estructurado y una ejecución orientada a la
+        mejora continua.
+      </p>
+    </div>
+
+    <!-- DERECHA: TARJETA PERFIL -->
+    <div class="hero-profile">
+      <div class="profile-card">
+        <div class="profile-photo-wrap">
+          <img src="imagen/perfil-raymond.png"
+               alt="Ramon Alberto Curbalan Vega, perfil profesional IT"
+               class="profile-photo">
         </div>
-
-        <div class="hero-profile">
-		 <div class="hero-left">
-    <!-- contenido izquierda -->
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-digital-layer"></div>
-          <div class="profile-card">
-            <div class="profile-photo-wrap">
-              <!-- Asegúrate de tener esta ruta: img/perfil-raymond.png -->
-              <img src="imagen/perfil-raymond.png" alt="Ramon Alberto Curbalan Vega, student of computer science and systems analyst, professional portrait photo for IT portfolio" class="profile-photo">
-            </div>
-            <div class="profile-name">RAMON ALBERTO CURBALAN VEGA</div>
-            <div class="profile-role">
-              Estudiante de informática<br>
-              Analista de sistemas<br>
-              Desarrollo · Redes · Seguridad
-            </div>
-            <div class="profile-tags">
-              IT · DEV · SYS
-            </div>
-          </div>
+        <div class="profile-name">RAMON ALBERTO CURBALAN VEGA</div>
+        <div class="profile-role">
+          Estudiante de informática<br>
+          Analista de sistemas<br>
+          Desarrollo · Redes · Seguridad
+        </div>
+        <div class="profile-tags">
+          IT · DEV · SYS
         </div>
       </div>
-    </section>
-
+    </div>
+  </div>
+</section>
     <!-- SOBRE MÍ -->
     <section id="about" class="section">
       <div class="section-header">
@@ -783,6 +758,14 @@ Destaco por un perfil analítico, adaptable y orientado a la mejora continua, ac
           responsabilidad dentro del ámbito IT.
         </p>
       </div>
+	  <div class="about-actions">
+  <a href="Resumen_CV-2026.pdf"
+     class="btn-cv"
+     target="_blank"
+     rel="noopener">
+    Descargar CV
+  </a>
+</div>
     </section>
 
     <!-- PROYECTO PTD -->
@@ -1045,6 +1028,82 @@ Destaco por un perfil analítico, adaptable y orientado a la mejora continua, ac
     });
   }
 </script>
+<script>
+  // ==== EFECTO MATRIX "LLUVIA" EN EL HERO ====
+  (function () {
+    const container = document.querySelector('.hero-digital-layer');
+    if (!container) return;
 
+    // Crear el canvas dentro del rectángulo
+    const canvas = document.createElement('canvas');
+    canvas.id = 'matrixCanvas';
+    container.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+
+    let width = 0;
+    let height = 0;
+    let columns = 0;
+    let drops = [];
+    let fontSize = 16;
+
+    const chars = '01'; // puedes cambiar por otros símbolos si quieres
+
+    function resizeCanvas() {
+      const rect = container.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+
+      width = rect.width;
+      height = rect.height;
+
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      fontSize = Math.max(12, Math.min(20, width / 30));
+      columns = Math.floor(width / fontSize);
+
+      drops = [];
+      for (let i = 0; i < columns; i++) {
+        // empezar en una posición aleatoria por encima
+        drops[i] = Math.random() * -20;
+      }
+    }
+
+    function draw() {
+      // capa semitransparente para el efecto "trail"
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.18)';
+      ctx.fillRect(0, 0, width, height);
+
+      // color verde Matrix
+      ctx.fillStyle = '#7CFF00';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < columns; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+
+        ctx.fillText(text, x, y);
+
+        // reinicia la "columna" con probabilidad
+        if (y > height && Math.random() > 0.975) {
+          drops[i] = Math.random() * -10;
+        } else {
+          drops[i] += 1;
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    // Inicializar
+    resizeCanvas();
+    draw();
+    window.addEventListener('resize', resizeCanvas);
+  })();
+</script>
 </body>
 </html>
