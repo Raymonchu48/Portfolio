@@ -251,8 +251,40 @@
       justify-content: flex-end;
       transform-origin: right center;
       transition: transform 0.35s ease-out;
+	  position: relative;
+    overflow: hidden;
     }
+.hero-right {
+    position: relative;
+    background: #d4ff00; /* tu verde actual */
+    border-radius: 32px;
+    overflow: hidden;
+}
+.hero-digital-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
 
+    background:
+      repeating-linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.7) 0px,
+        rgba(255, 255, 255, 0.7) 2px,
+        transparent 2px,
+        transparent 10px
+      ),
+      repeating-linear-gradient(
+        -120deg,
+        rgba(255, 255, 255, 0.5) 0px,
+        rgba(255, 255, 255, 0.5) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+
+    animation: heroScan 8s linear infinite;
+    opacity: 1;
+}
     .profile-card {
       background: var(--card-bg);
       border-radius: 2rem;
@@ -260,6 +292,8 @@
       box-shadow: var(--shadow-soft);
       max-width: 290px;
       text-align: center;
+	  position: relative;
+    z-index: 1;
     }
 
     .profile-photo-wrap {
@@ -578,7 +612,23 @@
       }
 
       .hero-profile {
-        justify-content: flex-start;
+        .hero-profile {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-digital-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    /* animación y background ya los tienes */
+}
+
+.profile-card {
+    position: relative;
+    z-index: 1;
+}
       }
 
       .section {
@@ -599,7 +649,42 @@
       .logo-wordmark {
         font-size: 1.3rem;
       }
+    .hero-digital-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    /* Dos rejillas de líneas diagonales superpuestas */
+    background:
+      repeating-linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.16) 0px,
+        rgba(255, 255, 255, 0.16) 2px,
+        transparent 2px,
+        transparent 10px
+      ),
+      repeating-linear-gradient(
+        -120deg,
+        rgba(255, 255, 255, 0.10) 0px,
+        rgba(255, 255, 255, 0.10) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+
+    animation: heroScan 12s linear infinite;
+    mix-blend-mode: soft-light;
+    opacity: 0.6; /* puedes bajar/subir para que sea más o menos visible */
+}
+
+@keyframes heroScan {
+    0% {
+        background-position: 0px 0px, 0px 0px;
     }
+    100% {
+        background-position: 240px 360px, -200px 320px;
+    }
+}
 
   </style>
 </head>
@@ -609,7 +694,7 @@
 
   <!-- NAV LATERAL -->
   <aside class="side-nav">
-    <div class="side-nav-logo">RAYMOND · IT</div>
+    <div class="side-nav-logo">R.A.C.V IT</div>
     <div class="side-nav-dots">
       <button class="side-dot active" data-target="hero"><span>Inicio</span></button>
       <button class="side-dot" data-target="about"><span>Sobre mí</span></button>
@@ -638,7 +723,7 @@
           </p>
 
           <div class="hero-areas">
-            <p class="hero-areas-title">+ Áreas principales</p>
+            <p class="hero-areas-title"> Áreas principales</p>
             <ul>
               <li>Desarrollo web y programación</li>
               <li>Análisis de sistemas y bases de datos</li>
@@ -649,14 +734,17 @@
           </div>
 
           <p class="hero-text">
-            Soy estudiante de informática y analista de sistemas, orientado a la resolución
-            de problemas reales mediante soluciones tecnológicas eficientes, estructuradas
-            y bien documentadas. Me interesa especialmente la combinación de desarrollo,
-            redes, seguridad y metodologías ágiles aplicadas a proyectos reales.
+            Soy estudiante de informática y analista de sistemas, con un enfoque claro en la resolución de problemas reales mediante soluciones tecnológicas eficientes, escalables y correctamente documentadas. Me especializo en la integración de desarrollo, redes y seguridad, aplicando metodologías ágiles para impulsar proyectos con alto impacto y calidad técnica. Mi objetivo es aportar valor mediante análisis precisos, diseño estructurado y una ejecución orientada a la mejora continua.
           </p>
         </div>
 
         <div class="hero-profile">
+		 <div class="hero-left">
+    <!-- contenido izquierda -->
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-digital-layer"></div>
           <div class="profile-card">
             <div class="profile-photo-wrap">
               <!-- Asegúrate de tener esta ruta: img/perfil-raymond.png -->
@@ -685,11 +773,8 @@
 
       <div class="section-body">
         <p>
-          Soy estudiante de informática y analista de sistemas, con una clara orientación a la
-          resolución de problemas reales mediante soluciones tecnológicas eficientes,
-          estructuradas y bien documentadas. Me siento cómodo trabajando con lenguajes de
-          programación, bases de datos, redes y sistemas operativos, siempre con una visión
-          de conjunto del proyecto.
+          Profesional en proceso de especialización en informática, redes y sistemas, con sólida formación en administración de redes (IFCT0410), análisis de sistemas, ciberseguridad avanzada, inteligencia artificial aplicada a la empresa y desarrollo web. Cuento con experiencia práctica en entorno empresarial (SAMPOL) y una trayectoria previa de más de 20 años en gestión operativa y liderazgo de equipos, que refuerza mis competencias en comunicación, organización y resolución de problemas.
+Destaco por un perfil analítico, adaptable y orientado a la mejora continua, actualmente enfocado en consolidar mi carrera en el sector tecnológico mediante soluciones eficientes, seguras y alineadas con las necesidades reales de las organizaciones.
         </p>
         <p>
           Me especializo en desarrollo, redes, seguridad informática y gestión de proyectos,
