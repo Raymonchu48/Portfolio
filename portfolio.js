@@ -9,7 +9,7 @@ function ensureAboutBackground(){
   if(!about||about.querySelector('.about-pin-bg'))return;
   const iframe=document.createElement('iframe');
   iframe.className='about-pin-bg';
-  iframe.src='https://assets.pinterest.com/ext/embed.html?id=1135188649854476053';
+  iframe.src='https://assets.pinterest.com/ext/embed.html?id=1135188649854476815';
   iframe.title='Fondo visual tecnológico de la sección Sobre mí';
   iframe.setAttribute('aria-hidden','true');
   iframe.setAttribute('tabindex','-1');
