@@ -113,3 +113,23 @@ heroMenuSections.forEach(section=>heroMenuObserver.observe(section));
   `;
   document.head.appendChild(style);
 })();
+
+(function addSkillsBackdropMotion(){
+  if(document.getElementById('skills-backdrop-motion'))return;
+  const style=document.createElement('style');
+  style.id='skills-backdrop-motion';
+  style.textContent=`
+    #skills .skills-video-bg{
+      transform-origin:center center;
+      animation:skillsBackdropMotion 30s ease-in-out infinite alternate;
+      will-change:transform;
+    }
+    @keyframes skillsBackdropMotion{
+      0%{transform:scale(1.06) translate3d(-1.2%,-.6%,0)}
+      50%{transform:scale(1.11) translate3d(1.2%,.8%,0)}
+      100%{transform:scale(1.075) translate3d(-.4%,1.1%,0)}
+    }
+    @media(prefers-reduced-motion:reduce){#skills .skills-video-bg{animation:none;transform:none}}
+  `;
+  document.head.appendChild(style);
+})();
