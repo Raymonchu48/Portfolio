@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050806">
+  <title>CV // Raymond Vega · Digital System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#050806;--panel:#0a100c;--line:rgba(167,184,106,.22);--olive:#a7b86a;--text:#f1f4ec;--muted:#879388;--mono:"IBM Plex Mono",monospace;--sans:"Inter",system-ui,sans-serif}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--sans)}body{height:100vh;overflow:hidden;background:radial-gradient(circle at 50% 0,rgba(167,184,106,.08),transparent 30%),#050806}
+    .viewer{height:100vh;display:grid;grid-template-rows:68px 1fr}.bar{position:relative;z-index:3;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:0 20px;border-bottom:1px solid var(--line);background:rgba(5,8,6,.96);backdrop-filter:blur(14px);box-shadow:0 12px 35px rgba(0,0,0,.25)}
+    .back,.download{display:inline-flex;align-items:center;justify-content:center;width:max-content;min-height:38px;padding:0 13px;border:1px solid var(--line);font:500 .62rem var(--mono);letter-spacing:.09em;text-decoration:none;transition:.2s}.back{color:var(--text)}.download{justify-self:end;background:var(--olive);color:#090d09;border-color:var(--olive);font-weight:600}.back:hover{border-color:var(--olive);color:var(--olive);background:rgba(167,184,106,.06)}.download:hover{background:#bbc989}
+    .identity{text-align:center;font-family:var(--mono)}.identity strong{display:block;font-size:.66rem;letter-spacing:.16em}.identity small{display:block;margin-top:3px;font-size:.49rem;letter-spacing:.12em;color:var(--muted)}
+    .frame-wrap{position:relative;min-height:0;padding:10px;background:linear-gradient(180deg,rgba(167,184,106,.03),transparent)}.frame-wrap:before{content:"DOCUMENT // RESUMEN_CV-2026.PDF";position:absolute;z-index:2;left:22px;top:17px;padding:6px 8px;background:rgba(5,8,6,.86);border:1px solid var(--line);font:500 .48rem var(--mono);letter-spacing:.08em;color:var(--olive);pointer-events:none}.pdf{display:block;width:100%;height:100%;border:1px solid var(--line);background:#111}
+    .fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;color:var(--muted);font-size:.85rem;z-index:-1}.fallback a{color:var(--olive)}
+    @media(max-width:620px){.viewer{grid-template-rows:64px 1fr}.bar{grid-template-columns:auto 1fr auto;padding:0 9px;gap:7px}.back,.download{min-height:36px;padding:0 9px;font-size:.52rem}.back span,.download span{display:none}.identity strong{font-size:.55rem}.identity small{font-size:.43rem}.frame-wrap{padding:5px}.frame-wrap:before{display:none}}
+  </style>
+</head>
+<body>
+  <div class="viewer">
+    <header class="bar">
+      <a class="back" href="index.html" aria-label="Volver al inicio del portfolio">← <span>VOLVER AL NÚCLEO</span></a>
+      <div class="identity"><strong>RAYMOND VEGA // CV VIEWER</strong><small>DIGITAL SYSTEM · DOCUMENT 01</small></div>
+      <a class="download" href="Resumen_CV-2026.pdf" download="Raymond-Vega-CV-2026.pdf" aria-label="Descargar CV"><span>DESCARGAR CV</span> ↓</a>
+    </header>
+    <main class="frame-wrap">
+      <div class="fallback">Tu navegador no puede mostrar el PDF integrado. <a href="Resumen_CV-2026.pdf" target="_blank" rel="noopener">Abrir documento</a></div>
+      <iframe class="pdf" src="Resumen_CV-2026.pdf#view=FitH" title="Currículum vitae de Raymond Vega"></iframe>
+    </main>
+  </div>
+</body>
+</html>
