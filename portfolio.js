@@ -153,3 +153,56 @@ if(hero&&heroMain&&heroProfile&&window.matchMedia('(pointer:fine)').matches){
   }
   resizeCanvas();draw();window.addEventListener('resize',resizeCanvas);
 })();
+
+(function(){
+  const about=document.getElementById('about');
+  const container=about?.querySelector('.scene-bg');
+  if(!about||!container)return;
+
+  container.querySelector('.scene-pin')?.remove();
+  const canvas=document.createElement('canvas');
+  canvas.setAttribute('aria-hidden','true');
+  container.prepend(canvas);
+  const ctx=canvas.getContext('2d');
+  let width=0,height=0,columns=0,drops=[],fontSize=17;
+  const chars='01';
+
+  function resizeCanvas(){
+    const rect=container.getBoundingClientRect();
+    if(rect.width<2||rect.height<2)return;
+    const dpr=window.devicePixelRatio||1;
+    width=rect.width;height=rect.height;
+    canvas.width=Math.max(1,Math.round(width*dpr));
+    canvas.height=Math.max(1,Math.round(height*dpr));
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    fontSize=Math.max(13,Math.min(21,width/46));
+    columns=Math.max(1,Math.floor(width/fontSize));
+    drops=Array.from({length:columns},()=>Math.random()*-35);
+    ctx.fillStyle='#000';
+    ctx.fillRect(0,0,width,height);
+  }
+
+  function draw(){
+    if(about.classList.contains('view-active')&&width>1&&height>1){
+      ctx.fillStyle='rgba(0,0,0,.14)';
+      ctx.fillRect(0,0,width,height);
+      ctx.fillStyle='#7CFF00';
+      ctx.font=`${fontSize}px monospace`;
+      for(let i=0;i<columns;i++){
+        const x=i*fontSize;
+        const y=drops[i]*fontSize;
+        ctx.globalAlpha=.45+Math.random()*.5;
+        ctx.fillText(chars[Math.floor(Math.random()*2)],x,y);
+        ctx.globalAlpha=1;
+        if(y>height&&Math.random()>.972)drops[i]=Math.random()*-18;
+        else drops[i]+=.82+Math.random()*.36;
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resizeCanvas();
+  if('ResizeObserver' in window)new ResizeObserver(resizeCanvas).observe(container);
+  else window.addEventListener('resize',resizeCanvas);
+  draw();
+})();
