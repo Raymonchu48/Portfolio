@@ -26,7 +26,8 @@ main.content>section.section.view-active{display:block;animation:viewReveal .3s 
 .view-back:hover{background:#0f1b3d;color:#fff;border-color:#0f1b3d;transform:translateY(-1px)}
 
 /* Sobre mí: tarjeta blanca flotando sobre Matrix animado */
-#about.section-scene{position:relative;overflow:hidden;isolation:isolate;background:#000;box-shadow:0 24px 60px rgba(15,23,42,.18);padding:4.2rem 4.6rem;min-height:calc(100vh - 8.5rem);border-radius:2rem;display:flex;align-items:center;justify-content:center}
+#about.section-scene{position:relative;overflow:hidden;isolation:isolate;background:#000;box-shadow:0 24px 60px rgba(15,23,42,.18);padding:4.2rem 4.6rem;min-height:calc(100vh - 8.5rem);border-radius:2rem;align-items:center;justify-content:center}
+#about.section-scene.view-active{display:flex}
 #about .scene-bg{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:2rem;background:radial-gradient(circle at 72% 48%,#003300 0,#001400 24%,#000 64%)}
 #about .scene-bg::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,transparent 0,rgba(0,0,0,.08) 58%,rgba(0,0,0,.46) 100%)}
 #about .scene-bg canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
