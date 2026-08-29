@@ -2,81 +2,208 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>PORT▲FOLIO – Raymond | Informática y Desarrollo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio profesional de Ramón Alberto Curbalán Vega: informática, desarrollo, redes, sistemas, ciberseguridad, datos e inteligencia artificial.">
+  <meta name="theme-color" content="#060907">
+  <meta name="description" content="Portfolio profesional de Ramón Alberto Curbalán Vega: sistemas, desarrollo, redes, ciberseguridad, datos e inteligencia artificial.">
+  <title>Raymond Vega // Digital Systems Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="portfolio.css">
-  <link rel="stylesheet" href="hero-navigation.css">
 </head>
 <body>
-<div class="layout">
-  <aside class="side-nav" aria-label="Navegación de secciones">
-    <div class="side-nav-logo">R.A.C.V IT</div>
-    <div class="side-nav-dots">
-      <button class="side-dot active" data-target="hero" aria-label="Inicio"><span>Inicio</span></button><button class="side-dot" data-target="about" aria-label="Sobre mí"><span>Sobre mí</span></button><button class="side-dot" data-target="ptd" aria-label="Proyecto PTD"><span>PTD</span></button><button class="side-dot" data-target="timeline" aria-label="Timeline"><span>Timeline</span></button><button class="side-dot" data-target="certifications" aria-label="Certificaciones"><span>Certificaciones</span></button><button class="side-dot" data-target="skills" aria-label="Habilidades"><span>Habilidades</span></button><button class="side-dot" data-target="contact" aria-label="Contacto"><span>Contacto</span></button>
+  <div class="boot-screen" id="bootScreen" aria-hidden="true">
+    <div class="boot-content">
+      <div class="boot-mark">RV<span>//</span>IT</div>
+      <p>INITIALIZING DIGITAL PROFILE</p>
+      <div class="boot-line"><span></span></div>
+      <small>systems · software · cybersecurity · ai</small>
     </div>
+  </div>
+
+  <canvas id="networkCanvas" class="network-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="brand nav-trigger" data-target="hero" type="button" aria-label="Ir al núcleo">
+      <span class="brand-mark">RV</span>
+      <span class="brand-copy"><strong>DIGITAL SYSTEM</strong><small>PORTFOLIO // 2026</small></span>
+    </button>
+    <div class="top-status">
+      <span class="status-dot"></span>
+      <span>SYSTEM ONLINE</span>
+      <span class="top-clock" id="localClock">--:--:--</span>
+    </div>
+    <a class="cv-link" href="Resumen_CV-2026.pdf" target="_blank" rel="noopener">CV.PDF ↗</a>
+  </header>
+
+  <aside class="rail" aria-label="Navegación de módulos">
+    <div class="rail-line"></div>
+    <button class="rail-item nav-trigger active" data-target="hero" type="button"><span>00</span><b>CORE</b></button>
+    <button class="rail-item nav-trigger" data-target="about" type="button"><span>01</span><b>PROFILE</b></button>
+    <button class="rail-item nav-trigger" data-target="projects" type="button"><span>02</span><b>PROJECTS</b></button>
+    <button class="rail-item nav-trigger" data-target="skills" type="button"><span>03</span><b>STACK</b></button>
+    <button class="rail-item nav-trigger" data-target="timeline" type="button"><span>04</span><b>PATH</b></button>
+    <button class="rail-item nav-trigger" data-target="certifications" type="button"><span>05</span><b>CERTS</b></button>
+    <button class="rail-item nav-trigger" data-target="contact" type="button"><span>06</span><b>CONTACT</b></button>
   </aside>
-  <main class="content">
-    <section id="hero" class="hero">
-      <nav class="hero-menu" aria-label="Navegación principal">
-        <button class="hero-menu-brand hero-menu-link active" type="button" data-target="hero" aria-label="Ir al inicio">
-          <span class="hero-menu-mark">RC</span><span class="hero-menu-brand-text">Portfolio · IT</span>
-        </button>
-        <div class="hero-menu-links">
-          <button class="hero-menu-link" type="button" data-target="about">Sobre mí</button>
-          <button class="hero-menu-link" type="button" data-target="ptd">Proyecto PTD</button>
-          <button class="hero-menu-link" type="button" data-target="timeline">Formación</button>
-          <button class="hero-menu-link" type="button" data-target="certifications">Certificaciones</button>
-          <button class="hero-menu-link" type="button" data-target="skills">Habilidades</button>
-          <button class="hero-menu-link" type="button" data-target="contact">Contacto</button>
+
+  <main>
+    <section id="hero" class="hero view-active" data-index="00">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hud-panel hud-left" data-hud>
+        <div class="hud-heading"><span>PROFILE TELEMETRY</span><i></i></div>
+        <dl>
+          <div><dt>IDENTITY</dt><dd>RAYMOND VEGA</dd></div>
+          <div><dt>PROFILE</dt><dd>IT / SYSTEMS</dd></div>
+          <div><dt>FOCUS</dt><dd>SOFTWARE + AI</dd></div>
+          <div><dt>NETWORK</dt><dd>ACTIVE</dd></div>
+          <div><dt>TRAINING</dt><dd>3,215 H</dd></div>
+          <div><dt>CREDENTIALS</dt><dd>17</dd></div>
+        </dl>
+        <div class="signal"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="hero-center">
+        <div class="eyebrow">RAYMOND VEGA // DIGITAL SYSTEMS</div>
+        <h1>TECHNOLOGY<br><span>AS A SYSTEM.</span></h1>
+        <p class="hero-lede">Análisis de sistemas, desarrollo, redes, ciberseguridad, datos e inteligencia artificial conectados en una sola arquitectura profesional.</p>
+
+        <div class="core-stage" id="coreStage" aria-label="Núcleo digital interactivo">
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="orbit orbit-c"></div>
+          <div class="core-glow"></div>
+          <div class="core-sphere"><span>RV</span><small>CORE</small></div>
+          <button class="node node-ai nav-trigger" data-target="skills" type="button"><span>AI</span></button>
+          <button class="node node-cyber nav-trigger" data-target="skills" type="button"><span>CYBER</span></button>
+          <button class="node node-dev nav-trigger" data-target="projects" type="button"><span>DEV</span></button>
+          <button class="node node-net nav-trigger" data-target="skills" type="button"><span>NETWORK</span></button>
+          <button class="node node-data nav-trigger" data-target="skills" type="button"><span>DATA</span></button>
+          <button class="node node-sys nav-trigger" data-target="about" type="button"><span>SYSTEMS</span></button>
         </div>
-        <a href="Resumen_CV-2026.pdf" class="hero-menu-cv" target="_blank" rel="noopener">Descargar CV</a>
-      </nav>
-      <div class="hero-digital-layer"></div><div class="hero-inner"><div class="hero-main"><div class="logo-wordmark"><span class="logo-port">PORT</span><span class="logo-triangle"></span><span class="logo-folio">FOLIO</span></div><p class="hero-subtitle">Proyectos integrales de informática y desarrollo</p><div class="hero-areas"><p class="hero-areas-title">Áreas principales</p><ul><li>Desarrollo web y programación</li><li>Análisis de sistemas y bases de datos</li><li>Redes, sistemas y seguridad informática</li><li>Automatización y metodologías Agile / Scrum</li><li>Digitalización, datos e integración de IA</li></ul></div><p class="hero-text">Perfil IT orientado a resolver problemas reales mediante soluciones tecnológicas eficientes, seguras y correctamente documentadas. Combino formación técnica en programación, sistemas, redes, ciberseguridad, datos e inteligencia artificial con experiencia en gestión de proyectos y entornos operativos exigentes.</p></div><div class="hero-profile"><div class="profile-card"><div class="profile-photo-wrap"><img src="imagen/perfil-raymond.png" alt="Ramon Alberto Curbalan Vega, perfil profesional IT" class="profile-photo"></div><div class="profile-name">RAMON ALBERTO CURBALAN VEGA</div><div class="profile-role">Estudiante de informática<br>Analista de sistemas<br>Desarrollo · Redes · Seguridad</div><div class="profile-tags">IT · DEV · SYS</div></div></div></div></section>
+      </div>
 
-    <section id="about" class="section section-scene">
-      <div class="scene-bg" aria-hidden="true"><iframe class="scene-pin" src="https://assets.pinterest.com/ext/embed.html?id=1135188649854476815" title="Fondo visual tecnológico de la sección Sobre mí" loading="lazy" frameborder="0" scrolling="no" tabindex="-1"></iframe></div>
-      <div class="section-scene-card">
-        <button type="button" class="view-back" aria-label="Volver a la portada del portfolio">← Volver al inicio</button>
-        <div class="section-header"><div class="section-bar"></div><h2 class="section-title">Sobre mí</h2></div>
-        <div class="section-body"><p>Profesional en proceso de especialización en informática, redes y sistemas, con formación acreditada en administración y diseño de redes departamentales, análisis de sistemas, ciberseguridad avanzada, inteligencia artificial aplicada a la empresa, análisis de datos y desarrollo web. Mi trayectoria previa en gestión operativa y liderazgo refuerza competencias de organización, comunicación y resolución de incidencias.</p><p>Mi foco actual es consolidar una carrera técnica en desarrollo, sistemas, redes y seguridad, aplicando un enfoque estructurado, documentado y orientado a la mejora continua. Busco participar en proyectos donde el criterio técnico y la comprensión del negocio se traduzcan en soluciones útiles y sostenibles.</p></div>
-        <div class="about-actions"><a href="Resumen_CV-2026.pdf" class="btn-cv" target="_blank" rel="noopener">Descargar CV</a></div>
+      <div class="hud-panel hud-right" data-hud>
+        <div class="hud-heading"><span>RUNTIME</span><i></i></div>
+        <dl>
+          <div><dt>MISSION ELAPSED</dt><dd id="missionElapsed">00:00:00</dd></div>
+          <div><dt>FRAME RATE</dt><dd><span id="fpsValue">60</span> FPS</dd></div>
+          <div><dt>VIEWPORT</dt><dd id="viewportValue">-- × --</dd></div>
+          <div><dt>RENDER PROFILE</dt><dd>ADAPTIVE</dd></div>
+          <div><dt>INTERFACE</dt><dd>HUD / TERMINAL</dd></div>
+        </dl>
+        <div class="hud-keymap">1–6 MODULES · T TERMINAL · H HUD · ESC CLOSE</div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="sequence-label">SYSTEM CONTROL</div>
+        <div class="mode-switcher" role="group" aria-label="Controles de experiencia">
+          <button type="button" data-action="auto"><span>◉</span>AUTO</button>
+          <button type="button" data-action="explore"><span>⌁</span>EXPLORE</button>
+          <button type="button" data-action="terminal"><span>&gt;_</span>TERMINAL</button>
+          <button type="button" data-action="hud"><span>⌗</span>HUD</button>
+        </div>
+        <p>DRAG CORE · SCROLL EXPLORE · T TERMINAL · H HUD</p>
       </div>
     </section>
 
-    <section id="ptd" class="section section-scene">
-      <div class="scene-bg" aria-hidden="true"><iframe class="scene-pin" src="https://assets.pinterest.com/ext/embed.html?id=1135188649854476815" title="Fondo visual tecnológico del Proyecto PTD" loading="lazy" frameborder="0" scrolling="no" tabindex="-1"></iframe></div>
-      <div class="section-scene-card">
-        <button type="button" class="view-back" aria-label="Volver a la portada del portfolio">← Volver al inicio</button>
-        <div class="section-header"><div class="section-bar"></div><h2 class="section-title">Proyecto destacado – PTD</h2></div>
-        <div class="section-body single"><div class="project-ptd"><p>El Proyecto Técnico de Desarrollo (PTD) integra análisis, arquitectura, seguridad, bases de datos y desarrollo de una solución completa, desde el diagnóstico inicial hasta una hoja de ruta preparada para implantación.</p><p>El proyecto se apoya en metodologías ágiles, entregables trazables y documentación técnica orientada a un entorno real.</p><ul class="tag-list"><li class="tag">Arquitectura</li><li class="tag">Seguridad</li><li class="tag">Bases de datos</li><li class="tag">Scrum</li><li class="tag">Documentación</li></ul><a href="PTD1.html" target="_blank" class="btn-primary">Ver Proyecto PTD completo</a></div></div>
+    <section id="about" class="module-section" data-index="01">
+      <div class="module-header"><span>01 / PROFILE</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="module-grid about-grid">
+        <div class="module-copy">
+          <p class="kicker">SYSTEM IDENTITY</p>
+          <h2>Perfil técnico con visión de sistema.</h2>
+          <p>Profesional en proceso de especialización en informática, redes y sistemas, con formación acreditada en administración y diseño de redes departamentales, análisis de sistemas, ciberseguridad avanzada, inteligencia artificial aplicada a la empresa, análisis de datos y desarrollo web.</p>
+          <p>Mi experiencia previa en gestión operativa y liderazgo aporta una ventaja diferencial: entiendo la tecnología como parte de un entorno real, con procesos, personas, riesgos, prioridades y resultados.</p>
+          <div class="inline-actions"><a href="Resumen_CV-2026.pdf" target="_blank" rel="noopener" class="action-primary">OPEN CV ↗</a><button type="button" class="action-ghost nav-trigger" data-target="projects">VIEW PROJECTS →</button></div>
+        </div>
+        <div class="identity-card glass-card">
+          <div class="id-photo-wrap"><img src="imagen/perfil-raymond.png" alt="Raymond Vega, perfil profesional IT"></div>
+          <div class="id-code">ID // RV-IT-2026</div>
+          <h3>RAYMOND VEGA</h3>
+          <p>Systems Analyst · Development · Networks · Security</p>
+          <div class="id-metrics"><span><b>17</b>certs</span><span><b>30</b>ECTS</span><span><b>3.2K</b>hours</span></div>
+        </div>
       </div>
     </section>
 
-    <section id="timeline" class="section"><div class="section-header"><div class="section-bar"></div><h2 class="section-title">Timeline · Formación y experiencia</h2></div><p class="timeline-intro">Mi recorrido combina formación técnica intensiva en informática con gestión de proyectos y experiencia operativa, integrando tecnología, organización y visión de negocio.</p><div class="timeline"><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025–2026</div><div class="timeline-title">Especialización técnica IT</div><div class="timeline-meta">Redes · Programación · Seguridad · IA · Datos</div><div class="timeline-desc">Formación avanzada en administración de redes, Java, ciberseguridad, IA, análisis de sistemas, competencias digitales y robótica.</div></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2024–2025</div><div class="timeline-title">Desarrollo y transformación digital</div><div class="timeline-meta">PHP · ASP.NET · Power BI · Digitalización</div><div class="timeline-desc">Itinerario de desarrollo web, analítica de datos, transformación digital y aplicación de metodologías ágiles a proyectos reales.</div></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2020–Actualidad</div><div class="timeline-title">Dirección y coordinación operativa</div><div class="timeline-meta">Gestión de equipos · Proyectos · Entornos de alta exigencia</div><div class="timeline-desc">Experiencia en coordinación de equipos, planificación, control operativo, resolución de incidencias y seguimiento de objetivos.</div></div></div></div></section>
-    <section id="certifications" class="section"><div class="section-header"><div class="section-bar"></div><h2 class="section-title">Certificaciones técnicas y formación acreditada</h2></div><p class="cert-intro">Selección consolidada de credenciales vinculadas a informática, sistemas, programación, ciberseguridad, datos, inteligencia artificial y transformación digital. Las acreditaciones repetidas del mismo itinerario se muestran una sola vez para mantener una lectura clara del perfil técnico.</p><div class="cert-stats" aria-label="Resumen de certificaciones"><div class="cert-stat"><strong>17</strong><span>Credenciales técnicas</span></div><div class="cert-stat"><strong>3.215 h</strong><span>Formación acreditada</span></div><div class="cert-stat"><strong>30 ECTS</strong><span>Programas equivalentes</span></div></div><div class="cert-filters-label">Filtra por área</div><p class="cert-filters-hint">Pulsa una categoría para desplegar sus credenciales.</p><div class="cert-filters" id="certFilters" role="group" aria-label="Filtrar certificaciones"><button class="cert-filter" data-filter="all" aria-expanded="false" aria-controls="certResults">Todas</button><button class="cert-filter" data-filter="systems" aria-expanded="false" aria-controls="certResults">Sistemas y seguridad</button><button class="cert-filter" data-filter="development" aria-expanded="false" aria-controls="certResults">Desarrollo</button><button class="cert-filter" data-filter="data" aria-expanded="false" aria-controls="certResults">Datos e IA</button><button class="cert-filter" data-filter="digital" aria-expanded="false" aria-controls="certResults">Digitalización y tecnología</button></div><div class="cert-results" id="certResults" aria-hidden="true"><div class="cert-results-header"><div class="cert-results-title" id="certResultsTitle">Certificaciones</div><button class="cert-close" id="certClose" type="button" aria-label="Cerrar certificaciones">Cerrar ×</button></div><div class="cert-grid" id="certGrid"></div><p class="cert-privacy"><strong>Privacidad documental:</strong> los diplomas originales no se publican en el repositorio porque contienen DNI/NIF, firmas y otros datos personales. Las acreditaciones completas pueden facilitarse para procesos de selección o verificación profesional.</p><button class="cert-close cert-close-bottom" id="certCloseBottom" type="button">Cerrar y volver a categorías ↑</button></div></section>
-
-    <section id="skills" class="section skills-video-scene skills-video-ready">
-      <div class="skills-video-bg" aria-hidden="true">
-        <video class="skills-video-pin" autoplay muted loop playsinline preload="auto" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;border:0;pointer-events:none;transform:scale(1.035);filter:saturate(.9) contrast(1.08) brightness(.78)">
-          <source src="media/skills-tech-bg.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="skills-video-card">
-        <button type="button" class="view-back" aria-label="Volver a la portada del portfolio">← Volver al inicio</button>
-        <div class="section-header"><div class="section-bar"></div><h2 class="section-title">Habilidades técnicas</h2></div>
-        <div class="section-body single"><p>Las certificaciones anteriores complementan un conjunto técnico orientado a desarrollo, sistemas, redes, seguridad, datos y automatización.</p><div class="skills-grid"><div class="skill-card"><h3>Programación</h3><p>Python, Java, HTML, CSS, PHP, ASP.NET y fundamentos de JavaScript, con orientación a desarrollo web y lógica de negocio.</p></div><div class="skill-card"><h3>Sistemas y redes</h3><p>Administración de Linux y Windows, diseño de redes departamentales, virtualización y fundamentos de infraestructura.</p></div><div class="skill-card"><h3>Ciberseguridad</h3><p>Seguridad informática empresarial, entornos OT, análisis de riesgos, planificación y buenas prácticas de protección.</p></div><div class="skill-card"><h3>Datos e IA</h3><p>Power Query, Power Pivot, Power BI, análisis de datos e inteligencia artificial aplicada a procesos empresariales.</p></div><div class="skill-card"><h3>Metodologías</h3><p>Scrum, Agile Project Management, planificación, documentación técnica y seguimiento de proyectos.</p></div><div class="skill-card"><h3>Herramientas</h3><p>VS Code, NetBeans, máquinas virtuales, suites ofimáticas y herramientas de soporte y prueba en entornos IT.</p></div></div></div>
+    <section id="projects" class="module-section" data-index="02">
+      <div class="module-header"><span>02 / PROJECTS</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="module-intro"><p class="kicker">BUILT SYSTEMS</p><h2>Proyectos que demuestran arquitectura, integración y ejecución.</h2></div>
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div class="project-visual"><video autoplay muted loop playsinline preload="metadata"><source src="media/ptd-tech-bg.mp4" type="video/mp4"></video><div class="project-visual-overlay"><span>PROJECT // 001</span><strong>PTD</strong></div></div>
+          <div class="project-body"><div class="project-status">TECHNICAL DEVELOPMENT PROJECT · ONLINE</div><h3>Proyecto Técnico de Desarrollo</h3><p>Arquitectura, seguridad, bases de datos y desarrollo de una solución completa, desde el diagnóstico inicial hasta una hoja de ruta preparada para implantación.</p><div class="tech-row"><span>ARCHITECTURE</span><span>SECURITY</span><span>DATABASES</span><span>SCRUM</span></div><a href="PTD1.html" target="_blank" class="project-link">OPEN CASE STUDY ↗</a></div>
+        </article>
+        <article class="project-card">
+          <div class="project-visual chetesai-visual"><div class="project-visual-overlay"><span>PROJECT // 002</span><strong>CHETESAÍ<br>FITNESS+</strong></div></div>
+          <div class="project-body"><div class="project-status">FULL-STACK PLATFORM · PRODUCTION</div><h3>Chetesaí Fitness+</h3><p>Plataforma integral de entrenamiento, nutrición, clientes, privacidad e inteligencia artificial construida como producto digital real.</p><div class="tech-row"><span>NEXT.JS</span><span>TYPESCRIPT</span><span>SUPABASE</span><span>VERCEL</span><span>AI</span></div><a href="https://www.chetesaifitness.com" target="_blank" rel="noopener" class="project-link">OPEN PLATFORM ↗</a></div>
+        </article>
       </div>
     </section>
 
-    <section id="contact" class="section"><div class="section-header"><div class="section-bar"></div><h2 class="section-title">Contacto</h2></div><div class="section-body single"><div class="contact-grid"><div><p>Mi objetivo profesional es incorporarme a un entorno tecnológico donde pueda seguir creciendo en desarrollo, soporte, administración de sistemas, redes, seguridad, datos y automatización.</p><p style="margin-top:.8rem">Busco oportunidades de colaboración y posiciones técnicas donde se valore la capacidad de aprendizaje, el criterio analítico y el compromiso con la calidad.</p></div><div><div class="contact-item"><div class="contact-label">Email</div><div>ramonalberto.curbalvega@gmail.com</div></div><div class="contact-item"><div class="contact-label">Teléfono</div><div><a href="tel:+34640724160">+34 640 724 160</a></div></div><div class="contact-item"><div class="contact-label">Ubicación</div><div>Puerto Cristo · Manacor · Islas Baleares</div></div></div></div></div><div class="footer">© Raymond – Portfolio de Informática y Desarrollo · 2026</div></section>
+    <section id="skills" class="module-section" data-index="03">
+      <div class="module-header"><span>03 / TECH STACK</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="skills-layout">
+        <div class="stack-radar" aria-hidden="true"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div><div class="radar-cross x"></div><div class="radar-cross y"></div><div class="radar-sweep"></div><div class="radar-core">STACK</div></div>
+        <div class="stack-list">
+          <article><span>01</span><div><h3>Programming</h3><p>Python · Java · HTML · CSS · JavaScript · PHP · ASP.NET</p></div><b>DEV</b></article>
+          <article><span>02</span><div><h3>Systems & Networks</h3><p>Linux · Windows · networking · virtualization · infrastructure</p></div><b>SYS</b></article>
+          <article><span>03</span><div><h3>Cybersecurity</h3><p>OT security · risk analysis · security planning · hardening principles</p></div><b>SEC</b></article>
+          <article><span>04</span><div><h3>Data & AI</h3><p>Power BI · Power Query · Power Pivot · applied AI · automation</p></div><b>DATA</b></article>
+          <article><span>05</span><div><h3>Project Delivery</h3><p>Scrum · Agile PM · technical documentation · delivery planning</p></div><b>OPS</b></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline" class="module-section" data-index="04">
+      <div class="module-header"><span>04 / PATH</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="module-intro"><p class="kicker">SYSTEM LOG</p><h2>Trayectoria de aprendizaje y transferencia profesional.</h2></div>
+      <div class="log-timeline">
+        <article><div class="log-time">2025—2026</div><div class="log-node"></div><div class="log-body"><span>LEVEL // ADVANCED</span><h3>Especialización técnica IT</h3><p>Redes, programación, ciberseguridad, IA, análisis de sistemas, competencias digitales y robótica.</p></div></article>
+        <article><div class="log-time">2024—2025</div><div class="log-node"></div><div class="log-body"><span>LEVEL // DEVELOPMENT</span><h3>Desarrollo y transformación digital</h3><p>PHP, ASP.NET, Power BI, digitalización, UX/UI y metodologías ágiles aplicadas a proyectos reales.</p></div></article>
+        <article><div class="log-time">2020—NOW</div><div class="log-node"></div><div class="log-body"><span>LEVEL // OPERATIONS</span><h3>Dirección y coordinación operativa</h3><p>Gestión de equipos, planificación, control operativo, resolución de incidencias y seguimiento de objetivos en entornos exigentes.</p></div></article>
+      </div>
+    </section>
+
+    <section id="certifications" class="module-section" data-index="05">
+      <div class="module-header"><span>05 / CERTIFICATIONS</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="cert-topline"><div><p class="kicker">VERIFIED LEARNING</p><h2>Formación técnica acreditada.</h2></div><div class="cert-stats"><span><b>17</b>credentials</span><span><b>3,215 h</b>training</span><span><b>30 ECTS</b>programs</span></div></div>
+      <p class="cert-intro">Filtra el registro por área. Los diplomas originales no se publican porque contienen datos personales; pueden facilitarse para procesos de selección o verificación profesional.</p>
+      <div class="cert-filters" id="certFilters" role="group" aria-label="Filtrar certificaciones">
+        <button class="cert-filter" data-filter="all" type="button">ALL</button>
+        <button class="cert-filter" data-filter="systems" type="button">SYSTEMS + SECURITY</button>
+        <button class="cert-filter" data-filter="development" type="button">DEVELOPMENT</button>
+        <button class="cert-filter" data-filter="data" type="button">DATA + AI</button>
+        <button class="cert-filter" data-filter="digital" type="button">DIGITAL</button>
+      </div>
+      <div class="cert-results" id="certResults"><div class="cert-grid" id="certGrid"></div></div>
+    </section>
+
+    <section id="contact" class="module-section" data-index="06">
+      <div class="module-header"><span>06 / CONTACT</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="contact-layout">
+        <div><p class="kicker">OPEN CHANNEL</p><h2>Disponible para oportunidades técnicas y proyectos.</h2><p class="contact-lede">Busco entornos donde desarrollo, sistemas, redes, seguridad, datos y automatización se conviertan en soluciones útiles y sostenibles.</p><a class="big-email" href="mailto:ramonalberto.curbalvega@gmail.com">ramonalberto.curbalvega@gmail.com ↗</a></div>
+        <div class="contact-terminal glass-card"><div class="terminal-dots"><i></i><i></i><i></i></div><p><span>$</span> location</p><strong>Porto Cristo · Manacor · Islas Baleares</strong><p><span>$</span> phone</p><strong><a href="tel:+34640724160">+34 640 724 160</a></strong><p><span>$</span> status</p><strong class="available">AVAILABLE_FOR_IT_OPPORTUNITIES</strong></div>
+      </div>
+      <footer>© 2026 Raymond Vega // Digital Systems Portfolio</footer>
+    </section>
   </main>
-</div>
-<script src="certifications.js"></script>
-<script src="portfolio.js"></script>
-<script src="hero-navigation.js"></script>
+
+  <div class="terminal-overlay" id="terminalOverlay" aria-hidden="true">
+    <div class="terminal-window" role="dialog" aria-modal="true" aria-label="Terminal interactivo">
+      <div class="terminal-bar"><span>raymond@portfolio:~</span><button type="button" id="terminalClose">CLOSE ×</button></div>
+      <div class="terminal-output" id="terminalOutput" aria-live="polite">
+        <p class="term-muted">Raymond Digital System Terminal v1.0</p>
+        <p>Type <b>help</b> to list available commands.</p>
+      </div>
+      <label class="terminal-input-row"><span>raymond@portfolio:~$</span><input id="terminalInput" autocomplete="off" spellcheck="false" aria-label="Comando de terminal"></label>
+    </div>
+  </div>
+
+  <script src="certifications.js"></script>
+  <script src="portfolio.js"></script>
 </body>
 </html>
