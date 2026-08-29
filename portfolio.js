@@ -10,6 +10,10 @@
   let autoTimer = null;
   let autoIndex = 0;
 
+  $$('a[href="Resumen_CV-2026.pdf"]').forEach(link => {
+    if (!link.hasAttribute('download')) link.href = 'cv.html';
+  });
+
   window.addEventListener('load', () => setTimeout(() => boot?.classList.add('done'), 900));
 
   function showView(id, scroll=true){
@@ -85,7 +89,7 @@
     certifications:()=>{showView('certifications');closeTerminal();return 'Opening credentials registry...'},
     contact:()=>{showView('contact');closeTerminal();return 'Opening contact channel...'},
     home:()=>{showView('hero');closeTerminal();return 'Returning to core...'},
-    cv:()=>{window.open('Resumen_CV-2026.pdf','_blank','noopener');return 'Opening CV document...'},
+    cv:()=>{window.open('cv.html','_blank','noopener');return 'Opening CV viewer...'},
     clear:()=>{if(output)output.innerHTML='';return ''}
   };
   input?.addEventListener('keydown',e=>{if(e.key!=='Enter')return;const value=input.value.trim().toLowerCase();if(!value)return;const line=document.createElement('p');line.innerHTML=`<span class="term-accent">raymond@portfolio:~$</span> ${value}`;output?.appendChild(line);const result=commands[value]?commands[value]():`Command not found: <b>${value}</b>. Type <b>help</b>.`;if(result){const reply=document.createElement('p');reply.innerHTML=result;output?.appendChild(reply)}input.value='';if(output)output.scrollTop=output.scrollHeight});
