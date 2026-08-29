@@ -4,6 +4,21 @@ const viewSections=sections.filter(section=>section.id!=='hero');
 const heroMenuLinks=[...document.querySelectorAll('.hero-menu-link[data-target]')];
 const dots=[...document.querySelectorAll('.side-dot[data-target]')];
 
+function ensureAboutBackground(){
+  const about=document.getElementById('about');
+  if(!about||about.querySelector('.about-pin-bg'))return;
+  const iframe=document.createElement('iframe');
+  iframe.className='about-pin-bg';
+  iframe.src='https://assets.pinterest.com/ext/embed.html?id=1135188649854476053';
+  iframe.title='Fondo visual tecnológico de la sección Sobre mí';
+  iframe.setAttribute('aria-hidden','true');
+  iframe.setAttribute('tabindex','-1');
+  iframe.setAttribute('loading','lazy');
+  iframe.setAttribute('frameborder','0');
+  iframe.setAttribute('scrolling','no');
+  about.prepend(iframe);
+}
+
 function ensureBackButtons(){
   viewSections.forEach(section=>{
     if(section.querySelector('.view-back'))return;
@@ -53,6 +68,7 @@ function showView(targetId,{scroll=true}={}){
   }
 }
 
+ensureAboutBackground();
 ensureBackButtons();
 heroMenuLinks.forEach(link=>link.addEventListener('click',()=>showView(link.dataset.target)));
 dots.forEach(dot=>dot.addEventListener('click',()=>showView(dot.dataset.target)));
