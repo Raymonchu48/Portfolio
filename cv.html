@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050806">
   <title>CV // Raymond Vega · Digital System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,13 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#050806;--panel:#0a100c;--line:rgba(167,184,106,.22);--olive:#a7b86a;--text:#f1f4ec;--muted:#879388;--mono:"IBM Plex Mono",monospace;--sans:"Inter",system-ui,sans-serif}
-    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--sans)}body{height:100vh;overflow:hidden;background:radial-gradient(circle at 50% 0,rgba(167,184,106,.08),transparent 30%),#050806}
-    .viewer{height:100vh;display:grid;grid-template-rows:68px 1fr}.bar{position:relative;z-index:3;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:0 20px;border-bottom:1px solid var(--line);background:rgba(5,8,6,.96);backdrop-filter:blur(14px);box-shadow:0 12px 35px rgba(0,0,0,.25)}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--sans)}body{background:radial-gradient(circle at 50% 0,rgba(167,184,106,.08),transparent 30%),#050806}
+    .viewer{min-height:100svh;display:grid;grid-template-rows:auto 1fr}.bar{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;min-height:68px;padding:calc(8px + env(safe-area-inset-top)) 20px 8px;border-bottom:1px solid var(--line);background:rgba(5,8,6,.96);backdrop-filter:blur(14px);box-shadow:0 12px 35px rgba(0,0,0,.25)}
     .back,.download{display:inline-flex;align-items:center;justify-content:center;width:max-content;min-height:38px;padding:0 13px;border:1px solid var(--line);font:500 .62rem var(--mono);letter-spacing:.09em;text-decoration:none;transition:.2s}.back{color:var(--text)}.download{justify-self:end;background:var(--olive);color:#090d09;border-color:var(--olive);font-weight:600}.back:hover{border-color:var(--olive);color:var(--olive);background:rgba(167,184,106,.06)}.download:hover{background:#bbc989}
     .identity{text-align:center;font-family:var(--mono)}.identity strong{display:block;font-size:.66rem;letter-spacing:.16em}.identity small{display:block;margin-top:3px;font-size:.49rem;letter-spacing:.12em;color:var(--muted)}
-    .frame-wrap{position:relative;min-height:0;padding:10px;background:linear-gradient(180deg,rgba(167,184,106,.03),transparent)}.frame-wrap:before{content:"DOCUMENT // RESUMEN_CV-2026.PDF";position:absolute;z-index:2;left:22px;top:17px;padding:6px 8px;background:rgba(5,8,6,.86);border:1px solid var(--line);font:500 .48rem var(--mono);letter-spacing:.08em;color:var(--olive);pointer-events:none}.pdf{display:block;width:100%;height:100%;border:1px solid var(--line);background:#111}
-    .fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;color:var(--muted);font-size:.85rem;z-index:-1}.fallback a{color:var(--olive)}
-    @media(max-width:620px){.viewer{grid-template-rows:64px 1fr}.bar{grid-template-columns:auto 1fr auto;padding:0 9px;gap:7px}.back,.download{min-height:36px;padding:0 9px;font-size:.52rem}.back span,.download span{display:none}.identity strong{font-size:.55rem}.identity small{font-size:.43rem}.frame-wrap{padding:5px}.frame-wrap:before{display:none}}
+    .document-shell{min-height:0;padding:14px;background:linear-gradient(180deg,rgba(167,184,106,.03),transparent)}.document-topline{max-width:1040px;margin:0 auto 10px;display:flex;align-items:center;justify-content:space-between;gap:12px;font:500 .49rem var(--mono);letter-spacing:.08em;color:var(--olive)}.document-topline span:last-child{color:var(--muted)}
+    .pdf-pages{max-width:1040px;margin:0 auto;display:grid;gap:14px}.pdf-page{position:relative;width:100%;background:#fff;border:1px solid var(--line);box-shadow:0 18px 48px rgba(0,0,0,.28);overflow:hidden}.pdf-page canvas{display:block;width:100%;height:auto}.page-number{position:absolute;right:8px;bottom:8px;padding:4px 6px;background:rgba(5,8,6,.82);color:var(--olive);border:1px solid var(--line);font:500 .45rem var(--mono);letter-spacing:.08em}
+    .loading,.fallback{max-width:1040px;margin:12vh auto 0;text-align:center;padding:28px;border:1px solid var(--line);background:rgba(10,16,12,.82);color:var(--muted);font-size:.84rem;line-height:1.7}.loading strong{display:block;color:var(--olive);font:500 .62rem var(--mono);letter-spacing:.13em;margin-bottom:8px}.fallback{display:none}.fallback a{color:var(--olive)}
+    @media(max-width:760px){.bar{grid-template-columns:auto 1fr auto;min-height:62px;padding-left:8px;padding-right:8px;gap:6px}.back,.download{min-height:36px;padding:0 9px;font-size:.51rem}.back span,.download span{display:none}.identity strong{font-size:.54rem;letter-spacing:.08em}.identity small{font-size:.41rem}.document-shell{padding:7px}.document-topline{font-size:.43rem}.pdf-pages{gap:8px}.loading,.fallback{margin-top:8vh;padding:20px 14px}}
   </style>
 </head>
 <body>
@@ -26,10 +27,65 @@
       <div class="identity"><strong>RAYMOND VEGA // CV VIEWER</strong><small>DIGITAL SYSTEM · DOCUMENT 01</small></div>
       <a class="download" href="Resumen_CV-2026.pdf" download="Raymond-Vega-CV-2026.pdf" aria-label="Descargar CV"><span>DESCARGAR CV</span> ↓</a>
     </header>
-    <main class="frame-wrap">
-      <div class="fallback">Tu navegador no puede mostrar el PDF integrado. <a href="Resumen_CV-2026.pdf" target="_blank" rel="noopener">Abrir documento</a></div>
-      <iframe class="pdf" src="Resumen_CV-2026.pdf#view=FitH" title="Currículum vitae de Raymond Vega"></iframe>
+    <main class="document-shell">
+      <div class="document-topline"><span>DOCUMENT // RESUMEN_CV-2026.PDF</span><span id="pageStatus">LOADING</span></div>
+      <div class="loading" id="loading"><strong>RENDERING DOCUMENT</strong>Preparando todas las páginas del CV para este dispositivo…</div>
+      <div class="fallback" id="fallback">No se ha podido cargar el visor integrado. <a href="Resumen_CV-2026.pdf" target="_blank" rel="noopener">Abrir PDF original</a></div>
+      <div class="pdf-pages" id="pdfPages" aria-label="Currículum vitae completo"></div>
     </main>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    (()=>{
+      const PDF_URL='Resumen_CV-2026.pdf';
+      const pagesEl=document.getElementById('pdfPages');
+      const loading=document.getElementById('loading');
+      const fallback=document.getElementById('fallback');
+      const status=document.getElementById('pageStatus');
+      let pdfDoc=null,renderToken=0,resizeTimer=null;
+
+      async function renderDocument(){
+        if(!pdfDoc)return;
+        const token=++renderToken;
+        pagesEl.innerHTML='';
+        loading.style.display='block';
+        fallback.style.display='none';
+        const available=Math.min(1040,Math.max(280,pagesEl.clientWidth||document.documentElement.clientWidth-14));
+        const dpr=Math.min(window.devicePixelRatio||1,2.25);
+        status.textContent=`${pdfDoc.numPages} PAGES`;
+        for(let n=1;n<=pdfDoc.numPages;n++){
+          if(token!==renderToken)return;
+          const page=await pdfDoc.getPage(n);
+          const base=page.getViewport({scale:1});
+          const cssScale=available/base.width;
+          const viewport=page.getViewport({scale:cssScale*dpr});
+          const wrap=document.createElement('section');
+          wrap.className='pdf-page';
+          const canvas=document.createElement('canvas');
+          canvas.width=Math.floor(viewport.width);canvas.height=Math.floor(viewport.height);
+          canvas.style.aspectRatio=`${base.width}/${base.height}`;
+          const badge=document.createElement('span');badge.className='page-number';badge.textContent=`${n}/${pdfDoc.numPages}`;
+          wrap.append(canvas,badge);pagesEl.appendChild(wrap);
+          const ctx=canvas.getContext('2d',{alpha:false});
+          await page.render({canvasContext:ctx,viewport}).promise;
+        }
+        if(token===renderToken)loading.style.display='none';
+      }
+
+      async function init(){
+        try{
+          if(!window.pdfjsLib)throw new Error('PDF.js unavailable');
+          pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          pdfDoc=await pdfjsLib.getDocument(PDF_URL).promise;
+          await renderDocument();
+        }catch(error){
+          loading.style.display='none';fallback.style.display='block';status.textContent='FALLBACK';console.error(error);
+        }
+      }
+
+      window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(renderDocument,220)});
+      init();
+    })();
+  </script>
 </body>
 </html>
