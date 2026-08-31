@@ -70,18 +70,53 @@
         <h1>TECHNOLOGY<br><span>AS A SYSTEM.</span></h1>
         <p class="hero-lede">Análisis de sistemas, desarrollo, redes, ciberseguridad, datos e inteligencia artificial conectados en una sola arquitectura profesional.</p>
 
-        <div class="core-stage" id="coreStage" aria-label="Núcleo digital interactivo">
-          <div class="orbit orbit-a"></div>
-          <div class="orbit orbit-b"></div>
-          <div class="orbit orbit-c"></div>
-          <div class="core-glow"></div>
-          <div class="core-sphere"><span>RV</span><small>CORE</small></div>
-          <button class="node node-ai nav-trigger" data-target="skills" type="button"><span>AI</span></button>
-          <button class="node node-cyber nav-trigger" data-target="skills" type="button"><span>CYBER</span></button>
-          <button class="node node-dev nav-trigger" data-target="projects" type="button"><span>DEV</span></button>
-          <button class="node node-net nav-trigger" data-target="skills" type="button"><span>NETWORK</span></button>
-          <button class="node node-data nav-trigger" data-target="skills" type="button"><span>DATA</span></button>
-          <button class="node node-sys nav-trigger" data-target="about" type="button"><span>SYSTEMS</span></button>
+        <div class="core-stage" id="coreStage" aria-label="Cluster informático interactivo">
+          <div class="cluster-frame" aria-hidden="true">
+            <span class="frame-corner corner-tl"></span><span class="frame-corner corner-tr"></span>
+            <span class="frame-corner corner-bl"></span><span class="frame-corner corner-br"></span>
+            <div class="frame-axis axis-x"></div><div class="frame-axis axis-y"></div>
+          </div>
+
+          <div class="cluster-meta cluster-meta-top">
+            <span>RV.OS // NEXUS</span><b>PERSONAL IT CLUSTER</b><i>BUILD 3.1</i>
+          </div>
+          <div class="cluster-meta cluster-meta-left" aria-hidden="true">
+            <span>ENCRYPTED CHANNEL</span><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="cluster-meta cluster-meta-right" aria-hidden="true">
+            <span>NODE SIGNAL</span><b>98.7</b><small>%</small>
+          </div>
+
+          <div class="core-glow" aria-hidden="true"></div>
+          <div class="orbit orbit-a" aria-hidden="true"></div>
+          <div class="orbit orbit-b" aria-hidden="true"></div>
+          <div class="orbit orbit-c" aria-hidden="true"></div>
+          <div class="orbit-ticks" aria-hidden="true"></div>
+          <div class="core-sweep" aria-hidden="true"></div>
+
+          <button class="core-sphere" id="coreCommand" data-action="terminal" type="button" aria-label="Abrir terminal del sistema">
+            <span class="core-code">RV</span>
+            <strong>86<sup>%</sup></strong>
+            <small>CORE SYNC</small>
+            <i>OPEN TERMINAL</i>
+          </button>
+
+          <button class="node node-ai nav-trigger active" data-target="skills" data-code="01" data-title="ARTIFICIAL INTELLIGENCE" data-copy="IA aplicada, automatización y soluciones asistidas por modelos." type="button"><small>01</small><span>AI</span><b>INTELLIGENCE</b></button>
+          <button class="node node-cyber nav-trigger" data-target="skills" data-code="02" data-title="CYBERSECURITY" data-copy="Seguridad, análisis de riesgos, hardening y protección de sistemas." type="button"><small>02</small><span>CYBER</span><b>SECURITY</b></button>
+          <button class="node node-dev nav-trigger" data-target="projects" data-code="03" data-title="DEVELOPMENT" data-copy="Python, Java, JavaScript, PHP y productos digitales desplegados." type="button"><small>03</small><span>DEV</span><b>BUILD</b></button>
+          <button class="node node-sys nav-trigger" data-target="about" data-code="04" data-title="SYSTEMS ANALYSIS" data-copy="Arquitectura, procesos, requisitos y visión integral del sistema." type="button"><small>04</small><span>SYSTEMS</span><b>ANALYSIS</b></button>
+          <button class="node node-net nav-trigger" data-target="skills" data-code="05" data-title="NETWORKS" data-copy="Redes departamentales, infraestructura, virtualización y servicios." type="button"><small>05</small><span>NETWORK</span><b>ACTIVE</b></button>
+          <button class="node node-data nav-trigger" data-target="skills" data-code="06" data-title="DATA SYSTEMS" data-copy="Power BI, modelado, análisis y transformación de datos en decisiones." type="button"><small>06</small><span>DATA</span><b>INSIGHT</b></button>
+
+          <div class="core-readout" id="coreReadout" aria-live="polite">
+            <span>SELECTED NODE // <b id="coreReadoutCode">01</b></span>
+            <strong id="coreReadoutTitle">ARTIFICIAL INTELLIGENCE</strong>
+            <p id="coreReadoutCopy">IA aplicada, automatización y soluciones asistidas por modelos.</p>
+          </div>
+
+          <div class="cluster-meta cluster-meta-bottom" aria-hidden="true">
+            <span>06 CONNECTED MODULES</span><i></i><b>SECURE</b><em>RUNTIME READY</em>
+          </div>
         </div>
       </div>
 
