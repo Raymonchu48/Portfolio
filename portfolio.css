@@ -274,3 +274,19 @@ body:before{background:radial-gradient(circle at 50% 20%,rgba(255,255,255,.96),t
 .cert-card{background:rgba(255,253,248,.92);box-shadow:0 10px 28px rgba(55,66,63,.055)}.cert-card:hover{background:#fff}.cert-filter{color:#547176}.cert-filter:hover,.cert-filter.active{color:#f7ffff}
 .terminal-dots i{background:#98aaa6}.contact-terminal strong{color:#29484d}footer{color:#6b7f82}
 @media(max-width:980px){.rail{background:rgba(250,248,242,.94);box-shadow:0 12px 35px rgba(42,58,56,.12)}}
+
+/* CONTROL ROUTING + MOBILE MOTION */
+body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readout,body.hud-off .orbit-ticks{opacity:0;visibility:hidden}
+.cluster-meta,.cluster-frame,.core-readout,.orbit-ticks{transition:opacity .3s ease,visibility .3s ease}
+.node,.core-sphere{touch-action:manipulation}
+.stack-list article{transition:background .3s ease,box-shadow .3s ease,border-color .3s ease,transform .3s ease}
+.stack-list article.is-focused{background:linear-gradient(90deg,rgba(0,119,125,.12),rgba(255,253,248,.4));box-shadow:inset 3px 0 0 var(--olive),0 12px 30px rgba(0,119,125,.08);transform:translateX(5px)}
+@media(max-width:640px){
+  .core-sphere{animation:mobileCoreSignal 2.8s ease-in-out infinite}
+  .frame-corner{animation:mobileHudBlink 3.4s ease-in-out infinite alternate}
+  .node.active{animation:mobileNodeSignal 1.9s ease-in-out infinite}
+  .core-stage.is-touching{filter:drop-shadow(0 22px 38px rgba(0,119,125,.22))}
+}
+@keyframes mobileCoreSignal{50%{box-shadow:0 0 42px rgba(0,119,125,.34),inset 0 0 34px rgba(66,207,201,.2),0 0 0 14px rgba(0,119,125,.055)}}
+@keyframes mobileHudBlink{50%{opacity:.52}}
+@keyframes mobileNodeSignal{50%{filter:brightness(1.08);box-shadow:inset 3px 0 0 var(--olive),0 0 30px rgba(0,119,125,.22)}}

@@ -101,12 +101,12 @@
             <i>OPEN TERMINAL</i>
           </button>
 
-          <button class="node node-ai nav-trigger active" data-target="skills" data-code="01" data-title="ARTIFICIAL INTELLIGENCE" data-copy="IA aplicada, automatización y soluciones asistidas por modelos." type="button"><small>01</small><span>AI</span><b>INTELLIGENCE</b></button>
-          <button class="node node-cyber nav-trigger" data-target="skills" data-code="02" data-title="CYBERSECURITY" data-copy="Seguridad, análisis de riesgos, hardening y protección de sistemas." type="button"><small>02</small><span>CYBER</span><b>SECURITY</b></button>
+          <button class="node node-ai nav-trigger active" data-target="skills" data-focus="stack-ai" data-code="01" data-title="ARTIFICIAL INTELLIGENCE" data-copy="IA aplicada, automatización y soluciones asistidas por modelos." type="button"><small>01</small><span>AI</span><b>INTELLIGENCE</b></button>
+          <button class="node node-cyber nav-trigger" data-target="skills" data-focus="stack-cyber" data-code="02" data-title="CYBERSECURITY" data-copy="Seguridad, análisis de riesgos, hardening y protección de sistemas." type="button"><small>02</small><span>CYBER</span><b>SECURITY</b></button>
           <button class="node node-dev nav-trigger" data-target="projects" data-code="03" data-title="DEVELOPMENT" data-copy="Python, Java, JavaScript, PHP y productos digitales desplegados." type="button"><small>03</small><span>DEV</span><b>BUILD</b></button>
-          <button class="node node-sys nav-trigger" data-target="about" data-code="04" data-title="SYSTEMS ANALYSIS" data-copy="Arquitectura, procesos, requisitos y visión integral del sistema." type="button"><small>04</small><span>SYSTEMS</span><b>ANALYSIS</b></button>
-          <button class="node node-net nav-trigger" data-target="skills" data-code="05" data-title="NETWORKS" data-copy="Redes departamentales, infraestructura, virtualización y servicios." type="button"><small>05</small><span>NETWORK</span><b>ACTIVE</b></button>
-          <button class="node node-data nav-trigger" data-target="skills" data-code="06" data-title="DATA SYSTEMS" data-copy="Power BI, modelado, análisis y transformación de datos en decisiones." type="button"><small>06</small><span>DATA</span><b>INSIGHT</b></button>
+          <button class="node node-sys nav-trigger" data-target="skills" data-focus="stack-systems" data-code="04" data-title="SYSTEMS ANALYSIS" data-copy="Arquitectura, procesos, requisitos y visión integral del sistema." type="button"><small>04</small><span>SYSTEMS</span><b>ANALYSIS</b></button>
+          <button class="node node-net nav-trigger" data-target="skills" data-focus="stack-systems" data-code="05" data-title="NETWORKS" data-copy="Redes departamentales, infraestructura, virtualización y servicios." type="button"><small>05</small><span>NETWORK</span><b>ACTIVE</b></button>
+          <button class="node node-data nav-trigger" data-target="skills" data-focus="stack-ai" data-code="06" data-title="DATA SYSTEMS" data-copy="Power BI, modelado, análisis y transformación de datos en decisiones." type="button"><small>06</small><span>DATA</span><b>INSIGHT</b></button>
 
           <div class="core-readout" id="coreReadout" aria-live="polite">
             <span>SELECTED NODE // <b id="coreReadoutCode">01</b></span>
@@ -135,10 +135,10 @@
       <div class="hero-bottom">
         <div class="sequence-label">SYSTEM CONTROL</div>
         <div class="mode-switcher" role="group" aria-label="Controles de experiencia">
-          <button type="button" data-action="auto"><span>◉</span>AUTO</button>
+          <button type="button" data-action="auto" aria-pressed="false"><span>◉</span>AUTO</button>
           <button type="button" data-action="explore"><span>⌁</span>EXPLORE</button>
           <button type="button" data-action="terminal"><span>&gt;_</span>TERMINAL</button>
-          <button type="button" data-action="hud"><span>⌗</span>HUD</button>
+          <button type="button" data-action="hud" class="active" aria-pressed="true"><span>⌗</span>HUD</button>
         </div>
         <p>DRAG CORE · SCROLL EXPLORE · T TERMINAL · H HUD</p>
       </div>
@@ -184,10 +184,10 @@
       <div class="skills-layout">
         <div class="stack-radar" aria-hidden="true"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div><div class="radar-cross x"></div><div class="radar-cross y"></div><div class="radar-sweep"></div><div class="radar-core">STACK</div></div>
         <div class="stack-list">
-          <article><span>01</span><div><h3>Programming</h3><p>Python · Java · HTML · CSS · JavaScript · PHP · ASP.NET</p></div><b>DEV</b></article>
-          <article><span>02</span><div><h3>Systems & Networks</h3><p>Linux · Windows · networking · virtualization · infrastructure</p></div><b>SYS</b></article>
-          <article><span>03</span><div><h3>Cybersecurity</h3><p>OT security · risk analysis · security planning · hardening principles</p></div><b>SEC</b></article>
-          <article><span>04</span><div><h3>Data & AI</h3><p>Power BI · Power Query · Power Pivot · applied AI · automation</p></div><b>DATA</b></article>
+          <article id="stack-dev"><span>01</span><div><h3>Programming</h3><p>Python · Java · HTML · CSS · JavaScript · PHP · ASP.NET</p></div><b>DEV</b></article>
+          <article id="stack-systems"><span>02</span><div><h3>Systems & Networks</h3><p>Linux · Windows · networking · virtualization · infrastructure</p></div><b>SYS</b></article>
+          <article id="stack-cyber"><span>03</span><div><h3>Cybersecurity</h3><p>OT security · risk analysis · security planning · hardening principles</p></div><b>SEC</b></article>
+          <article id="stack-ai"><span>04</span><div><h3>Data & AI</h3><p>Power BI · Power Query · Power Pivot · applied AI · automation</p></div><b>DATA</b></article>
           <article><span>05</span><div><h3>Project Delivery</h3><p>Scrum · Agile PM · technical documentation · delivery planning</p></div><b>OPS</b></article>
         </div>
       </div>

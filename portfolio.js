@@ -16,7 +16,7 @@
 
   window.addEventListener('load', () => setTimeout(() => boot?.classList.add('done'), 900));
 
-  function showView(id, scroll=true){
+  function showView(id, scroll=true, focusId=''){
     const target = document.getElementById(id) || document.getElementById('hero');
     sections.forEach(sectionId => {
       const el = document.getElementById(sectionId);
@@ -26,9 +26,20 @@
     });
     railItems.forEach(item => item.classList.toggle('active', item.dataset.target === target.id));
     if (scroll) requestAnimationFrame(() => target.scrollIntoView({behavior:'smooth',block:'start'}));
+    $$('.stack-list article').forEach(item => item.classList.remove('is-focused'));
+    if(focusId){
+      const focused=document.getElementById(focusId);
+      if(focused){
+        focused.classList.add('is-focused');
+        setTimeout(()=>focused.scrollIntoView({behavior:'smooth',block:'center'}),220);
+      }
+    }
     if (target.id === 'certifications') activateCertFilter('all');
   }
-  navTriggers.forEach(btn => btn.addEventListener('click', () => showView(btn.dataset.target)));
+  navTriggers.forEach(btn => btn.addEventListener('click', () => {
+    stopAuto();
+    showView(btn.dataset.target,true,btn.dataset.focus||'');
+  }));
 
   function tickClock(){
     const now = new Date();
@@ -80,17 +91,20 @@
   if(coreStage&&sphere){
     let dragging=false,rx=0,ry=0,lastX=0,lastY=0,lastFrame=performance.now();
     const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarsePointer=matchMedia('(pointer:coarse)').matches;
     const apply=()=>{
       coreStage.style.transform=`rotateX(${ry}deg) rotateY(${rx}deg)`;
       sphere.style.transform='translate(-50%,-50%)';
     };
     const endDrag=e=>{
       dragging=false;
+      coreStage.classList.remove('is-touching');
       if(e?.pointerId!==undefined&&coreStage.hasPointerCapture?.(e.pointerId))coreStage.releasePointerCapture(e.pointerId);
     };
     coreStage.addEventListener('pointerdown',e=>{
       if(e.target.closest('button,a'))return;
       dragging=true;lastX=e.clientX;lastY=e.clientY;
+      coreStage.classList.add('is-touching');
       coreStage.setPointerCapture?.(e.pointerId);
     });
     coreStage.addEventListener('pointermove',e=>{
@@ -103,7 +117,7 @@
     });
     coreStage.addEventListener('pointerup',endDrag);
     coreStage.addEventListener('pointercancel',endDrag);
-    coreStage.addEventListener('lostpointercapture',()=>dragging=false);
+    coreStage.addEventListener('lostpointercapture',()=>{dragging=false;coreStage.classList.remove('is-touching')});
     if(matchMedia('(pointer:fine)').matches){
       coreStage.addEventListener('mousemove',e=>{
         if(dragging)return;
@@ -116,8 +130,13 @@
     function animateCore(now){
       const dt=Math.min(40,now-lastFrame);lastFrame=now;
       if(!dragging&&!reducedMotion&&document.getElementById('hero')?.classList.contains('view-active')){
-        rx*=Math.pow(.992,dt/16);
-        ry*=Math.pow(.992,dt/16);
+        if(coarsePointer){
+          rx=Math.sin(now*.00055)*1.65;
+          ry=Math.cos(now*.00043)*1.05;
+        }else{
+          rx*=Math.pow(.992,dt/16);
+          ry*=Math.pow(.992,dt/16);
+        }
         apply();
       }
       requestAnimationFrame(animateCore);
@@ -151,9 +170,15 @@
   };
   input?.addEventListener('keydown',e=>{if(e.key!=='Enter')return;const value=input.value.trim().toLowerCase();if(!value)return;const line=document.createElement('p');line.innerHTML=`<span class="term-accent">raymond@portfolio:~$</span> ${value}`;output?.appendChild(line);const result=commands[value]?commands[value]():`Command not found: <b>${value}</b>. Type <b>help</b>.`;if(result){const reply=document.createElement('p');reply.innerHTML=result;output?.appendChild(reply)}input.value='';if(output)output.scrollTop=output.scrollHeight});
 
-  function toggleHud(){document.body.classList.toggle('hud-off');const btn=$('[data-action="hud"]');btn?.classList.toggle('active',document.body.classList.contains('hud-off')===false)}
-  function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}$('[data-action="auto"]')?.classList.remove('active')}
-  function startAuto(){if(autoTimer){stopAuto();return}const seq=['about','projects','skills','certifications','contact','hero'];$('[data-action="auto"]')?.classList.add('active');autoIndex=0;showView(seq[autoIndex]);autoTimer=setInterval(()=>{autoIndex=(autoIndex+1)%seq.length;showView(seq[autoIndex]);if(seq[autoIndex]==='hero')stopAuto()},5200)}
+  function toggleHud(){document.body.classList.toggle('hud-off');const btn=$('[data-action="hud"]');const enabled=!document.body.classList.contains('hud-off');btn?.classList.toggle('active',enabled);btn?.setAttribute('aria-pressed',String(enabled))}
+  function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}const btn=$('[data-action="auto"]');btn?.classList.remove('active');btn?.setAttribute('aria-pressed','false')}
+  function startAuto(){
+    if(autoTimer){stopAuto();return}
+    showView('hero');
+    const btn=$('[data-action="auto"]');btn?.classList.add('active');btn?.setAttribute('aria-pressed','true');
+    autoIndex=0;selectCoreNode(coreNodes[autoIndex]);
+    autoTimer=setInterval(()=>{autoIndex=(autoIndex+1)%coreNodes.length;selectCoreNode(coreNodes[autoIndex])},2400);
+  }
   $$('[data-action]').forEach(btn=>btn.addEventListener('click',()=>{const a=btn.dataset.action;if(a==='terminal')openTerminal();if(a==='hud')toggleHud();if(a==='explore')showView('about');if(a==='auto')startAuto()}));
 
   addEventListener('keydown',e=>{
