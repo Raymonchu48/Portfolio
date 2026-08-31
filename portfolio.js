@@ -58,14 +58,49 @@
   }
 
   const coreStage=$('#coreStage'), sphere=$('.core-sphere');
-  if(coreStage&&sphere&&matchMedia('(pointer:fine)').matches){
-    let dragging=false,rx=0,ry=0,lastX=0,lastY=0;
-    const apply=()=>{coreStage.style.transform=`rotateX(${ry}deg) rotateY(${rx}deg)`;sphere.style.transform=`translate(-50%,-50%) rotateY(${-rx*.4}deg) rotateX(${-ry*.4}deg)`};
-    coreStage.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;coreStage.setPointerCapture(e.pointerId)});
-    coreStage.addEventListener('pointermove',e=>{if(!dragging)return;rx+=(e.clientX-lastX)*.15;ry-=(e.clientY-lastY)*.12;ry=Math.max(-12,Math.min(12,ry));lastX=e.clientX;lastY=e.clientY;apply()});
-    coreStage.addEventListener('pointerup',()=>dragging=false);coreStage.addEventListener('pointercancel',()=>dragging=false);
-    coreStage.addEventListener('mousemove',e=>{if(dragging)return;const r=coreStage.getBoundingClientRect();rx=((e.clientX-r.left)/r.width-.5)*8;ry=-((e.clientY-r.top)/r.height-.5)*8;apply()});
-    coreStage.addEventListener('mouseleave',()=>{if(!dragging){rx=0;ry=0;apply()}});
+  if(coreStage&&sphere){
+    let dragging=false,rx=0,ry=0,idleYaw=0,lastX=0,lastY=0,lastFrame=performance.now();
+    const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const apply=()=>{
+      coreStage.style.transform=`rotateX(${ry}deg) rotateY(${rx+idleYaw}deg)`;
+      sphere.style.transform=`translate(-50%,-50%) rotateY(${-(rx+idleYaw)*.4}deg) rotateX(${-ry*.4}deg)`;
+    };
+    const endDrag=e=>{
+      dragging=false;
+      if(e?.pointerId!==undefined&&coreStage.hasPointerCapture?.(e.pointerId))coreStage.releasePointerCapture(e.pointerId);
+    };
+    coreStage.addEventListener('pointerdown',e=>{
+      if(e.target.closest('.node'))return;
+      dragging=true;lastX=e.clientX;lastY=e.clientY;
+      coreStage.setPointerCapture?.(e.pointerId);
+    });
+    coreStage.addEventListener('pointermove',e=>{
+      if(!dragging)return;
+      rx+=(e.clientX-lastX)*.22;
+      ry-=(e.clientY-lastY)*.16;
+      ry=Math.max(-18,Math.min(18,ry));
+      lastX=e.clientX;lastY=e.clientY;apply();
+    });
+    coreStage.addEventListener('pointerup',endDrag);
+    coreStage.addEventListener('pointercancel',endDrag);
+    coreStage.addEventListener('lostpointercapture',()=>dragging=false);
+    if(matchMedia('(pointer:fine)').matches){
+      coreStage.addEventListener('mousemove',e=>{
+        if(dragging)return;
+        const r=coreStage.getBoundingClientRect();
+        ry=-((e.clientY-r.top)/r.height-.5)*7;
+      });
+      coreStage.addEventListener('mouseleave',()=>{if(!dragging)ry=0});
+    }
+    function animateCore(now){
+      const dt=Math.min(40,now-lastFrame);lastFrame=now;
+      if(!dragging&&!reducedMotion&&document.getElementById('hero')?.classList.contains('view-active')){
+        idleYaw=(idleYaw+dt*.006)%360;
+        apply();
+      }
+      requestAnimationFrame(animateCore);
+    }
+    apply();requestAnimationFrame(animateCore);
   }
 
   function activateCertFilter(filter){
