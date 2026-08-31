@@ -9,6 +9,7 @@
   const startTime = performance.now();
   let autoTimer = null;
   let autoIndex = 0;
+  let forceClusterMotion = false;
 
   $$('a[href="Resumen_CV-2026.pdf"]').forEach(link => {
     if (!link.hasAttribute('download')) link.href = 'cv.html';
@@ -92,9 +93,21 @@
     let dragging=false,rx=0,ry=0,lastX=0,lastY=0,lastFrame=performance.now();
     const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
     const coarsePointer=matchMedia('(pointer:coarse)').matches;
-    const apply=()=>{
+    const orbitA=$('.orbit-a',coreStage),orbitB=$('.orbit-b',coreStage),orbitC=$('.orbit-c',coreStage);
+    const orbitTicks=$('.orbit-ticks',coreStage),coreSweep=$('.core-sweep',coreStage);
+    coreStage.classList.add('motion-driven');
+    const apply=(pulse=1)=>{
       coreStage.style.transform=`rotateX(${ry}deg) rotateY(${rx}deg)`;
-      sphere.style.transform='translate(-50%,-50%)';
+      sphere.style.transform=`translate(-50%,-50%) scale(${pulse})`;
+    };
+    const applyOrbitalMotion=now=>{
+      const a=(now*.03)%360,b=(-now*.015)%360,c=(now*.0095)%360;
+      const ticks=(now*.0065)%360,sweep=(now*.06)%360;
+      if(orbitA)orbitA.style.transform=`translate(-50%,-50%) rotate(${a}deg)`;
+      if(orbitB)orbitB.style.transform=`translate(-50%,-50%) rotate(${b}deg)`;
+      if(orbitC)orbitC.style.transform=`translate(-50%,-50%) rotate(${c}deg)`;
+      if(orbitTicks)orbitTicks.style.transform=`translate(-50%,-50%) rotate(${ticks}deg)`;
+      if(coreSweep)coreSweep.style.transform=`rotate(${sweep}deg)`;
     };
     const endDrag=e=>{
       dragging=false;
@@ -129,15 +142,20 @@
     }
     function animateCore(now){
       const dt=Math.min(40,now-lastFrame);lastFrame=now;
-      if(!dragging&&!reducedMotion&&document.getElementById('hero')?.classList.contains('view-active')){
-        if(coarsePointer){
-          rx=Math.sin(now*.00055)*1.65;
-          ry=Math.cos(now*.00043)*1.05;
-        }else{
-          rx*=Math.pow(.992,dt/16);
-          ry*=Math.pow(.992,dt/16);
+      const motionEnabled=!reducedMotion||forceClusterMotion;
+      const heroActive=document.getElementById('hero')?.classList.contains('view-active');
+      if(heroActive&&motionEnabled){
+        applyOrbitalMotion(now);
+        if(!dragging){
+          if(coarsePointer){
+            rx=Math.sin(now*.00055)*1.65;
+            ry=Math.cos(now*.00043)*1.05;
+          }else{
+            rx*=Math.pow(.992,dt/16);
+            ry*=Math.pow(.992,dt/16);
+          }
+          apply(1+Math.sin(now*.0022)*.018);
         }
-        apply();
       }
       requestAnimationFrame(animateCore);
     }
@@ -171,10 +189,11 @@
   input?.addEventListener('keydown',e=>{if(e.key!=='Enter')return;const value=input.value.trim().toLowerCase();if(!value)return;const line=document.createElement('p');line.innerHTML=`<span class="term-accent">raymond@portfolio:~$</span> ${value}`;output?.appendChild(line);const result=commands[value]?commands[value]():`Command not found: <b>${value}</b>. Type <b>help</b>.`;if(result){const reply=document.createElement('p');reply.innerHTML=result;output?.appendChild(reply)}input.value='';if(output)output.scrollTop=output.scrollHeight});
 
   function toggleHud(){document.body.classList.toggle('hud-off');const btn=$('[data-action="hud"]');const enabled=!document.body.classList.contains('hud-off');btn?.classList.toggle('active',enabled);btn?.setAttribute('aria-pressed',String(enabled))}
-  function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}const btn=$('[data-action="auto"]');btn?.classList.remove('active');btn?.setAttribute('aria-pressed','false')}
+  function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}forceClusterMotion=false;const btn=$('[data-action="auto"]');btn?.classList.remove('active');btn?.setAttribute('aria-pressed','false')}
   function startAuto(){
     if(autoTimer){stopAuto();return}
     showView('hero');
+    forceClusterMotion=true;
     const btn=$('[data-action="auto"]');btn?.classList.add('active');btn?.setAttribute('aria-pressed','true');
     autoIndex=0;selectCoreNode(coreNodes[autoIndex]);
     autoTimer=setInterval(()=>{autoIndex=(autoIndex+1)%coreNodes.length;selectCoreNode(coreNodes[autoIndex])},2400);
