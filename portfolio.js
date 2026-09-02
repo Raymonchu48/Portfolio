@@ -10,6 +10,8 @@
   let autoTimer = null;
   let autoIndex = 0;
   let forceClusterMotion = false;
+  let coreTransitionActive = false;
+  let coreTransitionTimers = [];
 
   $$('a[href="Resumen_CV-2026.pdf"]').forEach(link => {
     if (!link.hasAttribute('download')) link.href = 'cv.html';
@@ -38,6 +40,7 @@
     if (target.id === 'certifications') activateCertFilter('all');
   }
   navTriggers.forEach(btn => btn.addEventListener('click', () => {
+    if(btn.matches('.core-stage .node'))return;
     stopAuto();
     showView(btn.dataset.target,true,btn.dataset.focus||'');
   }));
@@ -69,9 +72,36 @@
     resize();draw();addEventListener('resize',resize);
   }
 
+  const coreStage=$('#coreStage'),sphere=$('.core-sphere');
   const coreNodes=$$('.core-stage .node');
   const readout=$('#coreReadout');
-  function selectCoreNode(node){
+  const coreFocus=$('#coreFocus');
+  const nodeAngles={'01':-90,'02':-30,'03':30,'04':90,'05':150,'06':210};
+  const queueCoreTransition=(callback,delay)=>{
+    const timer=setTimeout(callback,delay);
+    coreTransitionTimers.push(timer);
+    return timer;
+  };
+  function clearCoreTransition(resetRing=true){
+    coreTransitionTimers.forEach(clearTimeout);
+    coreTransitionTimers=[];
+    coreTransitionActive=false;
+    coreStage?.classList.remove('is-routing','is-detail','is-terminal-route');
+    coreStage?.removeAttribute('aria-busy');
+    coreFocus?.setAttribute('aria-hidden','true');
+    if(resetRing)coreStage?.style.setProperty('--ring-offset','0deg');
+  }
+  function updateCoreFocus(node){
+    const code=$('#coreFocusCode'),title=$('#coreFocusTitle'),copy=$('#coreFocusCopy');
+    if(code)code.textContent=node?.dataset.code||'00';
+    if(title)title.textContent=node?.dataset.title||'SYSTEM TERMINAL';
+    if(copy)copy.textContent=node?.dataset.copy||'Canal de comandos y navegación técnica del portfolio.';
+  }
+  function rotateNodeToGateway(node){
+    const angle=nodeAngles[node?.dataset.code];
+    if(Number.isFinite(angle))coreStage?.style.setProperty('--ring-offset',`${-angle}deg`);
+  }
+  function selectCoreNode(node,rotate=true){
     if(!node)return;
     coreNodes.forEach(item=>item.classList.toggle('active',item===node));
     const code=$('#coreReadoutCode'),title=$('#coreReadoutTitle'),copy=$('#coreReadoutCopy');
@@ -81,33 +111,94 @@
     readout?.classList.remove('is-changing');
     void readout?.offsetWidth;
     readout?.classList.add('is-changing');
+    updateCoreFocus(node);
+    if(rotate)rotateNodeToGateway(node);
+  }
+  function previewCoreNode(node){
+    if(!coreStage||!node)return;
+    clearCoreTransition(false);
+    selectCoreNode(node);
+    coreTransitionActive=true;
+    coreStage.setAttribute('aria-busy','true');
+    coreStage.classList.add('is-routing');
+    queueCoreTransition(()=>{
+      coreStage.classList.add('is-detail');
+      coreFocus?.setAttribute('aria-hidden','false');
+    },420);
+    queueCoreTransition(()=>{
+      coreStage.classList.remove('is-detail');
+      coreFocus?.setAttribute('aria-hidden','true');
+    },1900);
+    queueCoreTransition(()=>clearCoreTransition(false),2600);
+  }
+  function openCoreNode(node){
+    if(!coreStage||!node||coreTransitionActive)return;
+    stopAuto();
+    selectCoreNode(node);
+    coreTransitionActive=true;
+    coreStage.setAttribute('aria-busy','true');
+    coreStage.classList.add('is-routing');
+    queueCoreTransition(()=>{
+      coreStage.classList.add('is-detail');
+      coreFocus?.setAttribute('aria-hidden','false');
+    },360);
+    queueCoreTransition(()=>{
+      const target=node.dataset.target;
+      const focus=node.dataset.focus||'';
+      clearCoreTransition();
+      showView(target,true,focus);
+    },1120);
+  }
+  function openCoreTerminal(){
+    if(!coreStage||coreTransitionActive){stopAuto();openTerminal();return}
+    stopAuto();
+    updateCoreFocus(null);
+    const focusCode=$('#coreFocusCode');if(focusCode)focusCode.textContent='00';
+    coreTransitionActive=true;
+    coreStage.setAttribute('aria-busy','true');
+    coreStage.classList.add('is-routing','is-terminal-route');
+    queueCoreTransition(()=>{
+      coreStage.classList.add('is-detail');
+      coreFocus?.setAttribute('aria-hidden','false');
+    },320);
+    queueCoreTransition(()=>{
+      clearCoreTransition();
+      openTerminal();
+    },960);
   }
   coreNodes.forEach(node=>{
-    node.addEventListener('pointerenter',()=>selectCoreNode(node));
-    node.addEventListener('focus',()=>selectCoreNode(node));
-    node.addEventListener('pointerdown',()=>selectCoreNode(node));
+    node.addEventListener('pointerenter',()=>{if(!coreTransitionActive)selectCoreNode(node,false)});
+    node.addEventListener('focus',()=>{if(!coreTransitionActive)selectCoreNode(node)});
+    node.addEventListener('pointerdown',()=>{if(!coreTransitionActive)selectCoreNode(node)});
+    node.addEventListener('click',event=>{event.preventDefault();openCoreNode(node)});
   });
 
-  const coreStage=$('#coreStage'), sphere=$('.core-sphere');
   if(coreStage&&sphere){
-    let dragging=false,rx=0,ry=0,lastX=0,lastY=0,lastFrame=performance.now();
+    let dragging=false,rx=0,ry=0,lastX=0,lastY=0,lastFrame=performance.now(),routeProgress=0;
     const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
     const coarsePointer=matchMedia('(pointer:coarse)').matches;
     const orbitA=$('.orbit-a',coreStage),orbitB=$('.orbit-b',coreStage),orbitC=$('.orbit-c',coreStage);
     const orbitTicks=$('.orbit-ticks',coreStage),coreSweep=$('.core-sweep',coreStage);
+    const gearOuter=$('.core-gear-outer',coreStage),gearMiddle=$('.core-gear-middle',coreStage),gearInner=$('.core-gear-inner',coreStage);
     coreStage.classList.add('motion-driven');
     const apply=(pulse=1)=>{
       coreStage.style.transform=`rotateX(${ry}deg) rotateY(${rx}deg)`;
-      sphere.style.transform=`translate(-50%,-50%) scale(${pulse})`;
+      const routeScale=1-routeProgress*.84;
+      sphere.style.transform=`translate(-50%,-50%) rotate(${routeProgress*82}deg) scale(${pulse*routeScale})`;
+      sphere.style.opacity=String(1-routeProgress*.94);
     };
     const applyOrbitalMotion=now=>{
       const a=(now*.03)%360,b=(-now*.015)%360,c=(now*.0095)%360;
       const ticks=(now*.0065)%360,sweep=(now*.06)%360;
-      if(orbitA)orbitA.style.transform=`translate(-50%,-50%) rotate(${a}deg)`;
-      if(orbitB)orbitB.style.transform=`translate(-50%,-50%) rotate(${b}deg)`;
-      if(orbitC)orbitC.style.transform=`translate(-50%,-50%) rotate(${c}deg)`;
-      if(orbitTicks)orbitTicks.style.transform=`translate(-50%,-50%) rotate(${ticks}deg)`;
+      const spread=1+routeProgress*.2;
+      if(orbitA)orbitA.style.transform=`translate(-50%,-50%) rotate(${a+routeProgress*115}deg) scale(${spread})`;
+      if(orbitB)orbitB.style.transform=`translate(-50%,-50%) rotate(${b-routeProgress*82}deg) scale(${spread})`;
+      if(orbitC)orbitC.style.transform=`translate(-50%,-50%) rotate(${c+routeProgress*48}deg) scale(${1+routeProgress*.09})`;
+      if(orbitTicks)orbitTicks.style.transform=`translate(-50%,-50%) rotate(${ticks-routeProgress*62}deg) scale(${1+routeProgress*.11})`;
       if(coreSweep)coreSweep.style.transform=`rotate(${sweep}deg)`;
+      if(gearOuter)gearOuter.style.transform=`translate(-50%,-50%) rotate(${-a*.48-routeProgress*42}deg) scale(${1+routeProgress*.08})`;
+      if(gearMiddle)gearMiddle.style.transform=`translate(-50%,-50%) rotate(${a*.72+routeProgress*95}deg) scale(${1+routeProgress*.15})`;
+      if(gearInner)gearInner.style.transform=`translate(-50%,-50%) rotate(${b*.9-routeProgress*125}deg) scale(${1+routeProgress*.24})`;
     };
     const endDrag=e=>{
       dragging=false;
@@ -145,6 +236,8 @@
       const motionEnabled=!reducedMotion||forceClusterMotion;
       const heroActive=document.getElementById('hero')?.classList.contains('view-active');
       if(heroActive&&motionEnabled){
+        const routeTarget=coreStage.classList.contains('is-routing')?1:0;
+        routeProgress+=(routeTarget-routeProgress)*Math.min(1,dt*.012);
         applyOrbitalMotion(now);
         if(!dragging){
           if(coarsePointer){
@@ -189,16 +282,16 @@
   input?.addEventListener('keydown',e=>{if(e.key!=='Enter')return;const value=input.value.trim().toLowerCase();if(!value)return;const line=document.createElement('p');line.innerHTML=`<span class="term-accent">raymond@portfolio:~$</span> ${value}`;output?.appendChild(line);const result=commands[value]?commands[value]():`Command not found: <b>${value}</b>. Type <b>help</b>.`;if(result){const reply=document.createElement('p');reply.innerHTML=result;output?.appendChild(reply)}input.value='';if(output)output.scrollTop=output.scrollHeight});
 
   function toggleHud(){document.body.classList.toggle('hud-off');const btn=$('[data-action="hud"]');const enabled=!document.body.classList.contains('hud-off');btn?.classList.toggle('active',enabled);btn?.setAttribute('aria-pressed',String(enabled))}
-  function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}forceClusterMotion=false;const btn=$('[data-action="auto"]');btn?.classList.remove('active');btn?.setAttribute('aria-pressed','false')}
+  function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}clearCoreTransition();forceClusterMotion=false;const btn=$('[data-action="auto"]');btn?.classList.remove('active');btn?.setAttribute('aria-pressed','false')}
   function startAuto(){
     if(autoTimer){stopAuto();return}
     showView('hero');
     forceClusterMotion=true;
     const btn=$('[data-action="auto"]');btn?.classList.add('active');btn?.setAttribute('aria-pressed','true');
-    autoIndex=0;selectCoreNode(coreNodes[autoIndex]);
-    autoTimer=setInterval(()=>{autoIndex=(autoIndex+1)%coreNodes.length;selectCoreNode(coreNodes[autoIndex])},2400);
+    autoIndex=0;previewCoreNode(coreNodes[autoIndex]);
+    autoTimer=setInterval(()=>{autoIndex=(autoIndex+1)%coreNodes.length;previewCoreNode(coreNodes[autoIndex])},3400);
   }
-  $$('[data-action]').forEach(btn=>btn.addEventListener('click',()=>{const a=btn.dataset.action;if(a==='terminal')openTerminal();if(a==='hud')toggleHud();if(a==='explore')showView('about');if(a==='auto')startAuto()}));
+  $$('[data-action]').forEach(btn=>btn.addEventListener('click',()=>{const a=btn.dataset.action;if(a==='terminal'){if(btn.id==='coreCommand')openCoreTerminal();else{stopAuto();openTerminal()}}if(a==='hud')toggleHud();if(a==='explore'){stopAuto();showView('about')}if(a==='auto')startAuto()}));
 
   addEventListener('keydown',e=>{
     if(e.key==='Escape'){closeTerminal();stopAuto();return}
