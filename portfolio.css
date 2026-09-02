@@ -292,3 +292,33 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
 @keyframes mobileCoreSignal{50%{box-shadow:0 0 42px rgba(0,119,125,.34),inset 0 0 34px rgba(66,207,201,.2),0 0 0 14px rgba(0,119,125,.055)}}
 @keyframes mobileHudBlink{50%{opacity:.52}}
 @keyframes mobileNodeSignal{50%{filter:brightness(1.08);box-shadow:inset 3px 0 0 var(--olive),0 0 30px rgba(0,119,125,.22)}}
+
+/* DESKTOP HERO BALANCE — cluster first, supporting copy second */
+@media(min-width:1500px){
+  .hero{padding:76px 42px 58px 96px;place-items:start center}
+  .hero-center{width:min(1420px,100%);padding-top:0}
+  .hero .eyebrow{font-size:.5rem;letter-spacing:.2em;margin:0 0 .12rem}
+  .hero h1{font-size:clamp(2.75rem,3.25vw,3.8rem);line-height:.92;letter-spacing:-.045em;margin:0 0 .3rem;white-space:nowrap}
+  .hero h1 br{display:none}
+  .hero h1 span{margin-left:.18em}
+  .hero-lede{width:min(880px,66vw);font-size:.78rem;line-height:1.35}
+  .core-stage{width:min(72vw,1120px);aspect-ratio:1.68/1;--core-y:49%;--node-radius:clamp(245px,17vw,295px);margin:.3rem auto 0}
+  .core-sphere{width:184px;height:184px}
+  .core-sphere .core-code{top:34px}
+  .node{width:126px;height:54px}
+  .hud-panel{background:rgba(255,253,248,.72);border-left:2px solid rgba(0,119,125,.38);padding:14px 14px 13px;box-shadow:0 16px 42px rgba(49,67,66,.07);backdrop-filter:blur(10px)}
+  .hud-left{left:112px;top:50%;width:205px;transform:translateY(-42%)}
+  .hud-right{right:24px;top:50%;width:198px;transform:translateY(-42%)}
+  .hud-heading{font-size:.59rem}.hud-panel dt,.hud-panel dd{font-size:.56rem}
+  .rail{left:18px}
+  .hero-bottom{bottom:12px}
+}
+@media(min-width:1281px) and (max-width:1499px){
+  .hero{padding:76px 36px 64px}
+  .hero-center{padding-top:0}
+  .hero h1{font-size:clamp(2.55rem,4vw,3.45rem);line-height:.93;margin:0 0 .35rem;white-space:nowrap}
+  .hero h1 br{display:none}.hero h1 span{margin-left:.18em}
+  .hero-lede{font-size:.76rem;line-height:1.4}
+  .hero .hud-panel{display:none}
+  .core-stage{width:min(88vw,1040px);aspect-ratio:1.6/1;--core-y:49%;--node-radius:clamp(220px,21vw,280px);margin:.45rem auto 0}
+}
