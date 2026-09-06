@@ -6,12 +6,26 @@
   const navTriggers = $$('.nav-trigger[data-target]');
   const railItems = $$('.rail-item[data-target]');
   const boot = $('#bootScreen');
+  const clusterAmbientVideo = $('#clusterAmbientVideo');
+  const ambientMotionQuery = matchMedia('(prefers-reduced-motion: reduce)');
   const startTime = performance.now();
   let autoTimer = null;
   let autoIndex = 0;
   let forceClusterMotion = false;
   let coreTransitionActive = false;
   let coreTransitionTimers = [];
+
+  function syncClusterVideo(){
+    if(!clusterAmbientVideo)return;
+    const heroActive=document.getElementById('hero')?.classList.contains('view-active');
+    const shouldPlay=heroActive&&!document.hidden&&!ambientMotionQuery.matches;
+    if(shouldPlay){
+      clusterAmbientVideo.play().catch(()=>{});
+    }else{
+      clusterAmbientVideo.pause();
+      if(ambientMotionQuery.matches)clusterAmbientVideo.currentTime=0;
+    }
+  }
 
   $$('a[href="Resumen_CV-2026.pdf"]').forEach(link => {
     if (!link.hasAttribute('download')) link.href = 'cv.html';
@@ -38,6 +52,7 @@
       }
     }
     if (target.id === 'certifications') activateCertFilter('all');
+    syncClusterVideo();
   }
   navTriggers.forEach(btn => btn.addEventListener('click', () => {
     if(btn.matches('.core-stage .node'))return;
@@ -56,6 +71,10 @@
     const mission = $('#missionElapsed'); if (mission) mission.textContent = `${h}:${m}:${s}`;
   }
   setInterval(tickClock,1000); tickClock();
+  addEventListener('load',syncClusterVideo);
+  document.addEventListener('visibilitychange',syncClusterVideo);
+  ambientMotionQuery.addEventListener?.('change',syncClusterVideo);
+  syncClusterVideo();
 
   function updateViewport(){const el=$('#viewportValue');if(el)el.textContent=`${innerWidth} × ${innerHeight}`}
   addEventListener('resize',updateViewport);updateViewport();
