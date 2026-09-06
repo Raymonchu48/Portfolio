@@ -576,3 +576,9 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
   #about .about-grid{gap:2rem}
   #about .id-photo-wrap{height:min(105vw,390px)}
 }
+
+
+/* CERTIFICATION METRICS — clear the decorative 05 on desktop */
+@media(min-width:981px){
+  #certifications .cert-stats{transform:translateY(4.75rem)}
+}
