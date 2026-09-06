@@ -479,3 +479,41 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
   .hero-bottom{bottom:4.5%;width:94%}
   .cluster-meta-bottom{bottom:21%}
 }
+
+/* AMBIENT NETWORK VIDEO — integrated beneath the existing cluster architecture */
+.cluster-video-layer{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  overflow:hidden;
+  pointer-events:none;
+  opacity:.22;
+  mix-blend-mode:multiply;
+  clip-path:polygon(24px 0,calc(100% - 24px) 0,100% 24px,100% calc(100% - 24px),calc(100% - 24px) 100%,24px 100%,0 calc(100% - 24px),0 24px);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 82%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 82%,transparent 100%);
+  transition:opacity .45s ease,transform .8s var(--route-ease);
+}
+.cluster-video-layer video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  filter:invert(1) grayscale(1) sepia(.45) saturate(1.7) hue-rotate(132deg) contrast(1.18) brightness(1.08);
+}
+.cluster-video-layer:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% var(--core-y),rgba(242,238,228,.54) 0 16%,transparent 39%),
+    linear-gradient(90deg,rgba(242,238,228,.28),transparent 18% 82%,rgba(242,238,228,.28));
+}
+.core-stage.is-routing .cluster-video-layer{opacity:.28;transform:scale(1.012)}
+@media(max-width:980px){.cluster-video-layer{opacity:.17}}
+@media(max-width:640px){
+  .cluster-video-layer{opacity:.14;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 20%,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 20%,#000 78%,transparent 100%)}
+  .cluster-video-layer video{object-position:center}
+}
+@media(prefers-reduced-motion:reduce){.cluster-video-layer{opacity:.12;transform:none!important}}
