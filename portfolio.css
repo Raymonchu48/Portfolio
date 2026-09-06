@@ -580,5 +580,6 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
 
 /* CERTIFICATION METRICS — clear the decorative 05 on desktop */
 @media(min-width:981px){
-  #certifications .cert-stats{transform:translateY(4.75rem)}
+  #certifications .cert-stats{transform:translateY(5.5rem)}
+  #certifications .cert-intro{max-width:min(720px,55vw)}
 }
