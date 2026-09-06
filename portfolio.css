@@ -567,13 +567,13 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
     font-size:clamp(2.5rem,4.4vw,5rem);
   }
   #about .module-copy>p:not(.kicker){
-    max-width:min(820px,58vw);
+    max-width:min(680px,50vw);
     font-size:clamp(.88rem,.96vw,1rem);
     line-height:1.72;
   }
   #about .identity-card{
     justify-self:start;
-    transform:translate(clamp(-7rem,-7vw,-4rem),clamp(10rem,19vh,10.75rem));
+    transform:translate(clamp(-7rem,-7vw,-4rem),clamp(10.75rem,20vh,11.5rem));
   }
 }
 
