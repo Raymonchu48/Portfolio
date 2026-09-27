@@ -675,3 +675,28 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
     line-height:.98;
   }
 }
+
+
+/* 2026-09-27 — PROJECTS title breathing room */
+#projects .module-intro{
+  max-width:none;
+}
+#projects .module-intro h2{
+  max-width:min(1320px,78vw);
+  font-size:clamp(2.9rem,4.35vw,5.35rem);
+  line-height:.96;
+  text-wrap:balance;
+}
+@media(min-width:1500px){
+  #projects .module-intro h2{
+    max-width:min(1380px,80vw);
+    font-size:clamp(3.2rem,4vw,5.2rem);
+  }
+}
+@media(max-width:980px){
+  #projects .module-intro h2{
+    max-width:94vw;
+    font-size:clamp(2.25rem,8vw,3.9rem);
+    line-height:.98;
+  }
+}
