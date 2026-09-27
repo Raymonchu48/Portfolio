@@ -141,25 +141,16 @@
   }
   function previewCoreNode(node){
     if(!coreStage||!node)return;
+    // AUTO only highlights/readouts. Cards stay fixed in their radial positions.
     clearCoreTransition(false);
-    selectCoreNode(node);
-    coreTransitionActive=true;
-    coreStage.setAttribute('aria-busy','true');
-    coreStage.classList.add('is-routing');
-    queueCoreTransition(()=>{
-      coreStage.classList.add('is-detail');
-      coreFocus?.setAttribute('aria-hidden','false');
-    },420);
-    queueCoreTransition(()=>{
-      coreStage.classList.remove('is-detail');
-      coreFocus?.setAttribute('aria-hidden','true');
-    },1900);
-    queueCoreTransition(()=>clearCoreTransition(false),2600);
+    selectCoreNode(node,false);
   }
   function openCoreNode(node){
-    if(!coreStage||!node||coreTransitionActive)return;
+    if(!coreStage||!node)return;
+    // A direct user click always takes priority over AUTO.
     stopAuto();
-    selectCoreNode(node);
+    clearCoreTransition();
+    selectCoreNode(node,false);
     coreTransitionActive=true;
     coreStage.setAttribute('aria-busy','true');
     coreStage.classList.add('is-routing');
@@ -193,8 +184,8 @@
   }
   coreNodes.forEach(node=>{
     node.addEventListener('pointerenter',()=>{if(!coreTransitionActive)selectCoreNode(node,false)});
-    node.addEventListener('focus',()=>{if(!coreTransitionActive)selectCoreNode(node)});
-    node.addEventListener('pointerdown',()=>{if(!coreTransitionActive)selectCoreNode(node)});
+    node.addEventListener('focus',()=>{if(!coreTransitionActive)selectCoreNode(node,false)});
+    node.addEventListener('pointerdown',()=>{if(!coreTransitionActive)selectCoreNode(node,false)});
     node.addEventListener('click',event=>{event.preventDefault();openCoreNode(node)});
   });
 
