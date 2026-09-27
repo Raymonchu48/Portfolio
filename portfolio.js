@@ -71,7 +71,13 @@
     const mission = $('#missionElapsed'); if (mission) mission.textContent = `${h}:${m}:${s}`;
   }
   setInterval(tickClock,1000); tickClock();
-  addEventListener('load',syncClusterVideo);
+  addEventListener('load',()=>{
+    syncClusterVideo();
+    // La experiencia de entrada arranca en modo AUTO + HUD.
+    if(!autoTimer){
+      setTimeout(()=>startAuto(),1050);
+    }
+  });
   document.addEventListener('visibilitychange',syncClusterVideo);
   ambientMotionQuery.addEventListener?.('change',syncClusterVideo);
   syncClusterVideo();
