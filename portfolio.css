@@ -650,3 +650,28 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
   .core-stage .node-sys{--node-distance:calc(var(--node-radius) - 34px)}
   .hero-bottom{bottom:2.8% !important}
 }
+
+
+/* 2026-09-27 — PATH title breathing room */
+#timeline .module-intro{
+  max-width:none;
+}
+#timeline .module-intro h2{
+  max-width:min(1320px,78vw);
+  font-size:clamp(2.9rem,4.35vw,5.35rem);
+  line-height:.96;
+  text-wrap:balance;
+}
+@media(min-width:1500px){
+  #timeline .module-intro h2{
+    max-width:min(1380px,80vw);
+    font-size:clamp(3.2rem,4vw,5.2rem);
+  }
+}
+@media(max-width:980px){
+  #timeline .module-intro h2{
+    max-width:94vw;
+    font-size:clamp(2.25rem,8vw,3.9rem);
+    line-height:.98;
+  }
+}
