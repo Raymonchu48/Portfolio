@@ -371,7 +371,7 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
 .core-aperture i:nth-child(5){transform:rotate(240deg)}.core-aperture i:nth-child(6){transform:rotate(300deg)}
 .node{
   transition:transform .72s var(--route-ease),opacity .42s ease,filter .42s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease;
-  transform:translate(-50%,-50%) rotate(var(--angle)) rotate(var(--ring-offset)) translateX(var(--node-radius)) rotate(calc(-1 * var(--ring-offset))) rotate(calc(-1 * var(--angle))) scale(var(--node-scale));
+  transform:translate(-50%,-50%) rotate(var(--angle)) rotate(var(--ring-offset)) translateX(var(--node-distance,var(--node-radius))) rotate(calc(-1 * var(--ring-offset))) rotate(calc(-1 * var(--angle))) scale(var(--node-scale));
   will-change:transform;
 }
 .core-readout{transition:opacity .3s ease,transform .45s var(--route-ease),visibility .3s ease}
@@ -620,4 +620,33 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
 @media(min-width:981px){
   #certifications .cert-stats{transform:translateY(5.5rem)}
   #certifications .cert-intro{max-width:min(720px,55vw)}
+}
+
+
+/* 2026-09-27 — stable clickable cluster nodes + bottom control clearance */
+.core-stage .node{
+  --node-scale:1;
+  transition:opacity .25s ease,filter .25s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease !important;
+}
+.core-stage .node:hover,
+.core-stage .node:focus-visible,
+.core-stage .node.active{
+  --node-scale:1 !important;
+}
+.core-stage .node:hover{
+  transform:translate(-50%,-50%) rotate(var(--angle)) rotate(var(--ring-offset)) translateX(var(--node-distance,var(--node-radius))) rotate(calc(-1 * var(--ring-offset))) rotate(calc(-1 * var(--angle))) scale(1) !important;
+}
+.core-stage .node-sys{
+  --node-distance:calc(var(--node-radius) - 72px);
+}
+@media(min-width:981px){
+  .hero-bottom{bottom:.25% !important}
+}
+@media(max-width:980px){
+  .core-stage .node-sys{--node-distance:calc(var(--node-radius) - 48px)}
+  .hero-bottom{bottom:2.2% !important}
+}
+@media(max-width:640px){
+  .core-stage .node-sys{--node-distance:calc(var(--node-radius) - 34px)}
+  .hero-bottom{bottom:2.8% !important}
 }
