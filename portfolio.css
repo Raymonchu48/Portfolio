@@ -652,6 +652,49 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
 }
 
 
+/* Soft raised telemetry panels with recessed instrument rows. */
+.hero .hud-panel{
+  border:1px solid rgba(255,253,248,.85);
+  border-radius:22px;
+  background:linear-gradient(145deg,#f6f4ec,#ebece3);
+  box-shadow:
+    -7px -7px 18px rgba(255,255,252,.82),
+    9px 12px 24px rgba(48,77,74,.18),
+    inset 1px 1px 2px rgba(255,255,255,.95),
+    inset -1px -1px 2px rgba(66,96,88,.12);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+}
+.hero .hud-panel .hud-heading{
+  padding:3px 2px 0;
+  gap:7px;
+}
+.hero .hud-panel dl{gap:7px}
+.hero .hud-panel dl div{
+  border:0;
+  border-radius:9px;
+  padding:7px 6px;
+  gap:5px;
+  align-items:center;
+  background:linear-gradient(145deg,#e8ede6,#f4f5ed);
+  box-shadow:
+    inset 2px 2px 4px rgba(48,77,74,.15),
+    inset -2px -2px 4px rgba(255,255,252,.96);
+}
+.hero .hud-panel dd{font-variant-numeric:tabular-nums}
+.hero .hud-panel .signal{
+  border-radius:10px;
+  padding:6px 9px;
+  height:36px;
+  background:#edf0e8;
+  box-shadow:inset 2px 2px 5px rgba(48,77,74,.13),inset -2px -2px 5px rgba(255,255,252,.94);
+}
+.hero .hud-panel .hud-keymap{
+  border-top:1px solid rgba(0,119,125,.12);
+  padding-top:9px;
+  margin-top:12px;
+}
+
 /* Glass controls: ivory surfaces, teal rims and a softly raised lens. */
 .core-stage .node,
 .mode-switcher button,
