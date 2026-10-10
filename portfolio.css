@@ -652,6 +652,18 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
 }
 
 
+/* Keep the cluster caption centered above the AI card rim. */
+.cluster-meta-top b{
+  position:absolute;
+  left:50%;
+  top:0;
+  transform:translate(-50%,-24px);
+  white-space:nowrap;
+  text-align:center;
+  line-height:1.4;
+}
+.cluster-meta-top i{grid-column:3}
+
 /* Soft raised telemetry panels with recessed instrument rows. */
 .hero .hud-panel{
   border:1px solid rgba(255,253,248,.85);
