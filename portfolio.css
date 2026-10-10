@@ -652,6 +652,40 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
 }
 
 
+/* Sculpted lettering: retain the existing teal faces and layout. */
+.cluster-intro h1{
+  --letter-edge:rgba(17,48,53,.45);
+  text-shadow:
+    -.5px -.75px 0 rgba(255,253,248,.85),
+    .5px .75px 0 var(--letter-edge),
+    1px 1.5px 0 rgba(32,66,69,.22),
+    1.5px 2.25px 0 rgba(32,66,69,.16),
+    2px 3px 0 rgba(32,66,69,.1),
+    3px 5px 5px rgba(32,66,69,.18),
+    5px 9px 12px rgba(32,66,69,.12);
+}
+.cluster-intro h1 span{
+  --letter-edge:rgba(49,82,86,.42);
+  text-shadow:
+    -.5px -.75px 0 rgba(255,253,248,.95),
+    .5px .75px 0 var(--letter-edge),
+    1px 1.5px 0 rgba(65,98,101,.2),
+    1.5px 2.25px 0 rgba(65,98,101,.14),
+    2px 3px 0 rgba(65,98,101,.09),
+    3px 5px 5px rgba(32,66,69,.16),
+    5px 9px 12px rgba(32,66,69,.1);
+}
+@media(max-width:640px){
+  .cluster-intro h1,.cluster-intro h1 span{
+    text-shadow:
+      -.4px -.5px 0 rgba(255,253,248,.9),
+      .5px .75px 0 var(--letter-edge),
+      1px 1.5px 0 rgba(32,66,69,.14),
+      2px 3px 4px rgba(32,66,69,.16),
+      3px 5px 8px rgba(32,66,69,.1);
+  }
+}
+
 /* 2026-09-27 — PATH title breathing room */
 #timeline .module-intro{
   max-width:none;
