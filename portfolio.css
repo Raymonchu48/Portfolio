@@ -652,6 +652,70 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
 }
 
 
+/* Glass controls: ivory surfaces, teal rims and a softly raised lens. */
+.core-stage .node,
+.mode-switcher button,
+.rail-item span{
+  border:1px solid rgba(0,105,113,.34);
+  background:
+    radial-gradient(ellipse at 28% 0%,rgba(255,255,255,.98),transparent 65%),
+    linear-gradient(180deg,rgba(255,253,248,.94) 0%,rgba(231,242,237,.91) 48%,rgba(208,228,224,.92) 100%);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,.98),
+    inset 1px 0 1px rgba(255,255,255,.8),
+    inset 0 -2px 3px rgba(0,105,113,.18),
+    0 0 0 2px rgba(255,253,248,.75),
+    0 0 0 3px rgba(0,119,125,.12),
+    0 5px 8px rgba(36,73,73,.13),
+    0 12px 22px rgba(36,73,73,.1);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+}
+.core-stage .node{
+  clip-path:none;
+  border-radius:16px;
+}
+.mode-switcher button{border-radius:999px}
+.core-stage .node:hover,
+.core-stage .node:focus-visible,
+.core-stage .node.active,
+.mode-switcher button:hover,
+.mode-switcher button:focus-visible,
+.mode-switcher button.active,
+.rail-item:hover span,
+.rail-item:focus-visible span,
+.rail-item.active span{
+  border-color:rgba(0,119,125,.72);
+  background:
+    radial-gradient(ellipse at 28% 0%,rgba(255,255,255,.98),transparent 65%),
+    linear-gradient(180deg,#f7fffb 0%,#e0f3ee 48%,#b9dfd9 100%);
+  box-shadow:
+    inset 0 1px 2px #fff,
+    inset 1px 0 1px rgba(255,255,255,.85),
+    inset 0 -2px 4px rgba(0,119,125,.25),
+    0 0 0 2px rgba(255,253,248,.9),
+    0 0 0 3px rgba(0,119,125,.28),
+    0 0 15px rgba(0,119,125,.16),
+    0 7px 14px rgba(36,73,73,.16);
+}
+.core-stage .node:focus-visible,
+.mode-switcher button:focus-visible,
+.rail-item:focus-visible{
+  outline:2px solid var(--olive);
+  outline-offset:5px;
+}
+.core-stage .node:active,
+.mode-switcher button:active,
+.rail-item:active span{
+  box-shadow:inset 0 2px 5px rgba(0,105,113,.22),0 0 0 2px rgba(255,253,248,.8);
+}
+@media(max-width:980px){
+  .rail{overflow-y:visible;padding-top:10px;padding-bottom:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .core-stage .node.active{animation:none}
+}
+
 /* Sculpted lettering: retain the existing teal faces and layout. */
 .cluster-intro h1{
   --letter-edge:rgba(17,48,53,.45);
