@@ -910,3 +910,38 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
   .cluster-meta-bottom>span,.cluster-meta-bottom>b,.cluster-meta-bottom>em{padding:4px 6px}
   .sequence-label{padding:3px 10px}
 }
+
+/* Three stepped depth layers beneath the original heading faces. */
+.cluster-intro h1,.cluster-intro h1 span{
+  text-shadow:
+    -1px -1px 0 rgba(255,253,248,.95),
+    1px 1px 0 rgba(17,48,53,.5),
+    2px 2px 0 rgba(17,48,53,.42),
+    3px 3px 0 rgba(17,48,53,.34),
+    4px 4px 0 rgba(0,119,125,.28),
+    5px 5px 0 rgba(0,119,125,.24),
+    6px 6px 0 rgba(0,119,125,.2),
+    7px 7px 0 rgba(72,137,139,.18),
+    8px 8px 0 rgba(72,137,139,.14),
+    9px 9px 0 rgba(72,137,139,.1),
+    5px 11px 9px rgba(17,48,53,.23),
+    9px 17px 20px rgba(17,48,53,.15);
+}
+.cluster-intro .hero-lede{
+  margin-top:13px;
+  text-shadow:0 -1px 0 rgba(255,253,248,.95),
+    .5px .75px 0 rgba(49,82,86,.23),
+    1px 1.5px 0 rgba(0,119,125,.14),
+    1.5px 2.25px 0 rgba(72,137,139,.1),
+    2px 4px 5px rgba(17,48,53,.15);
+}
+@media(max-width:640px){
+  .cluster-intro h1,.cluster-intro h1 span{
+    text-shadow:-.5px -.5px 0 rgba(255,253,248,.95),
+      1px 1px 0 rgba(17,48,53,.4),
+      2px 2px 0 rgba(0,119,125,.25),
+      3px 3px 0 rgba(72,137,139,.16),
+      3px 6px 6px rgba(17,48,53,.2);
+  }
+  .cluster-intro .hero-lede{margin-top:7px;text-shadow:0 -1px 0 rgba(255,253,248,.9),1px 2px 3px rgba(17,48,53,.14)}
+}
