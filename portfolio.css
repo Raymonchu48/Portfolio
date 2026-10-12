@@ -853,3 +853,27 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
     line-height:.98;
   }
 }
+
+/* Raised capsules for the three highlighted header and signal elements. */
+.brand-mark,.cv-link,.cluster-meta-right{
+  border:1px solid rgba(255,253,248,.94);
+  background:
+    radial-gradient(ellipse at 88% 48%,rgba(85,224,213,.19),transparent 54%),
+    linear-gradient(145deg,#fffdf8 0%,#f2eee4 48%,#e5e5dc 100%);
+  box-shadow:inset 0 2px 2px rgba(255,255,255,.98),
+    inset 0 -3px 5px rgba(33,85,88,.12),
+    0 2px 3px rgba(45,65,64,.12),
+    0 9px 16px rgba(45,65,64,.2),
+    -3px -3px 9px rgba(255,253,248,.8);
+}
+.brand-mark{border-radius:14px;width:38px;height:38px}
+.brand-mark:after{right:5px;top:5px;width:3px;height:3px;border-radius:50%;box-shadow:0 0 6px rgba(0,119,125,.28)}
+.cv-link{border-radius:18px;min-height:40px;display:inline-flex;align-items:center;padding:.65rem 1rem}
+.cv-link:hover{background:radial-gradient(ellipse at 88% 48%,rgba(85,224,213,.28),transparent 56%),linear-gradient(145deg,#fffdf8,#f2eee4 48%,#e5e5dc);transform:translateY(-1px)}
+.brand:focus-visible .brand-mark,.cv-link:focus-visible{outline:2px solid var(--olive);outline-offset:4px}
+.cluster-meta-right{border-radius:22px;min-width:106px;padding:12px 17px;text-align:center}
+.cluster-meta-right span{margin-bottom:4px}
+@media(max-width:640px){
+  .brand-mark{width:34px;height:34px;border-radius:12px}
+  .cv-link{min-height:38px;padding:.6rem .8rem;border-radius:16px}
+}
