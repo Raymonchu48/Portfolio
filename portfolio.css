@@ -910,3 +910,8 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
   .cluster-meta-bottom>span,.cluster-meta-bottom>b,.cluster-meta-bottom>em{padding:4px 6px}
   .sequence-label{padding:3px 10px}
 }
+
+/* Place the cluster caption below the description in normal text flow. */
+.cluster-caption{margin:9px auto 0;font:600 .5rem/1.4 var(--mono);letter-spacing:.2em;color:#24494e;text-align:center}
+@media(max-width:640px){.cluster-caption{margin-top:7px;font-size:.4rem;letter-spacing:.13em}}
+
