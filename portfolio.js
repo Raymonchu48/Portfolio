@@ -27,7 +27,7 @@
     }
   }
 
-  $$('a[href="Resumen_CV-2026.pdf"]').forEach(link => {
+  $$('a[href="Perfil_Informatico_Profesional.pdf"]').forEach(link => {
     if (!link.hasAttribute('download')) link.href = 'cv.html';
   });
 
