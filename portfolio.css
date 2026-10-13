@@ -945,3 +945,209 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
   }
   .cluster-intro .hero-lede{margin-top:7px;text-shadow:0 -1px 0 rgba(255,253,248,.9),1px 2px 3px rgba(17,48,53,.14)}
 }
+
+
+/* 2026-10-13 — Unified hero infographic language
+   Applies the title's sculpted teal depth to the HUD capsules marked in review. */
+.brand-copy,
+.top-status,
+.cluster-intro .eyebrow,
+.cluster-meta-top > span,
+.cluster-meta-top > i,
+.rail-item.active b,
+.cluster-meta-bottom > span,
+.cluster-meta-bottom > b,
+.cluster-meta-bottom > em,
+.sequence-label,
+.hero-bottom p{
+  position:relative;
+  isolation:isolate;
+  overflow:visible;
+  border:1px solid rgba(0,112,121,.38);
+  background:
+    radial-gradient(ellipse at 30% 0%,rgba(255,255,255,.98),transparent 62%),
+    linear-gradient(165deg,rgba(255,253,248,.98) 0%,rgba(235,246,242,.94) 46%,rgba(197,225,220,.88) 100%);
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.98),
+    inset 1px 0 2px rgba(255,255,255,.82),
+    inset 0 -3px 4px rgba(0,92,101,.20),
+    0 2px 0 rgba(0,78,87,.22),
+    0 5px 0 -2px rgba(0,88,96,.14),
+    0 9px 15px rgba(23,72,77,.17),
+    0 0 16px rgba(66,197,204,.13);
+  color:#335f67;
+  text-shadow:
+    -1px -1px 0 rgba(255,253,248,.96),
+    .7px .7px 0 rgba(23,63,69,.32),
+    1.4px 1.4px 0 rgba(0,119,125,.16),
+    2px 3px 5px rgba(17,48,53,.12);
+  -webkit-backdrop-filter:blur(10px) saturate(1.08);
+  backdrop-filter:blur(10px) saturate(1.08);
+}
+
+/* Give the larger brand card the same sculpted edge, not a generic pill. */
+.brand-copy{
+  border-radius:18px;
+  padding:7px 13px;
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.98),
+    inset 0 -4px 6px rgba(0,92,101,.17),
+    0 2px 0 rgba(0,78,87,.20),
+    0 7px 0 -3px rgba(0,88,96,.13),
+    0 12px 20px rgba(23,72,77,.18),
+    0 0 18px rgba(66,197,204,.12);
+}
+
+/* Top status is visually stronger because it is a live system indicator. */
+.top-status{
+  min-height:36px;
+  padding:7px 14px;
+  border-radius:999px;
+  border-color:rgba(0,119,125,.46);
+  box-shadow:
+    inset 0 2px 2px rgba(255,255,255,.98),
+    inset 0 -3px 4px rgba(0,103,111,.18),
+    0 2px 0 rgba(0,84,92,.22),
+    0 7px 13px rgba(24,76,81,.17),
+    0 0 18px rgba(55,190,200,.16);
+}
+.top-status .status-dot{
+  box-shadow:
+    0 0 0 3px rgba(52,195,204,.10),
+    0 0 9px rgba(22,150,160,.28);
+}
+
+/* Identity eyebrow: same relief as title, but compact. */
+.cluster-intro .eyebrow{
+  display:inline-block;
+  padding:5px 14px;
+  margin-bottom:5px;
+  border-radius:999px;
+  color:#2e6972;
+  letter-spacing:.20em;
+}
+
+/* Upper system pills. */
+.cluster-meta-top > span,
+.cluster-meta-top > i{
+  min-height:30px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:5px 12px;
+  border-radius:999px;
+}
+.cluster-meta-top > span{justify-self:start}
+.cluster-meta-top > i{justify-self:end}
+
+/* Active rail label CORE: same glass/relief family as title. */
+.rail-item.active b{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:6px 11px;
+  border-radius:999px;
+  opacity:1;
+  transform:none;
+  color:#315f67;
+}
+
+/* Bottom cluster telemetry capsules. */
+.cluster-meta-bottom > span,
+.cluster-meta-bottom > b,
+.cluster-meta-bottom > em{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:30px;
+  padding:5px 11px;
+  border-radius:999px;
+}
+.cluster-meta-bottom > b{
+  border-color:rgba(0,119,125,.50);
+  color:#176873;
+}
+.cluster-meta-bottom > em{
+  color:#52747a;
+}
+
+/* System Control + instruction strip match the same infographic family. */
+.sequence-label{
+  display:table;
+  margin:0 auto 9px;
+  padding:5px 14px;
+  border-radius:999px;
+  color:#2d626b;
+}
+.hero-bottom p{
+  width:max-content;
+  max-width:100%;
+  margin:9px auto 0;
+  padding:5px 14px;
+  border-radius:999px;
+  line-height:1.45;
+  color:#637e83;
+}
+
+/* The 00 / CORE unit reads as one instrument when active. */
+.rail-item.active span{
+  border-color:rgba(0,119,125,.62);
+  background:
+    radial-gradient(ellipse at 30% 0%,rgba(255,255,255,.99),transparent 62%),
+    linear-gradient(165deg,#fffef9 0%,#e9f6f2 48%,#c3e3de 100%);
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.98),
+    inset 0 -3px 4px rgba(0,103,111,.20),
+    0 0 0 2px rgba(255,253,248,.84),
+    0 0 0 3px rgba(0,119,125,.16),
+    0 8px 14px rgba(23,72,77,.16),
+    0 0 14px rgba(52,195,204,.13);
+  color:#1f6972;
+  text-shadow:
+    -1px -1px 0 rgba(255,255,255,.95),
+    1px 1px 0 rgba(0,91,99,.18),
+    2px 3px 4px rgba(17,48,53,.10);
+}
+
+/* Hover/focus keeps the sculpted family instead of switching language. */
+.brand:hover .brand-copy,
+.top-status:hover,
+.cluster-meta-top > span:hover,
+.cluster-meta-top > i:hover,
+.rail-item.active:hover b,
+.sequence-label:hover,
+.hero-bottom p:hover{
+  border-color:rgba(0,119,125,.58);
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.99),
+    inset 0 -3px 4px rgba(0,103,111,.22),
+    0 2px 0 rgba(0,84,92,.22),
+    0 8px 15px rgba(24,76,81,.19),
+    0 0 20px rgba(55,190,200,.18);
+}
+
+/* Responsive: preserve the same visual depth without over-inflating controls. */
+@media(max-width:980px){
+  .brand-copy{padding:6px 10px;border-radius:16px}
+  .top-status{padding:6px 11px;min-height:34px}
+  .cluster-intro .eyebrow{padding:4px 10px}
+  .cluster-meta-top > span,
+  .cluster-meta-top > i,
+  .cluster-meta-bottom > span,
+  .cluster-meta-bottom > b,
+  .cluster-meta-bottom > em{padding:4px 8px}
+  .sequence-label{padding:4px 11px}
+  .hero-bottom p{padding:4px 10px}
+}
+@media(max-width:640px){
+  .brand-copy{padding:5px 8px;border-radius:14px}
+  .cluster-intro .eyebrow{letter-spacing:.12em}
+  .cluster-meta-top > span,
+  .cluster-meta-top > i,
+  .cluster-meta-bottom > span,
+  .cluster-meta-bottom > b,
+  .cluster-meta-bottom > em{padding:3px 6px}
+  .rail-item.active b{padding:5px 8px}
+  .sequence-label{padding:3px 9px}
+  .hero-bottom p{padding:3px 8px}
+}
