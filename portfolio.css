@@ -1151,3 +1151,159 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
   .sequence-label{padding:3px 9px}
   .hero-bottom p{padding:3px 8px}
 }
+
+
+/* 2026-10-13 — Correction: text-only sculpted infographic, NO pills/bubbles */
+.brand-copy,
+.top-status,
+.cluster-intro .eyebrow,
+.cluster-meta-top > span,
+.cluster-meta-top > i,
+.rail-item.active b,
+.cluster-meta-bottom > span,
+.cluster-meta-bottom > b,
+.cluster-meta-bottom > em,
+.sequence-label,
+.hero-bottom p{
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  overflow:visible !important;
+}
+
+/* Compact spacing after removing the capsule surfaces */
+.brand-copy{padding:0 !important}
+.top-status{padding:0 !important;min-height:auto !important}
+.cluster-intro .eyebrow{padding:0 !important;margin-bottom:5px !important}
+.cluster-meta-top > span,
+.cluster-meta-top > i{padding:0 !important;min-height:auto !important}
+.rail-item.active b{padding:0 !important;min-height:auto !important}
+.cluster-meta-bottom > span,
+.cluster-meta-bottom > b,
+.cluster-meta-bottom > em{padding:0 !important;min-height:auto !important}
+.sequence-label{padding:0 !important;margin:0 auto 8px !important}
+.hero-bottom p{padding:0 !important;margin:7px auto 0 !important}
+
+/* Shared sculpted typography derived from TECHNOLOGY AS A SYSTEM */
+.brand-copy strong,
+.brand-copy small,
+.top-status,
+.cluster-intro .eyebrow,
+.cluster-meta-top > span,
+.cluster-meta-top > i,
+.rail-item.active b,
+.cluster-meta-bottom > span,
+.cluster-meta-bottom > b,
+.cluster-meta-bottom > em,
+.sequence-label,
+.hero-bottom p{
+  color:#315f67 !important;
+  font-weight:600;
+  text-shadow:
+    -1px -1px 0 rgba(255,253,248,.97),
+    .7px .7px 0 rgba(18,54,60,.40),
+    1.4px 1.4px 0 rgba(0,106,113,.24),
+    2.1px 2.1px 0 rgba(0,119,125,.16),
+    3px 4px 5px rgba(20,58,63,.18),
+    5px 8px 10px rgba(20,58,63,.10) !important;
+}
+
+/* Individual tuning so small labels preserve readability */
+.brand-copy strong{
+  color:#245661 !important;
+  letter-spacing:.16em;
+}
+.brand-copy small{
+  color:#5c777d !important;
+  letter-spacing:.15em;
+  text-shadow:
+    -1px -1px 0 rgba(255,253,248,.96),
+    .6px .6px 0 rgba(18,54,60,.28),
+    1.2px 1.2px 0 rgba(0,119,125,.13),
+    2px 3px 4px rgba(20,58,63,.12) !important;
+}
+.top-status{
+  color:#315f67 !important;
+  letter-spacing:.13em;
+}
+.top-status .top-clock{
+  color:#197b85 !important;
+  text-shadow:
+    -1px -1px 0 rgba(255,253,248,.98),
+    .8px .8px 0 rgba(0,83,91,.34),
+    1.5px 1.5px 0 rgba(0,119,125,.18),
+    2px 3px 5px rgba(0,91,99,.14) !important;
+}
+.cluster-intro .eyebrow{
+  color:#1f6670 !important;
+  letter-spacing:.22em;
+}
+.cluster-meta-top > span,
+.cluster-meta-top > i{
+  color:#497078 !important;
+}
+.rail-item.active b{
+  color:#285d66 !important;
+  letter-spacing:.14em;
+}
+.cluster-meta-bottom > span{
+  color:#55767c !important;
+}
+.cluster-meta-bottom > b{
+  color:#18727c !important;
+}
+.cluster-meta-bottom > em{
+  color:#55767c !important;
+}
+.sequence-label{
+  color:#2d626b !important;
+  letter-spacing:.18em;
+}
+.hero-bottom p{
+  color:#617d82 !important;
+  letter-spacing:.1em;
+}
+
+/* Keep the selected numeric rail instrument as a control, but remove any bubble from CORE text itself */
+.rail-item.active span{
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,.96),
+    inset 0 -2px 3px rgba(0,105,113,.15),
+    0 0 0 2px rgba(255,253,248,.70),
+    0 5px 9px rgba(36,73,73,.11) !important;
+}
+
+/* Hover must not recreate a capsule */
+.brand:hover .brand-copy,
+.top-status:hover,
+.cluster-meta-top > span:hover,
+.cluster-meta-top > i:hover,
+.rail-item.active:hover b,
+.sequence-label:hover,
+.hero-bottom p:hover{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* Mobile/tablet: text remains sculpted, no rounded background appears */
+@media(max-width:980px){
+  .brand-copy,
+  .top-status,
+  .cluster-intro .eyebrow,
+  .cluster-meta-top > span,
+  .cluster-meta-top > i,
+  .rail-item.active b,
+  .cluster-meta-bottom > span,
+  .cluster-meta-bottom > b,
+  .cluster-meta-bottom > em,
+  .sequence-label,
+  .hero-bottom p{
+    padding:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+  }
+}
