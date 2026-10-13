@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06110f">
+  <title>Redes multisede // Raymond Vega</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+  <header class="case-topbar"><a href="index.html#projects">← VOLVER A PROJECTS</a><span>PROJECT // 003</span></header>
+  <main class="case-shell">
+    <section class="case-hero case-hero--network">
+      <div><span class="case-kicker">PORTFOLIO DIGITAL // INFRAESTRUCTURA Y SEGURIDAD</span><h1>Redes<br>multisede</h1><p>Modernización de infraestructura de red: diseño, implantación, seguridad, monitorización y resolución de incidencias de direccionamiento IP.</p><div class="case-tags"><span>VLAN</span><span>VPN</span><span>FIREWALL</span><span>IDS/IPS</span><span>SNMP</span></div></div>
+      <div class="case-hero-mark">WAN</div>
+    </section>
+    <section class="case-note"><b>CASO PRÁCTICO // ORGANIZACIÓN SIMULADA</b><p>Redes S.A. · sede central + dos delegaciones regionales. La topología y controles son propuestas explicativas; no representan inventario real ni métricas verificadas.</p></section>
+    <section class="case-section"><span class="case-number">01</span><div><h2>Arquitectura y segmentación</h2><p>La propuesta conecta una sede central con dos sucursales mediante enlaces dedicados o túneles VPN. La segmentación separa Administración, Soporte Técnico, Desarrollo e Invitados, restringiendo el enrutamiento inter-VLAN a necesidades funcionales autorizadas.</p><div class="network-diagram"><b>INTERNET / ISP</b><i></i><strong>SEDE CENTRAL<br>Firewall + núcleo L3</strong><div><span>SUCURSAL 1</span><span>VLAN / Wi-Fi / VPN</span><span>SUCURSAL 2</span></div></div></div></section>
+    <section class="case-section"><span class="case-number">02</span><div><h2>Stack y controles de seguridad</h2><div class="case-grid"><article><h3>Segmentación</h3><p>VLAN, routing inter-VLAN y reglas de acceso/ACL bajo principio de mínimo privilegio.</p></article><article><h3>Perímetro</h3><p>Firewall, IDS/IPS, autenticación, cifrado y acceso remoto por VPN.</p></article><article><h3>Operación</h3><p>Gestión unificada, telemetría, registros, alertas y copias de configuración.</p></article><article><h3>Conectividad</h3><p>Switches gestionables, QoS, cableado dimensionado y VPN IPsec cuando Internet actúe como transporte.</p></article></div></div></section>
+    <section class="case-section"><span class="case-number">03</span><div><h2>Plan de ejecución</h2><div class="phase-grid"><span>01 · Análisis</span><span>02 · Selección</span><span>03 · Instalación</span><span>04 · Segmentación</span><span>05 · Seguridad</span><span>06 · Monitorización</span><span>07 · Validación</span><span>08 · Documentación</span><span>09 · Producción</span></div><p>Cada fase se vincula a una evidencia: inventario y requisitos, matriz de selección, esquema físico, comunicaciones permitidas, políticas de acceso, panel de operación, acta de pruebas, manual y puesta en marcha.</p></div></section>
+    <section class="case-section"><span class="case-number">04</span><div><h2>Incidencia: IP duplicada</h2><p>Durante la puesta en marcha se plantea una dirección IP duplicada en la sede principal, con pérdida de conectividad intermitente. El procedimiento separa confirmación, trazabilidad, contención, corrección, verificación y prevención.</p><div class="incident-flow"><span>DETECTAR</span><i>→</i><span>IDENTIFICAR</span><i>→</i><span>CORREGIR</span><i>→</i><span>VALIDAR</span><i>→</i><span>PREVENIR</span></div><p class="case-code">ipconfig /all · arp -a · ping &lt;dirección_IP&gt; · ipconfig /release · ipconfig /renew</p></div></section>
+    <section class="case-section"><span class="case-number">05</span><div><h2>Monitorización, continuidad y aceptación</h2><p>La operación propuesta supervisa disponibilidad y latencia, centraliza syslog, emplea SNMPv3 cuando sea compatible, programa backups de configuración y revisa inventario, DHCP, permisos y parches. Las pruebas de aceptación cubren comunicación entre sedes, aislamiento de invitados, acceso remoto, ausencia de nuevas colisiones IP, alertas y restauración de backups.</p></div></section>
+    <section class="case-conclusion"><span>VALOR DEL PROYECTO</span><h2>Diseño de red con enfoque de ciclo completo.</h2><p>El caso demuestra levantamiento de requisitos, diseño físico y lógico, segmentación, defensa en profundidad, operación centralizada, validación y gestión sistemática de incidencias, presentado como estudio académico y propuesta de arquitectura.</p></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06110f">
+  <title>Virtualización farmacéutica // Raymond Vega</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+  <header class="case-topbar"><a href="index.html#projects">← VOLVER A PROJECTS</a><span>PROJECT // 002</span></header>
+  <main class="case-shell">
+    <section class="case-hero case-hero--vm">
+      <div><span class="case-kicker">DOSSIER TÉCNICO // INFRAESTRUCTURA DIGITAL</span><h1>Virtualización<br>farmacéutica</h1><p>Estudio de soluciones VMware ESXi / vCenter y Microsoft Hyper-V para entornos científicos heterogéneos.</p><div class="case-tags"><span>ESXi</span><span>vCenter</span><span>Hyper-V</span><span>iSCSI</span><span>RDS</span></div></div>
+      <div class="case-hero-mark">VM</div>
+    </section>
+    <section class="case-note"><b>ALCANCE // ACADÉMICO</b><p>Análisis técnico y arquitectura de referencia. No representa una infraestructura implantada ni mediciones realizadas.</p></section>
+    <section class="case-section"><span class="case-number">01</span><div><h2>Síntesis ejecutiva</h2><p>La virtualización permite consolidar recursos, aislar aplicaciones incompatibles, simplificar la administración y mejorar la disponibilidad en un instituto de investigación donde conviven aplicaciones y sistemas con requisitos técnicos distintos. El caso compara VMware ESXi/vCenter y Microsoft Hyper-V como alternativas maduras para entornos corporativos y científicos.</p></div></section>
+    <section class="case-section"><span class="case-number">02</span><div><h2>VMware ESXi + vCenter</h2><div class="case-grid"><article><h3>ESXi</h3><p>Hipervisor tipo 1 para ejecutar máquinas virtuales aisladas y administrar CPU, memoria, red y almacenamiento.</p></article><article><h3>vCenter</h3><p>Gestión centralizada de hosts, VMs, clústeres, recursos y políticas operativas.</p></article><article><h3>Movilidad</h3><p>vMotion y Storage vMotion permiten mover cargas y almacenamiento en caliente según edición y configuración.</p></article><article><h3>Continuidad</h3><p>vSphere HA y DRS aportan recuperación ante fallos y distribución de recursos dentro del clúster.</p></article></div></div></section>
+    <section class="case-section"><span class="case-number">03</span><div><h2>Hyper-V</h2><p>La alternativa Microsoft aporta consolidación de recursos, soporte de distintos sistemas invitados, mecanismos de alta disponibilidad y migración, además de integración con Windows Server, PowerShell y herramientas de administración centralizada.</p><div class="case-matrix"><span>GESTIÓN</span><b>Windows Server / herramientas Microsoft</b><span>MOVILIDAD</span><b>Live Migration / migración de almacenamiento</b><span>ALTA DISPONIBILIDAD</span><b>Failover Clustering</b><span>AUTOMATIZACIÓN</span><b>PowerShell / ecosistema Microsoft</b></div></div></section>
+    <section class="case-section"><span class="case-number">04</span><div><h2>Compatibilidad y rendimiento</h2><p>La coexistencia de Windows y Linux no impide el proyecto, pero condiciona el modelo de entrega y la tecnología elegida. Las aplicaciones con gráficos complejos o procesamiento intensivo requieren dimensionar CPU, RAM, GPU, almacenamiento y red; la viabilidad no debe confundirse con una implantación trivial.</p></div></section>
+    <section class="case-section"><span class="case-number">05</span><div><h2>Servicios y almacenamiento</h2><div class="case-grid"><article><h3>RDS</h3><p>Centraliza escritorios y aplicaciones, simplificando parcheo, seguridad y acceso remoto, aunque no elimina incompatibilidades ni necesidades especiales de hardware.</p></article><article><h3>iSCSI</h3><p>Encapsula tráfico de almacenamiento SCSI sobre redes IP. El diseño propone red/VLAN dedicada, control de acceso y rutas redundantes cuando proceda.</p></article><article><h3>Controladores Hyper-V</h3><p>Los dispositivos sintéticos mediante VMBus son la opción preferente; los heredados/emulados se reservan para compatibilidad.</p></article><article><h3>Cambios y backup</h3><p>Los snapshots facilitan reversión operativa antes de cambios delicados, pero no sustituyen una copia de seguridad independiente.</p></article></div></div></section>
+    <section class="case-section"><span class="case-number">06</span><div><h2>Optimización y validación</h2><p>El caso plantea reducir actividad innecesaria, priorizar adaptadores sintéticos, revisar servicios y tareas en segundo plano, mantener prudencia en la asignación de vCPU y validar migración/HA, carga científica, acceso Windows/Linux y restauración desde copia independiente antes de producción.</p></div></section>
+    <section class="case-conclusion"><span>CONCLUSION</span><h2>La plataforma debe elegirse por adecuación, no por marca.</h2><p>VMware destaca por su ecosistema vSphere y gestión centralizada; Hyper-V por su integración con el entorno Microsoft. La decisión final depende de aplicaciones, criticidad, compatibilidad, licencias, rendimiento y perfil real de usuarios.</p></section>
+  </main>
+</body>
+</html>
