@@ -1539,3 +1539,34 @@ body.hud-off .cluster-meta,body.hud-off .cluster-frame,body.hud-off .core-readou
   .project-cover>strong{font-size:clamp(1.65rem,8vw,2.6rem)}
   .project-cover>p{font-size:.46rem}
 }
+
+
+/* 2026-10-13 — Exact approved project covers */
+.project-cover--image{
+  position:relative;
+  isolation:isolate;
+  aspect-ratio:16/9 !important;
+  overflow:hidden;
+  padding:0 !important;
+  background:#05110f;
+}
+.project-cover--image:after{display:none !important}
+.project-cover--image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+.project-card--technical{overflow:hidden}
+@media(max-width:1180px){
+  .project-grid--three .project-card:first-child .project-cover--image{
+    aspect-ratio:16/9 !important;
+  }
+}
+@media(max-width:760px){
+  .project-cover--image,
+  .project-grid--three .project-card:first-child .project-cover--image{
+    aspect-ratio:16/9 !important;
+  }
+}
