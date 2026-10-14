@@ -19,6 +19,10 @@
     .loading,.fallback{max-width:1040px;margin:12vh auto 0;text-align:center;padding:28px;border:1px solid var(--line);background:rgba(10,16,12,.82);color:var(--muted);font-size:.84rem;line-height:1.7}.loading strong{display:block;color:var(--olive);font:500 .62rem var(--mono);letter-spacing:.13em;margin-bottom:8px}.fallback{display:none}.fallback a{color:var(--olive)}
     @media(max-width:760px){.bar{grid-template-columns:auto 1fr auto;min-height:62px;padding-left:8px;padding-right:8px;gap:6px}.back,.download{min-height:36px;padding:0 9px;font-size:.51rem}.download span{display:none}.bar{grid-template-columns:1fr auto}.identity{grid-column:1 / -1;grid-row:2;padding-bottom:4px}.back span{display:inline}.back{min-height:44px}.download{min-height:44px}.identity strong{font-size:.54rem;letter-spacing:.08em}.identity small{font-size:.41rem}.document-shell{padding:7px}.document-topline{font-size:.43rem}.pdf-pages{gap:8px}.loading,.fallback{margin-top:8vh;padding:20px 14px}}
   </style>
+
+  <link rel="stylesheet" href="language-switch.css">
+  <link rel="alternate" hreflang="es" href="cv.html">
+  <link rel="alternate" hreflang="en" href="en/cv.html">
 </head>
 <body>
   <div class="viewer">
@@ -28,6 +32,7 @@
       <a class="download" href="Perfil_Informatico_Profesional.pdf" download="Perfil_Informatico_Profesional.pdf" aria-label="Descargar CV"><span>DESCARGAR CV</span> ↓</a>
     </header>
     <main class="document-shell">
+<div class="language-bar"><nav class="language-switch" aria-label="Idioma"><span aria-current="page" aria-label="Español"><svg viewBox="0 0 30 20" aria-hidden="true"><path fill="#AA151B" d="M0 0h30v20H0z"/><path fill="#F1BF00" d="M0 5h30v10H0z"/><path fill="#AA151B" d="M8 8h4v5H8z"/></svg> ES</span><a href="en/cv.html" lang="en" aria-label="English"><svg viewBox="0 0 60 40" aria-hidden="true"><defs><clipPath id="flag-clip"><path d="M0 0h60v40H0z"/></clipPath></defs><g clip-path="url(#flag-clip)"><path fill="#012169" d="M0 0h60v40H0z"/><path stroke="#fff" stroke-width="8" d="m0 0 60 40M60 0 0 40"/><path stroke="#C8102E" stroke-width="3" d="m0 0 60 40M60 0 0 40"/><path stroke="#fff" stroke-width="13" d="M30 0v40M0 20h60"/><path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/></g></svg> EN</a></nav></div>
       <div class="document-topline"><span>DOCUMENT // PERFIL_INFORMATICO_PROFESIONAL.PDF</span><span id="pageStatus">LOADING</span></div>
       <div class="loading" id="loading"><strong>RENDERING DOCUMENT</strong>Preparando todas las páginas del CV para este dispositivo…</div>
       <div class="fallback" id="fallback">No se ha podido cargar el visor integrado. <a href="Perfil_Informatico_Profesional.pdf" target="_blank" rel="noopener">Abrir PDF original</a></div>
@@ -87,5 +92,6 @@
       init();
     })();
   </script>
+<script src="language-switch.js"></script>
 </body>
 </html>

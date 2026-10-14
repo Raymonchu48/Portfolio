@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06110f">
+  <title>Multi-site networks // Raymond Vega</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-study.css">
+
+  <link rel="stylesheet" href="../language-switch.css">
+  <link rel="alternate" hreflang="es" href="../proyecto-redes.html">
+  <link rel="alternate" hreflang="en" href="proyecto-redes.html">
+</head>
+<body>
+  <header class="case-topbar"><a href="index.html#projects">← BACK TO PROJECTS</a><span>PROJECT // 003</span><div class="language-bar"><nav class="language-switch" aria-label="Language"><a href="../proyecto-redes.html" lang="es" aria-label="Español"><svg viewBox="0 0 30 20" aria-hidden="true"><path fill="#AA151B" d="M0 0h30v20H0z"/><path fill="#F1BF00" d="M0 5h30v10H0z"/><path fill="#AA151B" d="M8 8h4v5H8z"/></svg> ES</a><span aria-current="page" aria-label="English"><svg viewBox="0 0 60 40" aria-hidden="true"><defs><clipPath id="flag-clip"><path d="M0 0h60v40H0z"/></clipPath></defs><g clip-path="url(#flag-clip)"><path fill="#012169" d="M0 0h60v40H0z"/><path stroke="#fff" stroke-width="8" d="m0 0 60 40M60 0 0 40"/><path stroke="#C8102E" stroke-width="3" d="m0 0 60 40M60 0 0 40"/><path stroke="#fff" stroke-width="13" d="M30 0v40M0 20h60"/><path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/></g></svg> EN</span></nav></div></header>
+  <main class="case-shell">
+    <section class="case-hero case-hero--network">
+      <div><span class="case-kicker">DIGITAL PORTFOLIO // INFRASTRUCTURE AND SECURITY</span><h1>Multi-site<br>networks</h1><p>Network infrastructure modernisation: design, implementation, security, monitoring and IP addressing incident resolution.</p><div class="case-tags"><span>VLAN</span><span>VPN</span><span>FIREWALL</span><span>IDS/IPS</span><span>SNMP</span></div></div>
+      <div class="case-hero-mark">WAN</div>
+    </section>
+    <section class="case-note"><b>CASE STUDY // SIMULATED ORGANISATION</b><p>Redes S.A. · headquarters + two regional branches. The topology and controls are explanatory proposals; they do not represent an actual inventory or verified metrics.</p></section>
+    <section class="case-section"><span class="case-number">01</span><div><h2>Architecture and segmentation</h2><p>The proposal connects a headquarters to two branches through dedicated links or VPN tunnels. Segmentation separates Administration, Technical Support, Development and Guests, restricting inter-VLAN routing to authorised functional needs.</p><div class="network-diagram"><b>INTERNET / ISP</b><i></i><strong>HEADQUARTERS<br>Firewall + L3 core</strong><div><span>BRANCH 1</span><span>VLAN / Wi-Fi / VPN</span><span>BRANCH 2</span></div></div></div></section>
+    <section class="case-section"><span class="case-number">02</span><div><h2>Stack and security controls</h2><div class="case-grid"><article><h3>Segmentation</h3><p>VLANs, inter-VLAN routing and access rules/ACLs based on the principle of least privilege.</p></article><article><h3>Perimeter</h3><p>Firewall, IDS/IPS, authentication, encryption and remote VPN access.</p></article><article><h3>Operations</h3><p>Unified management, telemetry, logs, alerts and configuration backups.</p></article><article><h3>Connectivity</h3><p>Managed switches, QoS, appropriately sized cabling and IPsec VPN when the Internet provides transport.</p></article></div></div></section>
+    <section class="case-section"><span class="case-number">03</span><div><h2>Execution plan</h2><div class="phase-grid"><span>01 · Analysis</span><span>02 · Selection</span><span>03 · Installation</span><span>04 · Segmentation</span><span>05 · Security</span><span>06 · Monitoring</span><span>07 · Validation</span><span>08 · Documentation</span><span>09 · Production</span></div><p>Each phase is linked to evidence: inventory and requirements, a selection matrix, a physical diagram, permitted communications, access policies, an operations dashboard, test records, a manual and commissioning.</p></div></section>
+    <section class="case-section"><span class="case-number">04</span><div><h2>Incident: duplicate IP address</h2><p>The commissioning scenario involves a duplicate IP address at headquarters, causing intermittent connectivity loss. The procedure separates confirmation, tracing, containment, correction, verification and prevention.</p><div class="incident-flow"><span>DETECT</span><i>→</i><span>IDENTIFY</span><i>→</i><span>CORRECT</span><i>→</i><span>VALIDATE</span><i>→</i><span>PREVENT</span></div><p class="case-code">ipconfig /all · arp -a · ping &lt;IP_address&gt; · ipconfig /release · ipconfig /renew</p></div></section>
+    <section class="case-section"><span class="case-number">05</span><div><h2>Monitoring, continuity and acceptance</h2><p>The proposed operation monitors availability and latency, centralises syslog, uses SNMPv3 where supported, schedules configuration backups and reviews inventory, DHCP, permissions and patches. Acceptance tests cover inter-site communication, guest isolation, remote access, the absence of further IP collisions, alerts and backup restoration.</p></div></section>
+    <section class="case-conclusion"><span>PROJECT VALUE</span><h2>Network design across the full lifecycle.</h2><p>The case demonstrates requirements gathering, physical and logical design, segmentation, defence in depth, centralised operations, validation and systematic incident management, presented as an academic study and architecture proposal.</p></section>
+  </main>
+<script src="../language-switch.js"></script>
+</body>
+</html>

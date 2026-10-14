@@ -12,6 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="portfolio.css?v=20261013-approved-covers">
+
+  <link rel="stylesheet" href="language-switch.css">
+  <link rel="alternate" hreflang="es" href="index.html">
+  <link rel="alternate" hreflang="en" href="en/index.html">
 </head>
 <body>
   <div class="boot-screen" id="bootScreen" aria-hidden="true">
@@ -37,6 +41,7 @@
       <span>SYSTEM ONLINE</span>
       <span class="top-clock" id="localClock">--:--:--</span>
     </div>
+<div class="language-bar"><nav class="language-switch" aria-label="Idioma"><span aria-current="page" aria-label="Español"><svg viewBox="0 0 30 20" aria-hidden="true"><path fill="#AA151B" d="M0 0h30v20H0z"/><path fill="#F1BF00" d="M0 5h30v10H0z"/><path fill="#AA151B" d="M8 8h4v5H8z"/></svg> ES</span><a href="en/index.html" lang="en" aria-label="English"><svg viewBox="0 0 60 40" aria-hidden="true"><defs><clipPath id="flag-clip"><path d="M0 0h60v40H0z"/></clipPath></defs><g clip-path="url(#flag-clip)"><path fill="#012169" d="M0 0h60v40H0z"/><path stroke="#fff" stroke-width="8" d="m0 0 60 40M60 0 0 40"/><path stroke="#C8102E" stroke-width="3" d="m0 0 60 40M60 0 0 40"/><path stroke="#fff" stroke-width="13" d="M30 0v40M0 20h60"/><path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/></g></svg> EN</a></nav></div>
     <a class="cv-link" href="cv.html" target="_blank" rel="noopener">CV.PDF ↗</a>
   </header>
 
@@ -309,5 +314,6 @@
 
   <script src="certifications.js"></script>
   <script src="portfolio.js"></script>
+<script src="language-switch.js"></script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06110f">
+  <title>Pharmaceutical virtualisation // Raymond Vega</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-study.css">
+
+  <link rel="stylesheet" href="../language-switch.css">
+  <link rel="alternate" hreflang="es" href="../proyecto-virtualizacion.html">
+  <link rel="alternate" hreflang="en" href="proyecto-virtualizacion.html">
+</head>
+<body>
+  <header class="case-topbar"><a href="index.html#projects">← BACK TO PROJECTS</a><span>PROJECT // 002</span><div class="language-bar"><nav class="language-switch" aria-label="Language"><a href="../proyecto-virtualizacion.html" lang="es" aria-label="Español"><svg viewBox="0 0 30 20" aria-hidden="true"><path fill="#AA151B" d="M0 0h30v20H0z"/><path fill="#F1BF00" d="M0 5h30v10H0z"/><path fill="#AA151B" d="M8 8h4v5H8z"/></svg> ES</a><span aria-current="page" aria-label="English"><svg viewBox="0 0 60 40" aria-hidden="true"><defs><clipPath id="flag-clip"><path d="M0 0h60v40H0z"/></clipPath></defs><g clip-path="url(#flag-clip)"><path fill="#012169" d="M0 0h60v40H0z"/><path stroke="#fff" stroke-width="8" d="m0 0 60 40M60 0 0 40"/><path stroke="#C8102E" stroke-width="3" d="m0 0 60 40M60 0 0 40"/><path stroke="#fff" stroke-width="13" d="M30 0v40M0 20h60"/><path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/></g></svg> EN</span></nav></div></header>
+  <main class="case-shell">
+    <section class="case-hero case-hero--vm">
+      <div><span class="case-kicker">TECHNICAL DOSSIER // DIGITAL INFRASTRUCTURE</span><h1>Pharmaceutical<br>virtualisation</h1><p>A study of VMware ESXi / vCenter and Microsoft Hyper-V solutions for heterogeneous scientific environments.</p><div class="case-tags"><span>ESXi</span><span>vCenter</span><span>Hyper-V</span><span>iSCSI</span><span>RDS</span></div></div>
+      <div class="case-hero-mark">VM</div>
+    </section>
+    <section class="case-note"><b>SCOPE // ACADEMIC</b><p>Technical analysis and reference architecture. This does not represent deployed infrastructure or actual measurements.</p></section>
+    <section class="case-section"><span class="case-number">01</span><div><h2>Executive summary</h2><p>Virtualisation consolidates resources, isolates incompatible applications, simplifies administration and improves availability in a research institute where applications and systems have different technical requirements. The case compares VMware ESXi/vCenter and Microsoft Hyper-V as mature alternatives for corporate and scientific environments.</p></div></section>
+    <section class="case-section"><span class="case-number">02</span><div><h2>VMware ESXi + vCenter</h2><div class="case-grid"><article><h3>ESXi</h3><p>A type 1 hypervisor for running isolated virtual machines and managing CPU, memory, networking and storage.</p></article><article><h3>vCenter</h3><p>Centralised management of hosts, VMs, clusters, resources and operational policies.</p></article><article><h3>Mobility</h3><p>vMotion and Storage vMotion enable live migration of workloads and storage, depending on the edition and configuration.</p></article><article><h3>Continuity</h3><p>vSphere HA and DRS provide failure recovery and resource distribution within the cluster.</p></article></div></div></section>
+    <section class="case-section"><span class="case-number">03</span><div><h2>Hyper-V</h2><p>The Microsoft alternative provides resource consolidation, support for different guest systems, high availability and migration mechanisms, plus integration with Windows Server, PowerShell and centralised administration tools.</p><div class="case-matrix"><span>MANAGEMENT</span><b>Windows Server / Microsoft tools</b><span>MOBILITY</span><b>Live Migration / storage migration</b><span>HIGH AVAILABILITY</span><b>Failover Clustering</b><span>AUTOMATION</span><b>PowerShell / Microsoft ecosystem</b></div></div></section>
+    <section class="case-section"><span class="case-number">04</span><div><h2>Compatibility and performance</h2><p>The coexistence of Windows and Linux does not prevent the project, but shapes the delivery model and technology chosen. Applications with complex graphics or intensive processing require appropriate CPU, RAM, GPU, storage and network sizing; feasibility should not be confused with straightforward implementation.</p></div></section>
+    <section class="case-section"><span class="case-number">05</span><div><h2>Services and storage</h2><div class="case-grid"><article><h3>RDS</h3><p>Centralises desktops and applications, simplifying patching, security and remote access, although it does not eliminate incompatibilities or specialised hardware needs.</p></article><article><h3>iSCSI</h3><p>Encapsulates SCSI storage traffic over IP networks. The design proposes a dedicated network/VLAN, access control and redundant paths where appropriate.</p></article><article><h3>Hyper-V drivers</h3><p>Synthetic devices using VMBus are the preferred option; legacy/emulated devices are reserved for compatibility.</p></article><article><h3>Changes and backup</h3><p>Snapshots facilitate operational rollback before sensitive changes, but do not replace an independent backup.</p></article></div></div></section>
+    <section class="case-section"><span class="case-number">06</span><div><h2>Optimisation and validation</h2><p>The case proposes reducing unnecessary activity, prioritising synthetic adapters, reviewing background services and tasks, allocating vCPUs carefully and validating migration/HA, scientific workloads, Windows/Linux access and restoration from an independent backup before production.</p></div></section>
+    <section class="case-conclusion"><span>CONCLUSION</span><h2>Choose the platform for its suitability.</h2><p>VMware stands out for its vSphere ecosystem and centralised management; Hyper-V for its integration with Microsoft environments. The final decision depends on applications, criticality, compatibility, licensing, performance and the actual user profile.</p></section>
+  </main>
+<script src="../language-switch.js"></script>
+</body>
+</html>

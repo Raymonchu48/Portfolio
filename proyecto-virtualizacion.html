@@ -9,9 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="case-study.css">
+
+  <link rel="stylesheet" href="language-switch.css">
+  <link rel="alternate" hreflang="es" href="proyecto-virtualizacion.html">
+  <link rel="alternate" hreflang="en" href="en/proyecto-virtualizacion.html">
 </head>
 <body>
-  <header class="case-topbar"><a href="index.html#projects">← VOLVER A PROJECTS</a><span>PROJECT // 002</span></header>
+  <header class="case-topbar"><a href="index.html#projects">← VOLVER A PROJECTS</a><span>PROJECT // 002</span><div class="language-bar"><nav class="language-switch" aria-label="Idioma"><span aria-current="page" aria-label="Español"><svg viewBox="0 0 30 20" aria-hidden="true"><path fill="#AA151B" d="M0 0h30v20H0z"/><path fill="#F1BF00" d="M0 5h30v10H0z"/><path fill="#AA151B" d="M8 8h4v5H8z"/></svg> ES</span><a href="en/proyecto-virtualizacion.html" lang="en" aria-label="English"><svg viewBox="0 0 60 40" aria-hidden="true"><defs><clipPath id="flag-clip"><path d="M0 0h60v40H0z"/></clipPath></defs><g clip-path="url(#flag-clip)"><path fill="#012169" d="M0 0h60v40H0z"/><path stroke="#fff" stroke-width="8" d="m0 0 60 40M60 0 0 40"/><path stroke="#C8102E" stroke-width="3" d="m0 0 60 40M60 0 0 40"/><path stroke="#fff" stroke-width="13" d="M30 0v40M0 20h60"/><path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/></g></svg> EN</a></nav></div></header>
   <main class="case-shell">
     <section class="case-hero case-hero--vm">
       <div><span class="case-kicker">DOSSIER TÉCNICO // INFRAESTRUCTURA DIGITAL</span><h1>Virtualización<br>farmacéutica</h1><p>Estudio de soluciones VMware ESXi / vCenter y Microsoft Hyper-V para entornos científicos heterogéneos.</p><div class="case-tags"><span>ESXi</span><span>vCenter</span><span>Hyper-V</span><span>iSCSI</span><span>RDS</span></div></div>
@@ -26,5 +30,6 @@
     <section class="case-section"><span class="case-number">06</span><div><h2>Optimización y validación</h2><p>El caso plantea reducir actividad innecesaria, priorizar adaptadores sintéticos, revisar servicios y tareas en segundo plano, mantener prudencia en la asignación de vCPU y validar migración/HA, carga científica, acceso Windows/Linux y restauración desde copia independiente antes de producción.</p></div></section>
     <section class="case-conclusion"><span>CONCLUSION</span><h2>La plataforma debe elegirse por adecuación, no por marca.</h2><p>VMware destaca por su ecosistema vSphere y gestión centralizada; Hyper-V por su integración con el entorno Microsoft. La decisión final depende de aplicaciones, criticidad, compatibilidad, licencias, rendimiento y perfil real de usuarios.</p></section>
   </main>
+<script src="language-switch.js"></script>
 </body>
 </html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2eee4">
+  <meta name="description" content="Ramón Alberto Curbalán Vega&#x27;s professional portfolio: systems, development, networks, cybersecurity, data and artificial intelligence.">
+  <meta name="author" content="Ramón Alberto Curbalán Vega">
+  <meta name="copyright" content="© 2026 Ramón Alberto Curbalán Vega. All rights reserved.">
+  <title>Raymond Vega // Digital Systems Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../portfolio.css?v=20261013-approved-covers">
+
+  <link rel="stylesheet" href="../language-switch.css">
+  <link rel="alternate" hreflang="es" href="../index.html">
+  <link rel="alternate" hreflang="en" href="index.html">
+</head>
+<body>
+  <div class="boot-screen" id="bootScreen" aria-hidden="true">
+    <div class="boot-content">
+      <div class="boot-mark">RV<span>//</span>IT</div>
+      <p>INITIALIZING DIGITAL PROFILE</p>
+      <div class="boot-line"><span></span></div>
+      <small>systems · software · cybersecurity · ai</small>
+    </div>
+  </div>
+
+  <canvas id="networkCanvas" class="network-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="brand nav-trigger" data-target="hero" type="button" aria-label="Go to the core">
+      <span class="brand-mark">RV</span>
+      <span class="brand-copy"><strong>DIGITAL SYSTEM</strong><small>PORTFOLIO // 2026</small></span>
+    </button>
+    <div class="top-status">
+      <span class="status-dot"></span>
+      <span>SYSTEM ONLINE</span>
+      <span class="top-clock" id="localClock">--:--:--</span>
+    </div>
+<div class="language-bar"><nav class="language-switch" aria-label="Language"><a href="../index.html" lang="es" aria-label="Español"><svg viewBox="0 0 30 20" aria-hidden="true"><path fill="#AA151B" d="M0 0h30v20H0z"/><path fill="#F1BF00" d="M0 5h30v10H0z"/><path fill="#AA151B" d="M8 8h4v5H8z"/></svg> ES</a><span aria-current="page" aria-label="English"><svg viewBox="0 0 60 40" aria-hidden="true"><defs><clipPath id="flag-clip"><path d="M0 0h60v40H0z"/></clipPath></defs><g clip-path="url(#flag-clip)"><path fill="#012169" d="M0 0h60v40H0z"/><path stroke="#fff" stroke-width="8" d="m0 0 60 40M60 0 0 40"/><path stroke="#C8102E" stroke-width="3" d="m0 0 60 40M60 0 0 40"/><path stroke="#fff" stroke-width="13" d="M30 0v40M0 20h60"/><path stroke="#C8102E" stroke-width="8" d="M30 0v40M0 20h60"/></g></svg> EN</span></nav></div>
+    <a class="cv-link" href="cv.html" target="_blank" rel="noopener">CV.PDF ↗</a>
+  </header>
+
+  <aside class="rail" aria-label="Module navigation">
+    <div class="rail-line"></div>
+    <button class="rail-item nav-trigger active" data-target="hero" type="button"><span>00</span><b>CORE</b></button>
+    <button class="rail-item nav-trigger" data-target="about" type="button"><span>01</span><b>PROFILE</b></button>
+    <button class="rail-item nav-trigger" data-target="projects" type="button"><span>02</span><b>PROJECTS</b></button>
+    <button class="rail-item nav-trigger" data-target="skills" type="button"><span>03</span><b>STACK</b></button>
+    <button class="rail-item nav-trigger" data-target="timeline" type="button"><span>04</span><b>PATH</b></button>
+    <button class="rail-item nav-trigger" data-target="certifications" type="button"><span>05</span><b>CERTS</b></button>
+    <button class="rail-item nav-trigger" data-target="contact" type="button"><span>06</span><b>CONTACT</b></button>
+  </aside>
+
+  <main>
+    <section id="hero" class="hero view-active" data-index="00">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-center">
+        <div class="core-stage" id="coreStage" aria-label="Interactive IT cluster">
+          <div class="cluster-video-layer" aria-hidden="true">
+            <video id="clusterAmbientVideo" autoplay muted loop playsinline preload="metadata" poster="../media/cluster-network-poster.jpg" tabindex="-1">
+              <source src="../media/cluster-network-bg.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="cluster-intro">
+            <div class="eyebrow">RAYMOND VEGA // DIGITAL SYSTEMS</div>
+            <h1>TECHNOLOGY<br><span>AS A SYSTEM.</span></h1>
+            <p class="hero-lede">Systems analysis, development, networks, cybersecurity, data and artificial intelligence connected in a single professional architecture.</p>
+          </div>
+
+          <div class="hud-panel hud-left" data-hud>
+            <div class="hud-heading"><span>PROFILE TELEMETRY</span><i></i></div>
+            <dl>
+              <div><dt>IDENTITY</dt><dd>RAYMOND VEGA</dd></div>
+              <div><dt>PROFILE</dt><dd>IT / SYSTEMS</dd></div>
+              <div><dt>FOCUS</dt><dd>SOFTWARE + AI</dd></div>
+              <div><dt>NETWORK</dt><dd>ACTIVE</dd></div>
+              <div><dt>TRAINING</dt><dd>3,215 H</dd></div>
+              <div><dt>CREDENTIALS</dt><dd>17</dd></div>
+            </dl>
+            <div class="signal"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="cluster-frame" aria-hidden="true">
+            <span class="frame-corner corner-tl"></span><span class="frame-corner corner-tr"></span>
+            <span class="frame-corner corner-bl"></span><span class="frame-corner corner-br"></span>
+            <div class="frame-axis axis-x"></div><div class="frame-axis axis-y"></div>
+          </div>
+
+          <div class="cluster-meta cluster-meta-top">
+            <span>RV.OS // NEXUS</span><i>BUILD 3.1</i>
+          </div>
+          <div class="cluster-meta cluster-meta-left" aria-hidden="true">
+            <span>ENCRYPTED CHANNEL</span><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="cluster-meta cluster-meta-right" aria-hidden="true">
+            <span>NODE SIGNAL</span><b>98.7</b><small>%</small>
+          </div>
+
+          <div class="core-glow" aria-hidden="true"></div>
+          <div class="orbit orbit-a" aria-hidden="true"></div>
+          <div class="orbit orbit-b" aria-hidden="true"></div>
+          <div class="orbit orbit-c" aria-hidden="true"></div>
+          <div class="orbit-ticks" aria-hidden="true"></div>
+          <div class="core-gear core-gear-outer" aria-hidden="true"></div>
+          <div class="core-gear core-gear-middle" aria-hidden="true"></div>
+          <div class="core-gear core-gear-inner" aria-hidden="true"></div>
+          <div class="core-aperture" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="core-sweep" aria-hidden="true"></div>
+
+          <button class="core-sphere" id="coreCommand" data-action="terminal" type="button" aria-label="Open the system terminal">
+            <span class="core-code">RV</span>
+            <strong>86<sup>%</sup></strong>
+            <small>CORE SYNC</small>
+            <i>OPEN TERMINAL</i>
+          </button>
+
+          <button class="node node-ai nav-trigger active" data-target="skills" data-focus="stack-ai" data-code="01" data-title="ARTIFICIAL INTELLIGENCE" data-copy="Applied AI, automation and model-assisted solutions." type="button"><small>01</small><span>AI</span><b>INTELLIGENCE</b></button>
+          <button class="node node-cyber nav-trigger" data-target="skills" data-focus="stack-cyber" data-code="02" data-title="CYBERSECURITY" data-copy="Security, risk analysis, hardening and system protection." type="button"><small>02</small><span>CYBER</span><b>SECURITY</b></button>
+          <button class="node node-dev nav-trigger" data-target="projects" data-code="03" data-title="DEVELOPMENT" data-copy="Python, Java, JavaScript, PHP and deployed digital products." type="button"><small>03</small><span>DEV</span><b>BUILD</b></button>
+          <button class="node node-sys nav-trigger" data-target="skills" data-focus="stack-systems" data-code="04" data-title="SYSTEMS ANALYSIS" data-copy="Architecture, processes, requirements and a complete view of the system." type="button"><small>04</small><span>SYSTEMS</span><b>ANALYSIS</b></button>
+          <button class="node node-net nav-trigger" data-target="skills" data-focus="stack-systems" data-code="05" data-title="NETWORKS" data-copy="Departmental networks, infrastructure, virtualisation and services." type="button"><small>05</small><span>NETWORK</span><b>ACTIVE</b></button>
+          <button class="node node-data nav-trigger" data-target="skills" data-focus="stack-ai" data-code="06" data-title="DATA SYSTEMS" data-copy="Power BI, modelling, analysis and turning data into decisions." type="button"><small>06</small><span>DATA</span><b>INSIGHT</b></button>
+
+          <div class="core-focus" id="coreFocus" aria-hidden="true">
+            <span>ROUTING MODULE // <b id="coreFocusCode">01</b></span>
+            <strong id="coreFocusTitle">ARTIFICIAL INTELLIGENCE</strong>
+            <p id="coreFocusCopy">Applied AI, automation and model-assisted solutions.</p>
+            <i>OPENING CHANNEL</i>
+          </div>
+
+          <div class="core-readout" id="coreReadout" aria-live="polite">
+            <span>SELECTED NODE // <b id="coreReadoutCode">01</b></span>
+            <strong id="coreReadoutTitle">ARTIFICIAL INTELLIGENCE</strong>
+            <p id="coreReadoutCopy">Applied AI, automation and model-assisted solutions.</p>
+          </div>
+
+          <div class="cluster-meta cluster-meta-bottom" aria-hidden="true">
+            <span>06 CONNECTED MODULES</span><i></i><b>SECURE</b><em>RUNTIME READY</em>
+          </div>
+
+          <div class="hud-panel hud-right" data-hud>
+            <div class="hud-heading"><span>RUNTIME</span><i></i></div>
+            <dl>
+              <div><dt>MISSION ELAPSED</dt><dd id="missionElapsed">00:00:00</dd></div>
+              <div><dt>FRAME RATE</dt><dd><span id="fpsValue">60</span> FPS</dd></div>
+              <div><dt>VIEWPORT</dt><dd id="viewportValue">-- × --</dd></div>
+              <div><dt>RENDER PROFILE</dt><dd>ADAPTIVE</dd></div>
+              <div><dt>INTERFACE</dt><dd>HUD / TERMINAL</dd></div>
+            </dl>
+            <div class="hud-keymap">1–6 MODULES · T TERMINAL · H HUD · ESC CLOSE</div>
+          </div>
+
+          <div class="hero-bottom">
+            <div class="sequence-label">SYSTEM CONTROL</div>
+            <div class="mode-switcher" role="group" aria-label="Experience controls">
+              <button type="button" data-action="auto" class="active" aria-pressed="true"><span>◉</span>AUTO</button>
+              <button type="button" data-action="explore"><span>⌁</span>EXPLORE</button>
+              <button type="button" data-action="terminal"><span>&gt;_</span>TERMINAL</button>
+              <button type="button" data-action="hud" class="active" aria-pressed="true"><span>⌗</span>HUD</button>
+            </div>
+            <p>DRAG CORE · SCROLL EXPLORE · T TERMINAL · H HUD</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="module-section" data-index="01">
+      <div class="module-header"><span>01 / PROFILE</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="module-grid about-grid">
+        <div class="profile-heading">
+          <p class="kicker">SYSTEM IDENTITY</p>
+          <h2>A technical profile with a systems perspective.</h2>
+        </div>
+        <div class="identity-card glass-card">
+          <div class="id-photo-wrap"><img src="../imagen/perfil-raymond.png" alt="Raymond Vega, IT professional profile"></div>
+          <div class="id-code">ID // RV-IT-2026</div>
+          <h3>RAYMOND VEGA</h3>
+          <p>Systems Analyst · Development · Networks · Security</p>
+          <div class="id-metrics"><span><b>17</b>certs</span><span><b>30</b>ECTS</span><span><b>3.2K</b>hours</span></div>
+        </div>
+        <div class="profile-details">
+          <p>A professional specialising in IT, networks and systems, with accredited training in departmental network administration and design, systems analysis, advanced cybersecurity, AI for business, data analysis and web development.</p>
+          <p>My previous experience in operations management and leadership brings a distinctive advantage: I understand technology within a real environment, with processes, people, risks, priorities and outcomes.</p>
+          <div class="inline-actions"><a href="cv.html" target="_blank" rel="noopener" class="action-primary">OPEN CV ↗</a><button type="button" class="action-ghost nav-trigger" data-target="projects">VIEW PROJECTS →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="module-section" data-index="02">
+      <div class="module-header"><span>02 / PROJECTS</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="module-intro"><p class="kicker">TECHNICAL CASES</p><h2>Architecture, infrastructure and security applied to technical case studies.</h2></div>
+      <div class="project-grid project-grid--three">
+
+        <article class="project-card project-card--technical">
+          <div class="project-cover project-cover--image">
+            <img src="../media/covers/ptd-cover.webp" alt="Technical Development Project cover"><svg class="cover-translation" viewBox="0 0 720 405" aria-hidden="true"><defs><linearGradient id="cover-ptd"><stop stop-color="#04100e"/><stop offset=".93" stop-color="#04100e"/><stop offset="1" stop-color="#04100e" stop-opacity="0"/></linearGradient></defs><path fill="url(#cover-ptd)" d="M0 100h560v280H0z"/><g font-family="Inter,Arial,sans-serif"><text x="30" y="126" fill="#369a95" font-family="monospace" font-size="10" letter-spacing="1.5">PROJECT // 001</text><g fill="#96b8bb" font-size="37" font-weight="800"><text x="28" y="179">TECHNICAL</text><text x="28" y="227">DEVELOPMENT PROJECT</text></g><text x="30" y="258" fill="#7f999c" font-family="monospace" font-size="9">ARCHITECTURE · SECURITY · DATABASES · SCRUM</text><text x="30" y="337" fill="#7f999c" font-family="monospace" font-size="9">TECHNICAL CASE · DIGITAL PORTFOLIO</text><text x="30" y="357" fill="#7f999c" font-family="monospace" font-size="9"></text></g></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-status">TECHNICAL DEVELOPMENT PROJECT</div>
+            <h3>Technical Development Project</h3>
+            <p>Architecture, security, databases and development of a complete solution, from the initial assessment to a roadmap ready for implementation.</p>
+            <div class="tech-row"><span>ARCHITECTURE</span><span>SECURITY</span><span>DATABASES</span><span>SCRUM</span></div>
+            <a href="PTD1.html" class="project-link">OPEN CASE STUDY ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card project-card--technical">
+          <div class="project-cover project-cover--image">
+            <img src="../media/covers/virtualizacion-cover.webp" alt="Pharmaceutical Virtualisation cover"><svg class="cover-translation" viewBox="0 0 720 405" aria-hidden="true"><defs><linearGradient id="cover-virtualizacion"><stop stop-color="#04100e"/><stop offset=".93" stop-color="#04100e"/><stop offset="1" stop-color="#04100e" stop-opacity="0"/></linearGradient></defs><path fill="url(#cover-virtualizacion)" d="M0 100h560v280H0z"/><g font-family="Inter,Arial,sans-serif"><text x="30" y="126" fill="#369a95" font-family="monospace" font-size="10" letter-spacing="1.5">PROJECT // 002</text><g fill="#96b8bb" font-size="38" font-weight="800"><text x="28" y="179">PHARMACEUTICAL</text><text x="28" y="227">VIRTUALISATION</text></g><text x="30" y="258" fill="#7f999c" font-family="monospace" font-size="9">DIGITAL INFRASTRUCTURE · RESEARCH · CONTINUITY</text><text x="30" y="337" fill="#7f999c" font-family="monospace" font-size="9">VMware ESXi · vCenter · Hyper-V</text><text x="30" y="357" fill="#7f999c" font-family="monospace" font-size="9">HETEROGENEOUS SCIENTIFIC ENVIRONMENT</text></g></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-status">ACADEMIC TECHNICAL CASE · INFRASTRUCTURE</div>
+            <h3>Pharmaceutical virtualisation</h3>
+            <p>A comparative study of VMware ESXi / vCenter and Microsoft Hyper-V for a research institute with Windows/Linux environments, continuity requirements and heterogeneous workloads.</p>
+            <div class="tech-row"><span>ESXi</span><span>vCENTER</span><span>HYPER-V</span><span>iSCSI</span><span>HA</span></div>
+            <a href="proyecto-virtualizacion.html" class="project-link">OPEN CASE STUDY ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card project-card--technical">
+          <div class="project-cover project-cover--image">
+            <img src="../media/covers/redes-cover.webp" alt="Multi-site Networks cover"><svg class="cover-translation" viewBox="0 0 720 405" aria-hidden="true"><defs><linearGradient id="cover-redes"><stop stop-color="#04100e"/><stop offset=".93" stop-color="#04100e"/><stop offset="1" stop-color="#04100e" stop-opacity="0"/></linearGradient></defs><path fill="url(#cover-redes)" d="M0 100h560v280H0z"/><g font-family="Inter,Arial,sans-serif"><text x="30" y="126" fill="#369a95" font-family="monospace" font-size="10" letter-spacing="1.5">PROJECT // 003</text><g fill="#96b8bb" font-size="38" font-weight="800"><text x="28" y="179">MULTI-SITE</text><text x="28" y="227">NETWORKS</text></g><text x="30" y="258" fill="#7f999c" font-family="monospace" font-size="9">NETWORK INFRASTRUCTURE AND SECURITY</text><text x="30" y="337" fill="#7f999c" font-family="monospace" font-size="9">DESIGN · IMPLEMENTATION · SECURITY · MONITORING</text><text x="30" y="357" fill="#7f999c" font-family="monospace" font-size="9">SITES · VLAN · VPN · FIREWALL · IDS/IPS</text></g></svg>
+          </div>
+          <div class="project-body">
+            <div class="project-status">ACADEMIC TECHNICAL CASE · NETWORK SECURITY</div>
+            <h3>Multi-site networks</h3>
+            <p>Modernising a headquarters and two branches through VLAN segmentation, site-to-site VPN, perimeter security, monitoring and IP incident management.</p>
+            <div class="tech-row"><span>VLAN</span><span>VPN</span><span>FIREWALL</span><span>IDS/IPS</span><span>SNMP</span></div>
+            <a href="proyecto-redes.html" class="project-link">OPEN CASE STUDY ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills" class="module-section" data-index="03">
+      <div class="module-header"><span>03 / TECH STACK</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="skills-layout">
+        <div class="stack-radar" aria-hidden="true"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div><div class="radar-cross x"></div><div class="radar-cross y"></div><div class="radar-sweep"></div><div class="radar-core">STACK</div></div>
+        <div class="stack-list">
+          <article id="stack-dev"><span>01</span><div><h3>Programming</h3><p>Python · Java · HTML · CSS · JavaScript · PHP · ASP.NET</p></div><b>DEV</b></article>
+          <article id="stack-systems"><span>02</span><div><h3>Systems & Networks</h3><p>Linux · Windows · networking · virtualization · infrastructure</p></div><b>SYS</b></article>
+          <article id="stack-cyber"><span>03</span><div><h3>Cybersecurity</h3><p>OT security · risk analysis · security planning · hardening principles</p></div><b>SEC</b></article>
+          <article id="stack-ai"><span>04</span><div><h3>Data & AI</h3><p>Power BI · Power Query · Power Pivot · applied AI · automation</p></div><b>DATA</b></article>
+          <article><span>05</span><div><h3>Project Delivery</h3><p>Scrum · Agile PM · technical documentation · delivery planning</p></div><b>OPS</b></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline" class="module-section" data-index="04">
+      <div class="module-header"><span>04 / PATH</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="module-intro"><p class="kicker">SYSTEM LOG</p><h2>A journey of learning and transferable professional experience.</h2></div>
+      <div class="log-timeline">
+        <article><div class="log-time">2025—2026</div><div class="log-node"></div><div class="log-body"><span>LEVEL // ADVANCED</span><h3>IT technical specialisation</h3><p>Networks, programming, cybersecurity, AI, systems analysis, digital skills and robotics.</p></div></article>
+        <article><div class="log-time">2024—2025</div><div class="log-node"></div><div class="log-body"><span>LEVEL // DEVELOPMENT</span><h3>Development and digital transformation</h3><p>PHP, ASP.NET, Power BI, digitalisation, UX/UI and agile methods applied to real projects.</p></div></article>
+        <article><div class="log-time">2020—NOW</div><div class="log-node"></div><div class="log-body"><span>LEVEL // OPERATIONS</span><h3>Operations leadership and coordination</h3><p>Team management, planning, operational control, incident resolution and tracking objectives in demanding environments.</p></div></article>
+      </div>
+    </section>
+
+    <section id="certifications" class="module-section" data-index="05">
+      <div class="module-header"><span>05 / CERTIFICATIONS</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="cert-topline"><div><p class="kicker">VERIFIED LEARNING</p><h2>Accredited technical training.</h2></div><div class="cert-stats"><span><b>17</b>credentials</span><span><b>3,215 h</b>training</span><span><b>30 ECTS</b>programs</span></div></div>
+      <p class="cert-intro">Filter the registry by area. Original diplomas are not published because they contain personal data; they can be provided for recruitment or professional verification.</p>
+      <div class="cert-filters" id="certFilters" role="group" aria-label="Filter certifications">
+        <button class="cert-filter" data-filter="all" type="button">ALL</button>
+        <button class="cert-filter" data-filter="systems" type="button">SYSTEMS + SECURITY</button>
+        <button class="cert-filter" data-filter="development" type="button">DEVELOPMENT</button>
+        <button class="cert-filter" data-filter="data" type="button">DATA + AI</button>
+        <button class="cert-filter" data-filter="digital" type="button">DIGITAL</button>
+      </div>
+      <div class="cert-results" id="certResults"><div class="cert-grid" id="certGrid"></div></div>
+    </section>
+
+    <section id="contact" class="module-section" data-index="06">
+      <div class="module-header"><span>06 / CONTACT</span><button class="module-close nav-trigger" data-target="hero" type="button">CLOSE ×</button></div>
+      <div class="contact-layout">
+        <div><p class="kicker">OPEN CHANNEL</p><h2>Available for technical opportunities and projects.</h2><p class="contact-lede">I seek environments where development, systems, networks, security, data and automation become useful, sustainable solutions.</p><a class="big-email" href="mailto:ramonalberto.curbalvega@gmail.com">ramonalberto.curbalvega@gmail.com ↗</a></div>
+        <div class="contact-terminal glass-card"><div class="terminal-dots"><i></i><i></i><i></i></div><p><span>$</span> location</p><strong>Porto Cristo · Manacor · Balearic Islands</strong><p><span>$</span> phone</p><strong><a href="tel:+34640724160">+34 640 724 160</a></strong><p><span>$</span> status</p><strong class="available">AVAILABLE_FOR_IT_OPPORTUNITIES</strong></div>
+      </div>
+      <footer class="legal-footer" aria-label="Ownership and copyright notice">
+        <div class="legal-footer__line"></div>
+        <div class="legal-footer__head">
+          <span class="legal-footer__copyright">© 2026 RAMÓN ALBERTO CURBALÁN VEGA</span>
+          <span class="legal-footer__brand">DIGITAL SYSTEMS PORTFOLIO</span>
+        </div>
+        <div class="legal-footer__badges">
+          <strong>ALL RIGHTS RESERVED</strong>
+          <strong>OWNERSHIP AND EXCLUSIVE USE</strong>
+        </div>
+        <p>The design, original code, visual structure and original content are protected. Copying, reproduction, modification, redistribution or commercial use without the owner's express written permission is prohibited.</p>
+        <small>PERSONAL PORTFOLIO · ORIGINAL WORK · EXCLUSIVE USE</small>
+      </footer>
+    </section>
+  </main>
+
+  <div class="terminal-overlay" id="terminalOverlay" aria-hidden="true">
+    <div class="terminal-window" role="dialog" aria-modal="true" aria-label="Interactive terminal">
+      <div class="terminal-bar"><span>raymond@portfolio:~</span><button type="button" id="terminalClose">CLOSE ×</button></div>
+      <div class="terminal-output" id="terminalOutput" aria-live="polite">
+        <p class="term-muted">Raymond Digital System Terminal v1.0</p>
+        <p>Type <b>help</b> to list available commands.</p>
+      </div>
+      <label class="terminal-input-row"><span>raymond@portfolio:~$</span><input id="terminalInput" autocomplete="off" spellcheck="false" aria-label="Terminal command"></label>
+    </div>
+  </div>
+
+  <script src="certifications.js"></script>
+  <script src="../portfolio.js"></script>
+<script src="../language-switch.js"></script>
+</body>
+</html>
+
