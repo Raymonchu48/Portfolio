@@ -75,7 +75,9 @@
     syncClusterVideo();
     // La experiencia de entrada arranca en modo AUTO + HUD.
     if(!autoTimer){
-      setTimeout(()=>startAuto(),1050);
+      setTimeout(()=>{
+        if(document.getElementById('hero')?.classList.contains('view-active') && !location.hash && !overlay?.classList.contains('open')) startAuto();
+      },1050);
     }
   });
   document.addEventListener('visibilitychange',syncClusterVideo);
@@ -120,7 +122,7 @@
     const code=$('#coreFocusCode'),title=$('#coreFocusTitle'),copy=$('#coreFocusCopy');
     if(code)code.textContent=node?.dataset.code||'00';
     if(title)title.textContent=node?.dataset.title||'SYSTEM TERMINAL';
-    if(copy)copy.textContent=node?.dataset.copy||'Canal de comandos y navegación técnica del portfolio.';
+    if(copy)copy.textContent=node?.dataset.copy||(document.documentElement.lang==='en'?'Command channel and technical portfolio navigation.':'Canal de comandos y navegación técnica del portfolio.');
   }
   function rotateNodeToGateway(node){
     const angle=nodeAngles[node?.dataset.code];
