@@ -1,1 +1,115 @@
 :root{--bg:#f2eee4;--ink:#183b43;--muted:#607b80;--teal:#087e87;--cyan:#18aeb8;--line:rgba(0,119,125,.22);--mono:"IBM Plex Mono",monospace;--sans:"Inter",system-ui,sans-serif}*{box-sizing:border-box;margin:0;padding:0}html{background:var(--bg);scroll-behavior:smooth}body{font-family:var(--sans);background:radial-gradient(circle at 72% 4%,rgba(65,186,183,.10),transparent 26%),var(--bg);color:var(--ink)}a{color:inherit;text-decoration:none}.case-topbar{position:sticky;top:0;z-index:20;height:62px;padding:0 clamp(16px,4vw,56px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(242,238,228,.90);backdrop-filter:blur(14px);font:600 .62rem var(--mono);letter-spacing:.12em}.case-topbar a{padding:.62rem .8rem;border:1px solid var(--line);border-radius:999px}.case-topbar a:hover{border-color:var(--teal);color:var(--teal)}.case-shell{width:min(1180px,92vw);margin:0 auto;padding:28px 0 70px}.case-hero{position:relative;min-height:440px;overflow:hidden;padding:clamp(32px,6vw,72px);display:grid;align-items:center;background:radial-gradient(circle at 78% 25%,rgba(16,176,183,.18),transparent 29%),linear-gradient(140deg,#06110f,#071e1b 54%,#03100f);color:#a8c0c5;box-shadow:0 24px 60px rgba(33,60,59,.13)}.case-hero>div:first-child{position:relative;z-index:3;max-width:780px}.case-kicker{font:600 .62rem var(--mono);letter-spacing:.2em;color:#19adb7}.case-hero h1{font-size:clamp(3.4rem,8vw,7.5rem);line-height:.85;letter-spacing:-.065em;margin:.8rem 0 1.4rem;color:#9cb7bd;text-shadow:0 10px 26px rgba(0,0,0,.45)}.case-hero p{max-width:720px;font-size:clamp(.92rem,1.3vw,1.1rem);line-height:1.65;color:#88a8ad}.case-hero-mark{position:absolute;right:-2%;top:-10%;font:800 clamp(11rem,30vw,30rem)/1 var(--sans);letter-spacing:-.12em;color:rgba(15,151,155,.09)}.case-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:1.4rem}.case-tags span{font:500 .55rem var(--mono);letter-spacing:.1em;padding:.46rem .58rem;border:1px solid rgba(48,190,194,.28);color:#54aeb5}.case-note{display:grid;grid-template-columns:220px 1fr;gap:28px;padding:20px 0;border-bottom:1px solid var(--line);font-size:.82rem}.case-note b{font:600 .58rem var(--mono);letter-spacing:.14em;color:var(--teal)}.case-note p{color:var(--muted);line-height:1.6}.case-section{display:grid;grid-template-columns:90px 1fr;gap:30px;padding:clamp(42px,7vw,76px) 0;border-bottom:1px solid var(--line)}.case-number{font:600 1.2rem var(--mono);color:#83a3a7}.case-section h2,.case-conclusion h2{font-size:clamp(2rem,4vw,4.4rem);line-height:.98;letter-spacing:-.045em;margin-bottom:1.2rem}.case-section>div>p{max-width:900px;line-height:1.8;color:var(--muted)}.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:1.5rem 0}.case-grid article{padding:20px;border:1px solid var(--line);background:rgba(255,255,255,.28)}.case-grid h3{font-size:.95rem;margin-bottom:.6rem}.case-grid p{color:var(--muted);font-size:.82rem;line-height:1.65}.case-matrix{display:grid;grid-template-columns:180px 1fr;margin-top:1.5rem;border-top:1px solid var(--line)}.case-matrix span,.case-matrix b{padding:12px;border-bottom:1px solid var(--line);font-size:.75rem}.case-matrix span{font:600 .56rem var(--mono);letter-spacing:.08em;color:var(--teal)}.case-matrix b{font-weight:500;color:var(--muted)}.network-diagram{max-width:760px;margin:2rem auto 0;display:grid;justify-items:center;gap:10px}.network-diagram>b,.network-diagram>strong,.network-diagram span{padding:13px 18px;border:1px solid rgba(0,119,125,.36);border-radius:9px;background:rgba(255,255,255,.36);text-align:center;font:600 .65rem var(--mono)}.network-diagram>i{height:28px;width:1px;background:var(--teal)}.network-diagram>div{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:1.4rem 0}.phase-grid span,.incident-flow span{padding:12px;border:1px solid var(--line);background:rgba(255,255,255,.26);font:600 .58rem var(--mono);color:#426d73}.incident-flow{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:1.4rem 0}.incident-flow i{font-style:normal;color:var(--teal)}.case-code{font-family:var(--mono);font-size:.72rem!important;color:#2b6871!important}.case-conclusion{margin-top:50px;padding:clamp(32px,5vw,60px);background:#0a1917;color:#a8c0c5}.case-conclusion>span{font:600 .58rem var(--mono);letter-spacing:.18em;color:#19adb7}.case-conclusion h2{max-width:880px;margin-top:.8rem}.case-conclusion p{max-width:850px;color:#809ea3;line-height:1.8}@media(max-width:700px){.case-shell{width:94vw}.case-hero{min-height:390px;padding:28px 20px}.case-hero h1{font-size:clamp(3rem,15vw,5rem)}.case-note{grid-template-columns:1fr;gap:7px}.case-section{grid-template-columns:1fr;gap:12px}.case-grid{grid-template-columns:1fr}.case-matrix{grid-template-columns:1fr}.case-matrix span{padding-bottom:3px;border-bottom:0}.case-matrix b{padding-top:4px}.phase-grid{grid-template-columns:1fr 1fr}.network-diagram>div{grid-template-columns:1fr}.incident-flow{display:grid;grid-template-columns:1fr}.incident-flow i{transform:rotate(90deg);text-align:center}}
+
+/* 2026-10-14 — PTD aligned with technical case-study system */
+.case-hero--ptd{
+  background:
+    radial-gradient(circle at 79% 22%,rgba(16,176,183,.19),transparent 27%),
+    radial-gradient(circle at 62% 78%,rgba(0,119,125,.11),transparent 24%),
+    linear-gradient(140deg,#06110f 0%,#071e1b 52%,#03100f 100%);
+}
+.case-hero--ptd:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.16;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(53,194,199,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(53,194,199,.08) 1px,transparent 1px);
+  background-size:30px 30px;
+  mask-image:linear-gradient(90deg,transparent 28%,#000);
+}
+.case-hero--ptd:after{
+  content:"";
+  position:absolute;
+  right:8%;
+  top:16%;
+  width:min(30vw,360px);
+  aspect-ratio:1;
+  opacity:.48;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(21,174,184,.14) 0 3%,transparent 4%),
+    radial-gradient(circle at 28% 30%,transparent 0 9%,rgba(28,184,192,.38) 9.5% 10%,transparent 10.5%),
+    radial-gradient(circle at 76% 28%,transparent 0 8%,rgba(28,184,192,.34) 8.5% 9%,transparent 9.5%),
+    linear-gradient(32deg,transparent 46%,rgba(31,179,187,.28) 47% 47.5%,transparent 48%),
+    linear-gradient(147deg,transparent 47%,rgba(31,179,187,.22) 48% 48.5%,transparent 49%);
+}
+.case-hero--ptd .case-hero-mark{
+  color:rgba(15,151,155,.085);
+}
+.case-note--meta{
+  align-items:start;
+}
+.case-meta-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.case-meta-grid p{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  min-width:0;
+}
+.case-meta-grid p span{
+  font:600 .5rem var(--mono);
+  letter-spacing:.13em;
+  color:#789095;
+}
+.case-panel{
+  margin-top:1.2rem;
+  padding:22px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.28);
+}
+.case-panel h3,
+.case-highlight h3{
+  font-size:1rem;
+  margin-bottom:.75rem;
+}
+.case-list{
+  padding-left:1.1rem;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.75;
+}
+.case-list li+li{margin-top:.25rem}
+.case-detail-note{
+  margin-top:.7rem;
+  font-family:var(--mono);
+  font-size:.64rem!important;
+  color:#7e969a!important;
+}
+.case-highlight{
+  margin-top:12px;
+  padding:22px;
+  border-left:3px solid var(--cyan);
+  background:linear-gradient(90deg,rgba(24,174,184,.10),rgba(255,255,255,.24));
+}
+.case-highlight>span{
+  display:block;
+  margin-bottom:.55rem;
+  font:600 .5rem var(--mono);
+  letter-spacing:.15em;
+  color:var(--teal);
+}
+.case-highlight p{
+  color:var(--muted);
+  line-height:1.7;
+}
+.case-highlight--soft{
+  border-left-color:rgba(0,119,125,.42);
+  background:rgba(255,255,255,.24);
+}
+.phase-grid--ptd{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+@media(max-width:900px){
+  .case-meta-grid{grid-template-columns:1fr 1fr}
+  .phase-grid--ptd{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .case-hero--ptd:after{display:none}
+  .case-meta-grid{grid-template-columns:1fr}
+  .phase-grid--ptd{grid-template-columns:1fr}
+}
